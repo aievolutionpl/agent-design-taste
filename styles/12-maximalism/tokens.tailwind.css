@@ -1,3 +1,64 @@
+/* 12-maximalism — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
+  /* colors */
+  --color-bg: #FDF6EC;
+  --color-surface: #FFFFFF;
+  --color-surface-tint: #FFE8CC;
+  --color-text: #1A0B2E;
+  --color-text-secondary: #5C4A72;
+  --color-border: #1A0B2E;
+  --color-primary: #E8442E;
+  --color-primary-contrast: #FDF6EC;
+  --color-accent-1: #FFB000;
+  --color-accent-2: #7B2FA0;
+  --color-accent-3: #0FA3A3;
+  --color-success: #1B8A3A;
+  --color-warning: #E07B00;
+  --color-error: #C22626;
+  /* fontSizes */
+  --text-h1: 72px;
+  --text-h2: 44px;
+  --text-h3: 30px;
+  --text-h4: 22px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-body: 17px;
+  --text-small: 14px;
+  --text-label: 12px;
+  /* fonts */
+  --font-sans: 'Archivo', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Playfair Display', serif;
+  --font-mono: 'Space Mono', monospace;
+  /* spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  /* radius */
+  --radius-none: 0px;
+  --radius-pill: 999px;
+  --radius-blob: 58% 42% 55% 45% / 45% 55% 45% 55%;
+  /* shadows */
+  --shadow-hard: 4px 4px 0 var(--color-border);
+  --shadow-hard-lg: 8px 8px 0 var(--color-border);
+  --shadow-focus: 0 0 0 3px var(--color-accent-1);
+  /* motionEase */
+  --ease-default: linear;
+  /* container */
+  --container-width: 1200px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 450ms;
+  --border-thick: 2px solid var(--color-border);
 }

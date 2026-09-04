@@ -26,7 +26,8 @@ One scale, everywhere (4px base):
 
 ## Responsive strategy
 
-- Breakpoints: 1440, 1024, 768, 480, 375.
+- Verify at 1440 · 768 · 390 (canonical mobile) · 360 (narrow floor).
+  Full ladder and strategy: `responsive/RESPONSIVE-FOUNDATIONS.md`.
 - **Desktop→tablet**: collapse 12-col to 8-col, side-by-side heroes stack.
 - **Tablet→mobile**: nav → burger/overlay, grids → 1-col, bento → ordered stack
   (hero tile first!), type scale drops ~15-20%.

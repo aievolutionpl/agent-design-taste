@@ -1,3 +1,65 @@
+/* 15-expressive-kinetic-typography — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
+  /* colors */
+  --color-bg: #FAF7F2;
+  --color-surface: #FFFFFF;
+  --color-text: #14120E;
+  --color-text-secondary: #6B675F;
+  --color-border: #E8E3DA;
+  --color-primary: #14120E;
+  --color-primary-contrast: #FAF7F2;
+  --color-accent: #E4572E;
+  --color-accent-contrast: #FAF7F2;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  /* fontSizes */
+  --text-h1: clamp(48px, 9vw, 96px);
+  --text-h2: 42px;
+  --text-h3: 26px;
+  --text-h4: 21px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-body: 17px;
+  --text-small: 14px;
+  --text-label: 12px;
+  --text-marquee: clamp(24px, 4vw, 40px);
+  /* fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Inter', serif;
+  --font-mono: 'Space Mono', monospace;
+  /* spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  /* radius */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  /* shadows */
+  --shadow-none: none;
+  --shadow-focus: 0 0 0 3px var(--color-accent);
+  /* motionEase */
+  --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+  /* container */
+  --container-width: 1200px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-hover: 250ms;
+  --motion-reveal: 0ms;
+  --motion-marquee: 999999s;
+  --motion-stagger: 60ms;
+  --motion-board: steps(8, end);
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
 }

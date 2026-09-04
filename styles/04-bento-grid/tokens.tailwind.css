@@ -1,30 +1,36 @@
+/* 04-bento-grid — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
-  --color--bg: #F4F4F2;
-  --color--surface: #FFFFFF;
-  --color--surface-strong: #111111;
-  --color--text: #111111;
-  --color--text-secondary: #5C5C58;
-  --color--border: #E2E2DE;
-  --color--primary: #111111;
-  --color--primary-contrast: #FFFFFF;
-  --color--accent: #0D9488;
-  --color--accent-contrast: #FFFFFF;
-  --color--success: #16A34A;
-  --color--warning: #D97706;
-  --color--error: #DC2626;
-  --font--sans: 'Inter', system-ui, sans-serif;
-  --font--display: 'Space Grotesk', 'Inter', sans-serif;
-  --font--mono: 'IBM Plex Mono', monospace;
-  --fontSize--h1: 52px;
-  --fontSize--h2: 36px;
-  --fontSize--h3: 24px;
-  --fontSize--h4: 20px;
-  --fontSize--h5: 17px;
-  --fontSize--body: 16px;
-  --fontSize--tile-body: 15px;
-  --fontSize--small: 13px;
-  --fontSize--label: 11px;
+  /* colors */
+  --color-bg: #F4F4F2;
+  --color-surface: #FFFFFF;
+  --color-surface-strong: #111111;
+  --color-text: #111111;
+  --color-text-secondary: #5C5C58;
+  --color-border: #E2E2DE;
+  --color-primary: #111111;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #0D9488;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  /* fontSizes */
+  --text-h1: 52px;
+  --text-h2: 36px;
+  --text-h3: 24px;
+  --text-h4: 20px;
+  --text-h5: 17px;
+  --text-body: 16px;
+  --text-tile-body: 15px;
+  --text-small: 13px;
+  --text-label: 11px;
+  /* fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  /* spacing */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -34,9 +40,25 @@
   --spacing-12: 48px;
   --spacing-16: 64px;
   --spacing-24: 96px;
-  --radiu--sm: 8px;
-  --radiu--md: 12px;
-  --radiu--lg: 16px;
-  --shadow--tile-hover: 0 2px 0 0 var(--color-border);
-  --shadow--focus: 0 0 0 3px rgb(13 148 136 / 0.35);
+  /* radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  /* shadows */
+  --shadow-tile-hover: 0 2px 0 0 var(--color-border);
+  --shadow-focus: 0 0 0 3px rgb(13 148 136 / 0.35);
+  /* motionEase */
+  --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+  /* container */
+  --container-width: 1240px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-fast: 180ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --motion-stagger: 40ms;
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 2px solid var(--color-text);
 }

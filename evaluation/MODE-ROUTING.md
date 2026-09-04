@@ -1,16 +1,20 @@
 # Mode Routing — load the right slice
 
-Loading the whole skill for every prompt causes scope creep (the agent audits
-when asked to implement, rewrites copy when asked to harden). Resolve the mode
-from the user's verb + artifact BEFORE loading references.
+Loading the whole skill for every prompt causes scope creep: the agent audits
+when asked to implement, and rewrites copy when asked to harden. Resolve the
+mode from the user's verb and artifact **before** loading any reference.
 
-| User verb / artifact | Mode | Load |
-|---|---|---|
-| "design", "explore", "koncepcja" | **Shape** | SKILL.md steps 1-4 + DECISION-MATRIX + style README |
-| "build", "implement", "zrób stronę" | **Implement** | style tokens + COMPONENT-PATTERNS + LAYOUT-PATTERNS + ANTI-SLOP |
-| "review", "audit", "oceń" | **Review** | DESIGN-TASTE-SCORE + ANTI-SLOP + style Do/Don't |
-| "rewrite copy", "texty" | **Copy** | content honesty rules from ANTI-SLOP only |
-| "polish", "harden", "dopracuj" | **Harden** | DESIGN-TASTE-SCORE + TASTE-LOOP records + motion foundations |
+Mode answers *what to do*. Profile answers *how much to load*
+(`docs/CONTEXT-PROFILES.md`). You need both.
+
+| User verb / artifact | Mode | Load | Profile |
+|---|---|---|---|
+| "design", "explore", "concept" | **Shape** | SKILL.md steps 1–4 + DECISION-MATRIX + one style README | STANDARD |
+| "build", "implement", "make the page" | **Implement** | style tokens + COMPONENT-PATTERNS + LAYOUT-PATTERNS + ANTI-SLOP | STANDARD |
+| "review", "audit", "critique" | **Review** | DESIGN-TASTE-SCORE + ANTI-SLOP + the style's Do/Don't | LIGHT |
+| "rewrite copy", "the words" | **Copy** | content-honesty rules from ANTI-SLOP only | LIGHT |
+| "polish", "harden", "tighten" | **Harden** | DESIGN-TASTE-SCORE + TASTE-LOOP records + motion foundations | LIGHT |
+| "redesign everything", "new identity" | **Rebuild** | the FULL profile — see `docs/CONTEXT-PROFILES.md` | FULL |
 
 ## Observable rules only
 
@@ -20,9 +24,9 @@ Encode guidance as **checkable predicates**, never adjectives:
 - ✅ "Body text ≥ 16px, contrast ≥ 4.5:1, one H1 per page"
 - ❌ "Buttons should feel clear and modern" — unverifiable, wastes context.
 
-Research note (SWE-bench, Zhang et al. 2026): negative constraints help;
-individually-piled positive directives degrade output. Keep the Do lists short;
-let the Don't lists do the work.
+Practical consequence: keep the Do lists short and let the Don't lists carry
+the weight. "Not like this" removes a whole region of the solution space;
+"like this" only gestures at a point inside it.
 
 ## Coverage gaps — never invent policy from silence
 

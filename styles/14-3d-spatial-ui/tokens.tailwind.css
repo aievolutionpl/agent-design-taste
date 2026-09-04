@@ -1,3 +1,64 @@
+/* 14-3d-spatial-ui — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
+  /* colors */
+  --color-bg: #F4F4F0;
+  --color-surface: #FFFFFF;
+  --color-text: #101014;
+  --color-text-secondary: #5A5A5E;
+  --color-border: #E3E3DE;
+  --color-primary: #101014;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #4F46E5;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-glow: rgb(79 70 229 / 0.12);
+  /* fontSizes */
+  --text-h1: 60px;
+  --text-h2: 42px;
+  --text-h3: 26px;
+  --text-h4: 21px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-body: 17px;
+  --text-small: 14px;
+  --text-label: 11px;
+  /* fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'Space Mono', 'IBM Plex Mono', monospace;
+  /* spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  /* radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  /* shadows */
+  --shadow-plane: 0 24px 60px -24px rgb(16 16 20 / 0.25);
+  --shadow-lift: 0 32px 72px -28px rgb(16 16 20 / 0.35);
+  --shadow-focus: 0 0 0 3px rgb(79 70 229 / 0.35);
+  /* motionEase */
+  --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+  /* container */
+  --container-width: 1200px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-fast: 200ms;
+  --motion-normal: 350ms;
+  --motion-slow: 500ms;
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
 }

@@ -1,32 +1,38 @@
+/* 05-neo-brutalism — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
-  --color--bg: #FFFDF5;
-  --color--surface: #FFFFFF;
-  --color--surface-yellow: #FFD02F;
-  --color--surface-pink: #FF90E8;
-  --color--surface-blue: #4D7CFE;
-  --color--surface-green: #23C55E;
-  --color--surface-orange: #FF6B35;
-  --color--text: #111111;
-  --color--text-secondary: #3D3D3A;
-  --color--border: #111111;
-  --color--primary: #FFD02F;
-  --color--primary-contrast: #111111;
-  --color--accent: #FF90E8;
-  --color--accent-contrast: #111111;
-  --color--success: #23C55E;
-  --color--warning: #FF6B35;
-  --color--error: #E11D48;
-  --font--sans: 'Space Grotesk', system-ui, sans-serif;
-  --font--display: 'Archivo Black', 'Space Grotesk', sans-serif;
-  --font--mono: 'Space Mono', monospace;
-  --fontSize--h1: 64px;
-  --fontSize--h2: 44px;
-  --fontSize--h3: 26px;
-  --fontSize--h4: 20px;
-  --fontSize--body: 16px;
-  --fontSize--small: 14px;
-  --fontSize--label: 12px;
+  /* colors */
+  --color-bg: #FFFDF5;
+  --color-surface: #FFFFFF;
+  --color-surface-yellow: #FFD02F;
+  --color-surface-pink: #FF90E8;
+  --color-surface-blue: #4D7CFE;
+  --color-surface-green: #23C55E;
+  --color-surface-orange: #FF6B35;
+  --color-text: #111111;
+  --color-text-secondary: #3D3D3A;
+  --color-border: #111111;
+  --color-primary: #FFD02F;
+  --color-primary-contrast: #111111;
+  --color-accent: #FF90E8;
+  --color-accent-contrast: #111111;
+  --color-success: #23C55E;
+  --color-warning: #FF6B35;
+  --color-error: #E11D48;
+  /* fontSizes */
+  --text-h1: 64px;
+  --text-h2: 44px;
+  --text-h3: 26px;
+  --text-h4: 20px;
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-label: 12px;
+  /* fonts */
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  /* spacing */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -36,11 +42,26 @@
   --spacing-12: 48px;
   --spacing-16: 64px;
   --spacing-24: 96px;
-  --radiu--none: 0px;
-  --radiu--sm: 2px;
-  --radiu--md: 4px;
-  --shadow--offset-sm: 3px 3px 0 var(--color-border);
-  --shadow--offset-md: 6px 6px 0 var(--color-border);
-  --shadow--offset-lg: 10px 10px 0 var(--color-border);
-  --shadow--focus: 4px 4px 0 var(--color-accent);
+  /* radius */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  /* shadows */
+  --shadow-offset-sm: 3px 3px 0 var(--color-border);
+  --shadow-offset-md: 6px 6px 0 var(--color-border);
+  --shadow-offset-lg: 10px 10px 0 var(--color-border);
+  --shadow-focus: 4px 4px 0 var(--color-accent);
+  /* motionEase */
+  --ease-default: steps(4, end);
+  /* container */
+  --container-width: 1200px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-fast: 120ms;
+  --motion-normal: 200ms;
+  --motion-press: translate(3px, 3px);
+  --border-default: 2px solid var(--color-border);
+  --border-thick: 3px solid var(--color-border);
 }
