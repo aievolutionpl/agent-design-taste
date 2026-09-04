@@ -241,10 +241,7 @@ Zobacz cały proces na jednym briefie:
 | 14 | [3D / Spatial UI](styles/14-3d-spatial-ui/) | Głębia, przez którą się przechodzi | Web3, premiery, immersja | niska–śr. |
 | 15 | [Kinetic Typography](styles/15-expressive-kinetic-typography/) | Typografia jako interfejs | Portfolia, kampanie | niska |
 
-[**Galeria podglądów wszystkich 15 stron przykładowych**](docs/index.html) — otwórz
-lokalnie albo opublikuj, włączając GitHub Pages dla tego repozytorium
-(*Settings → Pages → main / `docs`*), co udostępni ją pod adresem
-`https://aievolutionpl.github.io/agent-design-taste/`.
+[**Podglądy na żywo wszystkich 15 stron przykładowych →**](https://aievolutionpl.github.io/agent-design-taste/) · [źródło](docs/index.html)
 
 ### Co jest w każdym folderze stylu
 

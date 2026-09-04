@@ -25,7 +25,12 @@ nav a:hover{color:var(--primary)}
 @keyframes sweep{0%,60%{left:-60%}100%{left:130%}}
 /* hero — iridescent sky */
 .hero{background:var(--sky);border-bottom:1px solid var(--border);text-align:center;padding:96px 0 104px}
-.hero h1{font:600 clamp(38px,5.4vw,64px)/1.05 'Orbitron';letter-spacing:.03em;background:linear-gradient(180deg,#EAF6FF 0%,#9FB8CC 55%,#3A4A5C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin:18px auto 22px;max-width:16ch}
+/* Signature move: chrome type on a dark backing plate. On the light --sky the
+   light end of the chrome gradient measures ~1.1:1 — a contrast failure. On
+   --ink the darkest stop measures 3.8:1, clearing the 3:1 large-text floor
+   while the metal still reads as metal. */
+.hero .plate{display:inline-block;background:var(--ink);border-radius:22px;padding:22px 34px;margin:18px auto 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 14px 36px rgba(27,42,58,.24)}
+.hero h1{font:600 clamp(38px,5.4vw,64px)/1.05 'Orbitron';letter-spacing:.03em;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0;max-width:16ch}
 .hero p.lead{color:var(--sec);max-width:52ch;margin:0 auto 32px}
 .hero .dot{width:110px;height:110px;margin:0 auto 22px;background:var(--irid);border-radius:58% 42% 55% 45%/45% 55% 45% 55%;border:1px solid var(--border);box-shadow:inset 0 3px 4px rgb(255 255 255/.9),inset 0 -6px 10px rgb(27 42 58/.12),0 10px 30px rgb(199 125 255/.35);animation:bob 6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-6px)}}
@@ -61,6 +66,13 @@ h2{font:600 34px/1.1 'Orbitron';letter-spacing:.03em;margin-bottom:10px}
 footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--sec);font-size:13px;margin-top:14px}
 @media(max-width:900px){.features,.plans{grid-template-columns:1fr}.hero{padding:64px 0}nav ul{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:900px){nav ul{display:flex}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>
@@ -68,7 +80,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:
 <header class="hero"><div class="container">
 <div class="dot" aria-hidden="true"></div>
 <p class="readout">SYSTEM READY · AUDIO OS 2.0<span class="blink">_</span></p>
-<h1>The future of listening, from the past.</h1>
+<div class="plate"><h1>The future of listening, from the past.</h1></div>
 <p class="lead">Bloop turns your library into a living mixtape — auto-blended, gapless, and tuned to whatever you're doing at 2am.</p>
 <a class="btn" href="#"><span class="sweep" aria-hidden="true"></span>Download free — 34 MB</a>
 <div class="device" role="img" aria-label="Bloop app panel showing a live mixtape">

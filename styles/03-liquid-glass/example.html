@@ -71,6 +71,13 @@ footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-s
   *{transition-duration:0ms!important;animation:none!important}
   .mesh::before,.mesh::after,.mesh i{animation:none!important}
 }
+@media(max-width:900px){nav.docknav ul{display:flex}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>

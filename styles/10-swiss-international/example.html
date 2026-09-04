@@ -47,6 +47,15 @@ section{padding:96px 0}
 footer{border-top:1px solid var(--text);padding:40px 0;color:var(--sec);font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:64px 0}.hero-meta{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:16px}h1{font-size:36px}.sec-head{grid-template-columns:1fr;gap:8px}.cols,.proj{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.col{padding:0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:720px){
+  /* project-row links become full-width rows: keep the 12px mono label,
+     give the tap area real height without changing the type */
+  .proj a{display:flex;align-items:center;min-height:44px}
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>

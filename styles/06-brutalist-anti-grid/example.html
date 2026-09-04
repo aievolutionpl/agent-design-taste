@@ -59,6 +59,13 @@ footer nav2{display:flex;gap:24px}
  .band h2{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.marquee span{animation:none}*{transition:none!important}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero{overflow-x:clip}
 </style>
 </head>
 <body>

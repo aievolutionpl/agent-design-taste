@@ -42,6 +42,12 @@ section{padding:96px 0}
 footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:64px 0}h1{font-size:34px}.features,.pricing{grid-template-columns:1fr}.feature{padding:24px 0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>

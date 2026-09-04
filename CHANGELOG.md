@@ -87,6 +87,22 @@ release makes it installable, routable and internally consistent.
   accessibility requirement.
 - The README structure diagram omitted `tokens.json` and `tokens.tailwind.css`
   and referenced an `assets/decision-tree.png` that does not exist.
+- **The repository's own example pages failed its own gates**, found by running
+  `scripts/screenshot.mjs` against them:
+  - Horizontal overflow at 390px in `07-neumorphism`, `11-editorial-magazine`
+    and `14-3d-spatial-ui` (nav bars with no mobile treatment) — a 🔴 blocker.
+  - Horizontal overflow at 360px in `12-maximalism`, and page-level scroll from
+    the deliberate 120% headline bleed in `06-brutalist-anti-grid` (now clipped
+    at the hero, so the bleed reads as intent rather than as a scrollbar).
+  - `03-liquid-glass`, `04-bento-grid`, `05-neo-brutalism`, `08-claymorphism`
+    and `13-y2k-retrofuturism` deleted their nav links below 900px with no
+    replacement — the "desktop stripped for mobile" failure. The link row now
+    moves to its own line and keeps a 44px tap height.
+  - Touch targets under 44px in `05`, `07` and `10`.
+  - `13-y2k-retrofuturism`'s chrome hero headline measured **1.1:1** against
+    the light sky — the exact failure `accessibility/ACCESSIBILITY.md` names
+    for that style. It now sits on a dark `--ink` plate (3.8:1 at the gradient's
+    darkest stop), which is also the style's own documented signature move.
 - `07-neumorphism` had a duplicated "When NOT to use" section and a vague
   citation.
 
