@@ -47,6 +47,9 @@
   --container-width: 1200px;
 
   /* Kinetic motion */
+  --shadow-none: none;
+  --shadow-focus: 0 0 0 3px var(--color-accent);
+
   --motion-hover: 250ms;
   --motion-reveal: 700ms;
   --motion-marquee: 42s;       /* full loop duration */

@@ -8,6 +8,8 @@ chat — **write a DESIGN.md at the project root** and treat it as binding.
 - Chat context evaporates; the contract survives.
 - Both browser builders and local agents read the same file.
 - Consistency is auditable: "list every value that doesn't match a token".
+- It is the **compressed form** of everything the agent decided — so later
+  sessions read one short file instead of re-reading the style DNA.
 
 ## Template (compact, paste-first)
 
@@ -17,6 +19,12 @@ chat — **write a DESIGN.md at the project root** and treat it as binding.
 What / for whom / one key action:
 ## Style
 Dominant: <style> + Supporting: <style or none>. Why: <audience fit>.
+Why not <runner-up>: <the argument against it>.
+## Brand precedence
+Existing brand system: <none | partial | complete>.
+Preserved as-is: <colors, fonts, components taken from the existing system>
+Derived: <e.g. --color-brand-text #0A6E9E, from brand #7BC9F0, for 4.6:1 on white>
+Gaps flagged, not invented: <e.g. no dark-mode spec, no focus ring defined>
 ## Constraints (follow exactly, no exceptions)
 - Surfaces: bg #…, card #…, border #…
 - Text: primary #…, muted #…
@@ -25,6 +33,7 @@ Dominant: <style> + Supporting: <style or none>. Why: <audience fit>.
 - Radius: cards Npx, controls Npx, pills 999px
 - Borders 1px only. No gradients. No drop shadows. (adjust per style)
 - Spacing scale: 4 8 12 16 24 32 48
+- Verified at 1440 / 768 / 390. Focus ring: <spec>. Reduced motion: handled.
 ## Anti-references ("Not like this")
 - Not like <generic AI SaaS>: purple gradient, glass everywhere, 24px radius on everything
 - Not like <other failure mode>

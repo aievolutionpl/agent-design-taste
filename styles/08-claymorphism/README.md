@@ -1,10 +1,27 @@
 # 08 · Claymorphism
 
-**Overview:** Puffy, touchable 3D. Elements look like soft clay or marshmallow — inflated shapes with dual shadows (inner highlight + soft outer drop) on pastel backgrounds. Playful, friendly, toy-like but still structured.
+**Playful puffy 3D.**
 
-**Visual principles:** puffy inflated surfaces · large radii (24–40px) · dual shadow trick (light inner top + colored soft outer) · soft pastel base with one saturated accent · chunky everything · flat pastel bg, no texture.
+## 01 · Overview
 
-## Typography
+Puffy, touchable 3D. Elements look like soft clay or marshmallow — inflated shapes with dual shadows (inner highlight + soft outer drop) on pastel backgrounds. Playful, friendly, toy-like but still structured.
+
+## 02 · Design philosophy
+
+Soft, inflated 3D that reads as safe. Generous radii, a puffy dual shadow and a pastel palette make elements look moulded from clay — approachable, squeezable, unmistakably non-threatening. Built for audiences who need to feel invited rather than impressed.
+
+**Design decisions explained — why, not just what**
+
+- **Why these fonts:** rounded display sans (Baloo, Nunito) IS the material in type form; sharp grotesks break the soft universe
+- **Why this radius:** generous (20-32px) with puffy dual shadows — the radius carries the clay metaphor
+- **Why this density:** low: big puffy elements need air; cramming clay components reads as a toy chest, not a product
+
+## 03 · Visual principles
+
+puffy inflated surfaces · large radii (24–40px) · dual shadow trick (light inner top + colored soft outer) · soft pastel base with one saturated accent · chunky everything · flat pastel bg, no texture.
+
+## 04 · Typography
+
 - **Recommended families (Google Fonts):** Display: Baloo 2, Fredoka, Nunito. Body: Nunito Sans, Quicksand. Mono (rare): Space Mono.
 - **Pairing:** Baloo 2 (H1–H3, 600–700) + Nunito Sans (body, 400/700 for emphasis).
 - **Scale:** H1 52/60 · H2 36/44 · H3 26/34 · H4 20/28 · body 16/1.6 · small 14/1.5.
@@ -18,40 +35,69 @@ body { font: 400 16px/1.6 'Nunito Sans'; }
 ```
 - **Typical mistakes:** sharp geometric sans (Inter everywhere) killing the softness; tiny dense type; ultra-bold 800 everywhere = balloon; thin weights (clay is chunky, never 300).
 
-## Layout & Frames
+## 05 · Layout & grid
+
 - **Grid:** 12-col, max-width 1140px, gutters 24px. Cards float on pastel bg — spacing is generous, 80–96px between sections.
 - **Spacing:** 8-base scale; clay needs air between puffy elements so shadows don't collide (min 24px gap between elevated cards).
 - **Hero:** centered hero with one big puffy illustration/3D blob-object, or split hero with puffy card mockup.
 - **Frame patterns:** centered hero, puffy card grids, stacked feature cards, CTA band as giant pill.
-- **Responsive:** single column under 900px, H1→32px, cards full-width with 16px padding, shadows scale down (smaller y-offset).
 
-## Visual hierarchy
+## 06 · Visual hierarchy
+
 - First seen: big rounded H1, then the puffy CTA (strongest shadow = strongest pull), then hero object. Eye path: headline → illustration → CTA → features. One saturated element per zone; everything else pastel.
 
-## Color system
+## 07 · Color system
+
 - **Light:** bg #F5F1FA (soft lilac) · surface #FFFFFF · text #2D2438 · secondary #6B5E7F · border rgba(0,0,0,.06) · primary #7C5CFC · accent #FF8FA3 (pink) · success #4ADE80.
 - **Dark:** bg #1E1830 · surface #2A2142 · text #F3EFFA · secondary #B8A9D9 · shadows become deeper purple-black; keep the same pastel hues, dim surfaces not hues.
 - Saturation: pastels for large fields (bg, sections), ONE saturated primary for CTAs, optional second pastel-hue accent. Avoid: neon, pure black text on pastel feels harsh — use deep desaturated plum.
 
-## Components
+## 08 · Components
+
 Buttons: pill radius (999px) or 20px, 2px bottom inset shadow "press" look, active state pushes down (translateY 2px, inset deepens). Cards: 24–32px radius, `box-shadow: 8px 8px 24px <hue-tinted>, -8px -8px 24px #fff` (neumorphic-adjacent) or single soft drop + 1px inner top highlight. Navbar: floating pill, detached from top, 16px radius. Inputs: 20px radius, inner shadow inset 0 2px 6px, thick pastel focus ring. Tabs: puffy segmented control — active segment inflated. Pricing: puffy cards, popular plan lifted higher + saturated border. Badges: pill, tinted bg, no border. Toggle: clay pill with round knob casting its own shadow. Icons: filled, rounded-corner (Material Round), never sharp line icons.
 
-## Shape language
+Anatomy and the required state matrix (default / hover / focus-visible / active / disabled / loading / error / success) are universal — see `component-patterns/COMPONENT-PATTERNS.md`. This section defines the *skin*, not the behaviour.
+
+## 09 · Shape language
+
 Radius 20–40px everywhere; pills for actions; circles for avatars/badges. Depth = dual shadows (light from top-left, tinted drop bottom-right). NO sharp corners, NO 1px borders as primary device — shadow does separation. Illustration style: rounded blob characters, chunky 3D renders, thick rounded strokes.
 
-## Visual direction
+## 10 · Imagery & visual direction
+
 Fits: 3D clay renders, rounded blob illustrations, pastel gradient mesh backgrounds (subtle), filled rounded icons, emoji-scale mascots. Breaks cohesion: sharp line icons, hairline borders, photography (usually), brutalist type, neon gradients.
 
-## Motion & Interaction
+Per-style image direction table: `visual-language/VISUAL-LANGUAGE-FOUNDATIONS.md` § 10.
+
+## 11 · Motion
+
 Bouncy but short: 250–350ms, spring-like ease `cubic-bezier(.34,1.56,.64,1)`. Hover: scale 1.03 + shadow lift; press: translateY(2px) + inset deepens. Entrance: pop-in scale 0.9→1 with overshoot, staggered 60ms. `prefers-reduced-motion`: all transforms off, opacity fades only. Never infinite bouncing loops — one overshoot, then rest.
 
-## When to use
+## 12 · Responsive behaviour
+
+Verify at **1440 · 768 · 390** (canonical mobile) and once at **360** (narrow floor). Responsive means recomposition, not stacking — `responsive/RESPONSIVE-FOUNDATIONS.md`.
+
+- **Adaptation:** single column under 900px, H1→32px, cards full-width with 16px padding, shadows scale down (smaller y-offset).
+- **Non-negotiable for this style:** Shadows scale down with their elements. A full-size clay shadow on a 390px card eats the entire margin.
+
+## 13 · Accessibility
+
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: chunky visible outlines in a darker clay tone — pastel-on-pastel hides default focus.
+- Motion: this style tempts toward perpetual squish/bounce idle animations — clay should deform ON interaction, not breathe continuously. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: white text on pastel puffs; playful style still needs 4.5:1 — darken the clay or add darker text.
+
+The universal floor — contrast, focus, keyboard, semantics, motion, touch targets, zoom — is in `accessibility/ACCESSIBILITY.md`. This section covers what *this style specifically* gets wrong.
+
+## 14 · When to use
+
 Kids/education apps, habit & wellness apps, consumer fintech for young audiences (pocket money apps), playful SaaS (design tools for beginners), game landing pages, NFT/web3 consumer products.
 
-## When NOT to use
+## 15 · When NOT to use
+
 Enterprise, legal, healthcare-critical, B2B infrastructure, dev tools — puffy reads unserious; minimalism or Swiss styles convert better there. Also avoid for content-heavy products (news, docs) — clay shadows fight dense text.
 
-## Do
+## 16 · Do
+
 - Dual-shadow recipe on every elevated surface
 - 24px+ radius minimum, pills for buttons
 - Pastel bg with ONE saturated CTA hue
@@ -60,7 +106,8 @@ Enterprise, legal, healthcare-critical, B2B infrastructure, dev tools — puffy 
 - Press-down active states (inset shadow deepens)
 - Rounded filled icons only
 
-## Don't
+## 17 · Don't
+
 - Hairline borders + flat cards (that's minimalism, not clay)
 - Sharp corners anywhere
 - Thin/light font weights
@@ -69,21 +116,50 @@ Enterprise, legal, healthcare-critical, B2B infrastructure, dev tools — puffy 
 - Real photography mixed with clay 3D
 - Infinite bounce animations
 
-## Anti AI-slop (claymorphism edition)
+## 18 · Anti-slop — claymorphism edition
+
 Purple-gradient hero + glass nav + emoji icons pasted on puffy cards = slop. Glassmorphism and clay don't mix — pick one. No random blob SVGs with no relationship to the clay system, no "10,000+ happy users!" pill confetti, no neon-on-pastel contrast crimes.
 
-## Good vs Bad examples
+**Good vs bad**
+
 - **Good:** a kids' pocket-money banking app — pastel lilac bg, puffy white cards with soft plum shadows, one coral CTA pill, round mascot, everything begs to be touched.
 - **Bad:** pastel landing with glass nav, sharp Inter type, hairline-bordered cards, neon green gradient CTA — four styles, zero clay.
-## 14 · Accessibility Notes
-- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
-- Focus states: chunky visible outlines in a darker clay tone — pastel-on-pastel hides default focus.
-- Motion: this style tempts toward perpetual squish/bounce idle animations — clay should deform ON interaction, not breathe continuously. Every animated surface needs a `prefers-reduced-motion` static fallback.
-- Common a11y failure in this style: white text on pastel puffs; playful style still needs 4.5:1 — darken the clay or add darker text.
 
-## 15 · Design Decisions Explained (why, not just what)
-- **Why these fonts:** rounded display sans (Baloo, Nunito) IS the material in type form; sharp grotesks break the soft universe
-- **Why this radius:** generous (20-32px) with puffy dual shadows — the radius carries the clay metaphor
-- **Why this density:** low: big puffy elements need air; cramming clay components reads as a toy chest, not a product
-- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
-- **When to break the rules:** one sharp, flat element (a serious data table, a legal line) grounds the playfulness — all-clay pages feel unserious for anything beyond kids' products
+Universal severity levels (BLOCKER / STRONG / MINOR): `ANTI-SLOP.md`.
+
+## 19 · Style combinations
+
+One dominant + at most one supporting style. The supporting style owns exactly one layer — typography, one section type, or micro-motion — never structure.
+
+- **Works with:** Minimalism (01) — puffy 3D accents on a restrained palette · Maximalism (12) — for kids' products where density is friendly
+- **Avoid pairing with:** Neo-Brutalism (05) and Anti-Grid (06) — raw versus soft is incoherent · Swiss (10) — the grid fights the squish
+
+Full rules: `STYLE-COMBINATIONS.md`.
+
+## 20 · Signature move
+
+**A button with an inset bottom shadow that compresses on press,** as if the clay is being squashed by a finger. The squash is the whole personality.
+
+Use it **once per page**, deliberately. A signature move repeated on every element is no longer a signature.
+
+## 21 · When to break the rules
+
+one sharp, flat element (a serious data table, a legal line) grounds the playfulness — all-clay pages feel unserious for anything beyond kids' products
+
+## 22 · Example prompts
+
+Ready-to-paste prompts for Codex, Claude, Lovable and v0: [`prompts.md`](prompts.md)
+
+## 23 · Design tokens
+
+- [`tokens.css`](tokens.css) — **canonical.** If this file and the prose above disagree, the token wins.
+- [`tokens.json`](tokens.json) — generated, for design tools and JS
+- [`tokens.tailwind.css`](tokens.tailwind.css) — generated, Tailwind v4 `@theme`
+
+Regenerate the two derived files with `python3 scripts/gen_tokens.py` after editing `tokens.css`.
+
+## 24 · Example implementation
+
+[`example.html`](example.html) — a single-file, zero-dependency page built strictly from this style's DNA and tokens. Open it in a browser.
+
+It is **one valid interpretation, not a spec.** Copying it wholesale is how every page ends up identical — read it, then compose something else.

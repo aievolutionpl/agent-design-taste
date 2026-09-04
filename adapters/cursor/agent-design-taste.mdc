@@ -1,0 +1,38 @@
+---
+description: Design decision system — read before generating or changing any UI
+globs: ["**/*.tsx", "**/*.jsx", "**/*.vue", "**/*.svelte", "**/*.astro", "**/*.css", "**/*.scss", "**/*.html"]
+alwaysApply: false
+---
+
+# Agent Design Taste
+
+This project uses Agent Design Taste at `agent-design-taste/`.
+
+**Before generating or changing UI, read `agent-design-taste/AGENT-BOOTSTRAP.md`.**
+
+## Workflow
+
+UNDERSTAND → CHOOSE STYLE → TYPOGRAPHY → LAYOUT → TOKENS → BUILD → RENDER →
+AUDIT → REMOVE SLOP → POLISH
+
+1. State audience, product type, brand personality, content density, primary
+   action and target emotion — in writing, before any code.
+2. Choose one dominant style with `agent-design-taste/DECISION-MATRIX.md` and
+   say why the runner-up loses.
+3. Load only that style's `README.md` + `tokens.css`. Never all 15.
+4. Every color, space, radius and duration resolves to a token.
+
+## Precedence
+
+`brand & legal ▸ accessibility ▸ product needs ▸ style DNA ▸ repo tokens ▸ your taste`
+
+If this project already has a design system, analyze and adapt it — do not
+replace it. See `agent-design-taste/docs/PRECEDENCE.md`.
+
+## Hard rules
+
+- No fake statistics, testimonials or logo walls
+- Body text ≥ 4.5:1 contrast; visible `:focus-visible` on every control
+- No horizontal scroll at 390px; touch targets ≥ 44×44px
+- Every animation handles `prefers-reduced-motion`
+- Verify at 1440 / 768 / 390 before claiming the design works

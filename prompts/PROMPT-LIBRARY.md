@@ -6,28 +6,39 @@ Universal prompt patterns. Style-specific prompts live in
 ## Structure of a good UI prompt (constraint-first)
 
 ```
-[ROLE] You are a senior product designer + front-end engineer.
-[PRODUCT] What it is, for whom, primary action.
-[STYLE] Dominant style + supporting style + WHY (audience fit).
-[TYPOGRAPHY] Exact fonts + scale.
-[COLOR] Exact palette with hex + contrast requirement.
-[LAYOUT] Named pattern from LAYOUT-PATTERNS.md.
-[TOKENS] Use this tokens.css (paste).
-[ANTI-SLOP] Specific things NOT to do.
+[ROLE]        You are a senior product designer + front-end engineer.
+[PRODUCT]     What it is, for whom, the primary action.
+[BRAND]       Existing colors/fonts to preserve — or "greenfield".
+[STYLE]       Dominant style + supporting style + WHY (audience fit).
+[TYPOGRAPHY]  Exact families + scale + the one-sentence justification.
+[COLOR]       Exact palette with hex + contrast requirement.
+[LAYOUT]      Named pattern from LAYOUT-PATTERNS.md.
+[TOKENS]      Use this tokens.css (paste it).
+[RESPONSIVE]  Must hold at 1440 / 768 / 390. Recompose, do not stack.
+[ANTI-SLOP]   Specific things NOT to do (see the block below).
 [DELIVERABLE] Single-file HTML / component / tokens JSON.
-[AUDIT] Before answering, score with DESIGN-TASTE-SCORE.md; fix below 75.
+[AUDIT]       Before answering, run the anti-slop checklist and score with
+              DESIGN-TASTE-SCORE.md. Fix anything below 75 and every BLOCKER.
 ```
 
 ## Universal anti-slop prompt block (paste into any UI prompt)
 
 ```
-Do NOT:
-- use purple-blue gradient blobs, glassmorphism on more than 2 elements,
-  uniform 24px radius on all cards, or 3 identical feature cards in a row
-- use fake statistics (99.9%, 10x), fake testimonials, or lorem ipsum
-- center everything; vary layout rhythm; left-align body text
-- mix icon families; use neon purple as default accent
-- animate without prefers-reduced-motion fallback
+NEVER (these are blockers, not preferences):
+- invent statistics, testimonials, customer logos, or case-study results
+- ship body text below 4.5:1 contrast, or remove focus rings
+- allow horizontal scroll at 390px, or touch targets under 44x44px
+- animate without a prefers-reduced-motion fallback
+- present a mockup of a product that does not exist as a real screenshot
+
+DO NOT (fix or justify each one):
+- purple-to-blue gradient blobs, or neon violet as the default accent
+- glassmorphism on more than 2 surfaces, or a uniform 24px radius on everything
+- three identical feature cards in a row, or every section wrapped in a card
+- a 4x3 grid of generic outline icons; mixed icon families
+- center-align everything; vary the rhythm, left-align body text
+- generic copy: "Built for modern teams", "Transform your workflow"
+- a desktop layout merely stacked vertically for mobile
 ```
 
 ## Style-selection prompt (when style isn't chosen yet)
@@ -45,10 +56,15 @@ Then generate the UI. Print the brief first.
 ## Audit-and-fix prompt (after generation)
 
 ```
-Score this design 0-100 on: hierarchy, typography, spacing, consistency,
-contrast, visual quality, usability, originality, brand fit, responsiveness.
-Run the anti-slop checklist. List every hit with a concrete fix, apply the
-fixes, and output the improved version with the final score.
+Score this design with evaluation/DESIGN-TASTE-SCORE.md:
+
+1. Check the 8 hard blockers first. Any hit fails the design regardless of score.
+2. Score all 13 categories 0-5 and compute the weighted total out of 100.
+3. Run the ANTI-SLOP.md checklist and report BLOCKER / STRONG / MINOR counts.
+4. List the three largest weighted losses with a concrete fix for each.
+5. Apply the fixes, re-render, re-score, and output the improved version.
+
+Do not claim visual verification without a rendered screenshot.
 ```
 
 ## Tool notes

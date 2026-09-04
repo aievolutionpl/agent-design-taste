@@ -4,6 +4,10 @@ Rule: **1 dominant style + max 1 supporting style.** The supporting style may
 only influence isolated layers (typography, one section type, micro-motion) —
 never compete on structure.
 
+Each style's own § 19 lists its pairings from that style's point of view. This
+file is the shared table; `styles/index.json` carries the same data as
+`supportingStyles` and `incompatibleWith` for machine routing.
+
 ## Safe pairings
 
 | Dominant | Supporting | How to apply | Example product |

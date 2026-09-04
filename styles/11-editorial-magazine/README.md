@@ -1,10 +1,27 @@
-# 11 · Editorial Magazine
+# 11 · Editorial / Magazine
 
-**Overview:** The page reads like a printed feature: a serif display face with real editorial contrast, drop caps opening body text, pull quotes breaking the column, and an asymmetric layout where images and text overlap the grid with intent.
+**Reads like a magazine.**
 
-**Visual principles:** magazine typography · serif display + readable serif body · drop caps and pull quotes · asymmetric, editorial grid · photography-led storytelling · hairline rules like a broadsheet.
+## 01 · Overview
 
-## Typography
+The page reads like a printed feature: a serif display face with real editorial contrast, drop caps opening body text, pull quotes breaking the column, and an asymmetric layout where images and text overlap the grid with intent.
+
+## 02 · Design philosophy
+
+Built around the act of reading. Type hierarchy, measure, and the alternation between dense text and dramatic whitespace do the work that decoration does elsewhere. The page borrows the pacing of print: a spread has a lead, a rhythm, and somewhere for the eye to rest.
+
+**Design decisions explained — why, not just what**
+
+- **Why these fonts:** serif display (Fraunces, Playfair) + readable text serif/sans pairing — the pairing carries literary authority; two sans-serifs is not editorial
+- **Why this radius:** 0-2px: print has no radius; images are sharp rectangles like magazine plates
+- **Why this density:** high text density with dramatic whitespace alternation — dense column next to full-page image is the magazine rhythm
+
+## 03 · Visual principles
+
+magazine typography · serif display + readable serif body · drop caps and pull quotes · asymmetric, editorial grid · photography-led storytelling · hairline rules like a broadsheet.
+
+## 04 · Typography
+
 - **Recommended families (Google Fonts):** Display serif: Fraunces, Playfair Display, Libre Caslon Text. Body serif: Source Serif 4, Newsreader, Lora. Sans for captions/UI: Inter. 
 - **Pairing:** Fraunces (H1–H2, 500–600, optical size high) + Source Serif 4 (body) + Inter (captions, eyebrows, UI labels).
 - **Scale:** H1 56/60 · H2 40/44 · H3 28/34 · H4 22/28 · H5 18/24 · H6 16/22 · body 18/1.7 · caption 13/1.4.
@@ -20,40 +37,69 @@ blockquote { font: 500 32px/1.3 'Fraunces'; font-style: italic; }
 ```
 - **Typical mistakes:** display serif at small sizes; centered long-form body; drop cap on every paragraph; mixing three serifs; bold weights above 600 on display serif.
 
-## Layout & Frames
+## 05 · Layout & grid
+
 - **Grid:** 12-col, max-width 1200px — but content deliberately breaks symmetry: 7/5 splits, offset image columns, wide pull quotes spanning 8 cols with the text wrapping below.
 - **Spacing:** sections 80–120px apart; rules (1px hairlines) act as section dividers like magazine folios.
 - **Hero:** magazine cover logic — kicker, huge serif headline over/above a full-bleed or large-cropped photo, deck (standfirst) in 20–22px serif italic, byline in sans.
 - **Frame patterns:** cover hero with overlapping headline, asymmetric 7/5 feature sections, wide pull-quote interludes, image + caption ("Fig." or photographer credit) pairs, editorial footer with colophon.
-- **Responsive:** asymmetric splits stack (image first), H1→34px, pull quotes become full-width, drop caps shrink to 2 lines.
 
-## Visual hierarchy
+## 06 · Visual hierarchy
+
 - First seen: display headline, then hero photo, then deck. Eye path: kicker → headline → deck → drop-cap opening → pull quote → CTA. Serif contrast (light body vs. 600 display) does the ranking.
 
-## Color system
+## 07 · Color system
+
 - **Light:** bg #FDFBF7 (warm paper) · surface #F4EFE6 · text #1A1815 · secondary #6B6259 · border #E3DCD0 · primary action #1A1815 · accent #8C2F1B (deep editorial red / bordeaux — one only).
 - **Dark:** bg #14110E · surface #1F1B16 · text #F2ECE2 · border #35302A · accent same.
 - Warm paper neutrals plus one ink-red accent. Avoid: neon, cold blue-grays, gradients, more than one accent.
 
-## Components
+## 08 · Components
+
 Buttons: rectangular with 2px radius, solid ink fill or outlined, serif label acceptable. Cards: paper-toned panels with hairline borders, no elevation. Navbar: thin masthead bar with hairline rules above and below, serif wordmark. Inputs: 1px border on paper bg, label in sans caps. Tabs: hairline underline. Pricing: editorial table, serif figures, hairline rows. Dashboards: rare — keep as ruled panels. Modals: paper panel, dim backdrop. Badges: small caps sans, outline. Pull quotes: 28–36px Fraunces italic, optional oversized quotation mark in accent. Captions: 13px Inter with em-dash or credit prefix.
 
-## Shape language
+Anatomy and the required state matrix (default / hover / focus-visible / active / disabled / loading / error / success) are universal — see `component-patterns/COMPONENT-PATTERNS.md`. This section defines the *skin*, not the behaviour.
+
+## 09 · Shape language
+
 Radius 0–4px — print-like. Hairlines over shadows; at most a soft paper shadow on overlapping images. Depth = overlap and crop, not elevation. Icons minimal or none — photography and rules carry the visuals.
 
-## Visual direction
+## 10 · Imagery & visual direction
+
 Fits: editorial and documentary photography, duotone treatment, film grain (subtle), no illustration-heavy fluff, no 3D. Breaks cohesion: gradients, glass, neon, emoji, rounded blob shapes.
 
-## Motion & Interaction
+Per-style image direction table: `visual-language/VISUAL-LANGUAGE-FOUNDATIONS.md` § 10.
+
+## 11 · Motion
+
 Restrained: hover 150ms color shift or image scale 1.02, reveals fade 400ms once. `prefers-reduced-motion`: disable all. Motion should feel like a page turning, never like an app.
 
-## When to use
+## 12 · Responsive behaviour
+
+Verify at **1440 · 768 · 390** (canonical mobile) and once at **360** (narrow floor). Responsive means recomposition, not stacking — `responsive/RESPONSIVE-FOUNDATIONS.md`.
+
+- **Adaptation:** asymmetric splits stack (image first), H1→34px, pull quotes become full-width, drop caps shrink to 2 lines.
+- **Non-negotiable for this style:** Asymmetric splits stack image-first; pull quotes go full width; drop caps shrink to two lines rather than disappearing.
+
+## 13 · Accessibility
+
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: elegant but visible: 2px serif-weighted underline or outline that fits the typography.
+- Motion: this style tempts toward smooth-scroll hijacking for 'reading experience' — reading flow belongs to the reader, never animate their scroll. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: light gray serif body text at 15px — long-form needs 17px+, #333 minimum, 65-75ch measure.
+
+The universal floor — contrast, focus, keyboard, semantics, motion, touch targets, zoom — is in `accessibility/ACCESSIBILITY.md`. This section covers what *this style specifically* gets wrong.
+
+## 14 · When to use
+
 Media, journalism, culture, publishing, travel, food & wine, fashion editorial, long-form product storytelling, newsletters. Audience expects depth and craft.
 
-## When NOT to use
+## 15 · When NOT to use
+
 Dense SaaS dashboards, dev tools, gaming, fintech utilities — serif-led editorial slows scanning; grotesk systems serve those better.
 
-## Do
+## 16 · Do
+
 - Drop cap on the opening paragraph
 - Pull quotes at column-breaking widths
 - Asymmetric 7/5 and offset layouts
@@ -63,7 +109,8 @@ Dense SaaS dashboards, dev tools, gaming, fintech utilities — serif-led editor
 - Photographer/figure credits in 13px sans
 - Hairline rules as section structure
 
-## Don't
+## 17 · Don't
+
 - Center long-form body text
 - Drop caps on every paragraph
 - Three type families or two serifs
@@ -72,21 +119,50 @@ Dense SaaS dashboards, dev tools, gaming, fintech utilities — serif-led editor
 - Sans-serif display headlines (that's Swiss, not editorial)
 - Shadows where a hairline would do
 
-## Anti AI-slop (editorial edition)
+## 18 · Anti-slop — editorial edition
+
 Gradient hero text, purple CTAs, glass nav, "Trusted by 10,000 readers" ticker walls — all slop. If it wouldn't survive a print proof, cut it.
 
-## Good vs Bad examples
+**Good vs bad**
+
 - **Good:** The New Yorker / Kinfolk web features — serif display, disciplined columns, pull quotes, warm paper, one accent.
 - **Bad:** "editorial" landing with Playfair on a blue-purple gradient, glass cards and centered wall-of-text — magazine costume over template defaults.
-## 14 · Accessibility Notes
-- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
-- Focus states: elegant but visible: 2px serif-weighted underline or outline that fits the typography.
-- Motion: this style tempts toward smooth-scroll hijacking for 'reading experience' — reading flow belongs to the reader, never animate their scroll. Every animated surface needs a `prefers-reduced-motion` static fallback.
-- Common a11y failure in this style: light gray serif body text at 15px — long-form needs 17px+, #333 minimum, 65-75ch measure.
 
-## 15 · Design Decisions Explained (why, not just what)
-- **Why these fonts:** serif display (Fraunces, Playfair) + readable text serif/sans pairing — the pairing carries literary authority; two sans-serifs is not editorial
-- **Why this radius:** 0-2px: print has no radius; images are sharp rectangles like magazine plates
-- **Why this density:** high text density with dramatic whitespace alternation — dense column next to full-page image is the magazine rhythm
-- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
-- **When to break the rules:** contemporary editorials mix in one grotesk element (labels, data) — pure serif-only pages feel costume-like; the mix IS modern editorial
+Universal severity levels (BLOCKER / STRONG / MINOR): `ANTI-SLOP.md`.
+
+## 19 · Style combinations
+
+One dominant + at most one supporting style. The supporting style owns exactly one layer — typography, one section type, or micro-motion — never structure.
+
+- **Works with:** Brutalism (06) — magazine typography with raw oversized headlines · Swiss (10) — editorial pacing on a strict grid
+- **Avoid pairing with:** Glassmorphism (02) — literary reading flow dies behind blur · Bento (04) — tiles chop the reading rhythm
+
+Full rules: `STYLE-COMBINATIONS.md`.
+
+## 20 · Signature move
+
+**An oversized display-serif headline breaking across a multi-column measure,** with a dek in a contrasting size and weight directly beneath it. The break points are authored, not accidental.
+
+Use it **once per page**, deliberately. A signature move repeated on every element is no longer a signature.
+
+## 21 · When to break the rules
+
+contemporary editorials mix in one grotesk element (labels, data) — pure serif-only pages feel costume-like; the mix IS modern editorial
+
+## 22 · Example prompts
+
+Ready-to-paste prompts for Codex, Claude, Lovable and v0: [`prompts.md`](prompts.md)
+
+## 23 · Design tokens
+
+- [`tokens.css`](tokens.css) — **canonical.** If this file and the prose above disagree, the token wins.
+- [`tokens.json`](tokens.json) — generated, for design tools and JS
+- [`tokens.tailwind.css`](tokens.tailwind.css) — generated, Tailwind v4 `@theme`
+
+Regenerate the two derived files with `python3 scripts/gen_tokens.py` after editing `tokens.css`.
+
+## 24 · Example implementation
+
+[`example.html`](example.html) — a single-file, zero-dependency page built strictly from this style's DNA and tokens. Open it in a browser.
+
+It is **one valid interpretation, not a spec.** Copying it wholesale is how every page ends up identical — read it, then compose something else.

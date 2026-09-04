@@ -1,31 +1,37 @@
+/* 11-editorial-magazine — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
-  --color--bg: #FDFBF7;
-  --color--surface: #F4EFE6;
-  --color--text: #1A1815;
-  --color--text-secondary: #6B6259;
-  --color--border: #E3DCD0;
-  --color--primary: #1A1815;
-  --color--primary-contrast: #FDFBF7;
-  --color--accent: #8C2F1B;
-  --color--accent-contrast: #FDFBF7;
-  --color--success: #3E6B3A;
-  --color--warning: #A86B1C;
-  --color--error: #8C2F1B;
-  --font--serif-body: 'Source Serif 4', Georgia, serif;
-  --font--sans: 'Inter', system-ui, sans-serif;
-  --font--display: 'Fraunces', Georgia, serif;
-  --font--mono: 'IBM Plex Mono', monospace;
-  --fontSize--h1: 56px;
-  --fontSize--h2: 40px;
-  --fontSize--h3: 28px;
-  --fontSize--h4: 22px;
-  --fontSize--h5: 18px;
-  --fontSize--h6: 16px;
-  --fontSize--body: 18px;
-  --fontSize--small: 14px;
-  --fontSize--caption: 13px;
-  --fontSize--label: 12px;
+  /* colors */
+  --color-bg: #FDFBF7;
+  --color-surface: #F4EFE6;
+  --color-text: #1A1815;
+  --color-text-secondary: #6B6259;
+  --color-border: #E3DCD0;
+  --color-primary: #1A1815;
+  --color-primary-contrast: #FDFBF7;
+  --color-accent: #8C2F1B;
+  --color-accent-contrast: #FDFBF7;
+  --color-success: #3E6B3A;
+  --color-warning: #A86B1C;
+  --color-error: #8C2F1B;
+  /* fontSizes */
+  --text-h1: 56px;
+  --text-h2: 40px;
+  --text-h3: 28px;
+  --text-h4: 22px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-body: 18px;
+  --text-small: 14px;
+  --text-caption: 13px;
+  --text-label: 12px;
+  /* fonts */
+  --font-serif-body: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  /* spacing */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -35,10 +41,25 @@
   --spacing-12: 48px;
   --spacing-16: 64px;
   --spacing-24: 96px;
-  --radiu--sm: 2px;
-  --radiu--md: 2px;
-  --radiu--lg: 4px;
-  --shadow--none: none;
-  --shadow--paper: 0 8px 24px rgb(26 24 21 / 0.08);
-  --shadow--focus: 0 0 0 3px rgb(140 47 27 / 0.3);
+  /* radius */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  /* shadows */
+  --shadow-none: none;
+  --shadow-paper: 0 8px 24px rgb(26 24 21 / 0.08);
+  --shadow-focus: 0 0 0 3px rgb(140 47 27 / 0.3);
+  /* motionEase */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  /* container */
+  --container-width: 1200px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
 }

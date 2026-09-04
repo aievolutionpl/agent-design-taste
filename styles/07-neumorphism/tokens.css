@@ -43,6 +43,9 @@
 
   --container-width: 1100px;
 
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 2px solid var(--color-accent);
+
   --motion-fast: 150ms;
   --motion-normal: 200ms;
   --motion-slow: 400ms;

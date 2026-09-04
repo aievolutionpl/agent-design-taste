@@ -1,29 +1,35 @@
+/* 06-brutalist-anti-grid — generated from tokens.css. Do not edit by hand. */
 @import "tailwindcss";
+
 @theme {
-  --color--bg: #F4F1EA;
-  --color--surface: #FFFFFF;
-  --color--text: #111111;
-  --color--text-secondary: #444444;
-  --color--border: #111111;
-  --color--primary: #111111;
-  --color--primary-contrast: #FFFFFF;
-  --color--accent: #CCFF00;
-  --color--accent-contrast: #111111;
-  --color--success: #16A34A;
-  --color--warning: #D97706;
-  --color--error: #DC2626;
-  --font--sans: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-  --font--display: 'Archivo Black', 'Space Grotesk', sans-serif;
-  --font--mono: 'Space Mono', monospace;
-  --fontSize--h1: 72px;
-  --fontSize--h2: 48px;
-  --fontSize--h3: 28px;
-  --fontSize--h4: 22px;
-  --fontSize--h5: 18px;
-  --fontSize--h6: 16px;
-  --fontSize--body: 16px;
-  --fontSize--small: 14px;
-  --fontSize--label: 12px;
+  /* colors */
+  --color-bg: #F4F1EA;
+  --color-surface: #FFFFFF;
+  --color-text: #111111;
+  --color-text-secondary: #444444;
+  --color-border: #111111;
+  --color-primary: #111111;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #CCFF00;
+  --color-accent-contrast: #111111;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  /* fontSizes */
+  --text-h1: 72px;
+  --text-h2: 48px;
+  --text-h3: 28px;
+  --text-h4: 22px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-label: 12px;
+  /* fonts */
+  --font-sans: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-display: 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  /* spacing */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -33,11 +39,26 @@
   --spacing-12: 48px;
   --spacing-16: 64px;
   --spacing-24: 96px;
-  --radiu--sm: 0;
-  --radiu--md: 0;
-  --radiu--lg: 0;
-  --shadow--hard: 8px 8px 0 var(--color-text);
-  --shadow--hard-sm: 4px 4px 0 var(--color-text);
-  --shadow--hard-accent: 8px 8px 0 var(--color-accent);
-  --shadow--focus: 0 0 0 3px var(--color-accent);
+  /* radius */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  /* shadows */
+  --shadow-hard: 8px 8px 0 var(--color-text);
+  --shadow-hard-sm: 4px 4px 0 var(--color-text);
+  --shadow-hard-accent: 8px 8px 0 var(--color-accent);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
+  /* motionEase */
+  --ease-default: linear;
+  /* container */
+  --container-width: 1200px;
+}
+
+/* No Tailwind namespace — use via var() */
+:root {
+  --motion-fast: 120ms;
+  --motion-normal: 200ms;
+  --motion-slow: 400ms;
+  --border-default: 2px solid var(--color-border);
+  --border-heavy: 3px solid var(--color-border);
 }
