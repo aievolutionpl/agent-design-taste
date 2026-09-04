@@ -77,3 +77,16 @@ Purple accents, glass cards, gradient text, "Trusted by 50,000+ teams" walls, fl
 ## Good vs Bad examples
 - **Good:** Stripe docs — flat surfaces, hairlines, one blue, type does everything.
 - **Bad:** minimalist landing with glass nav, gradient blob hero and neon CTA — three styles fighting, zero restraint.
+
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: a 2px accent-colored ring, never just a color change.
+- Motion: this style tempts toward parallax and scroll reveals that add nothing to a quiet page. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: light gray secondary text (#999 on white) fails 4.5:1 — keep secondary ≥ #555.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** a neutral grotesk carries restraint without personality overload; the whitespace does the expressing — a display serif here would fight the quietness
+- **Why this radius:** small radii (8-12px) signal precision; pill-everything would make it look like a consumer app, sharp 0 can read harsh in B2B
+- **Why this density:** low density is the point — but never below the information threshold: a page with one sentence is empty, not minimal
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** allow ONE expressive element (oversized number, single accent illustration) when restraint starts reading as blandness — break the pattern deliberately, once

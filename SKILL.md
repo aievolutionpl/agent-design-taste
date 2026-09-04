@@ -15,15 +15,33 @@ It is a **workflow**, not a style catalog. Never skip steps.
 ```
 1. UNDERSTAND        — analyze product, audience, brand personality
 2. CHOOSE STYLE      — via DECISION-MATRIX.md (1 dominant + max 1 supporting)
-3. CHOOSE TYPOGRAPHY — from the style's Design DNA
+3. CHOOSE TYPOGRAPHY — from the style's Design DNA (with reasoning, see below)
 4. CHOOSE LAYOUT     — from LAYOUT-PATTERNS.md (not the same hero every time)
-5. DEFINE TOKENS     — copy styles/<style>/tokens.css before writing any UI code
+5. DEFINE TOKENS     — copy styles/<style>/tokens.css + write DESIGN.md contract
 6. BUILD             — apply ANTI-SLOP.md rules during generation
 7. VISUAL AUDIT      — score 0-100 with evaluation/DESIGN-TASTE-SCORE.md; redo if < 75
-8. RESPONSIVE AUDIT  — desktop / tablet / mobile breakpoints checked
+8. RESPONSIVE AUDIT  — check 1440 / 768 / **390px first**; render, don't inspect
 9. REMOVE AI SLOP    — run the anti-slop checklist line by line
 10. FINAL POLISH     — spacing rhythm, contrast, motion fallbacks
 ```
+
+**Before step 1:** resolve the MODE from the user's verb (design / build /
+review / copy / polish) — load only that slice, see `evaluation/MODE-ROUTING.md`.
+
+**Typography reasoning (step 3):** never pick a font "because the style says
+so". State WHY in one line: "Fraunces because the audience (anxious freelancers)
+needs warmth/trust; a grotesk would read cold." If you can't articulate why a
+family fits the audience's emotion, you haven't chosen it — the default has.
+
+**Rendered verification (steps 7-8):** a design fault is visible in a
+screenshot in one second and invisible in code review for an hour. Load the
+real page in a browser before claiming done — see
+`evaluation/RENDERED-VERIFICATION.md`. Never claim visual verification from
+code alone.
+
+**After step 10:** record the decision in the taste loop
+(`evaluation/TASTE-LOOP.md`) — what was chosen, what was rejected, and the
+reusable principle. This is how the skill compounds value over time.
 
 Outputting a design without steps 1, 2, 7 and 9 is a **failure**, even if the
 design looks good.

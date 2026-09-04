@@ -82,3 +82,15 @@ The slop tell: iOS-clone UI with fake notch, five glass toolbars stacked over a 
 ## Good vs Bad examples
 - **Good:** Apple's iOS 26 marketing pages / visionOS — rich moving media, floating glass controls with real speculars, solid type panels, springy scroll moments.
 - **Bad:** An "iPhone clone" landing — fake status bar, glass card grid with lorem feature text, translucent buttons over unreadable gradients. Slop wears the material; taste uses it.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: high-contrast pill outlines; the fluid material eats thin focus rings.
+- Motion: this style tempts toward everything morphs and floats — continuous animation without reduced-motion fallback is the #1 failure. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: liquid refraction distorts text near edges — keep text 16px+ with padding away from material boundaries.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** rounded-humanist sans matches the fluid material; rigid grotesks clash with the organic light behavior
+- **Why this radius:** full pills (999px) echo the liquid metaphor — the material has no corners, neither should the chrome
+- **Why this density:** consumer-light by design; this style collapses under dashboards — it's a marketing/navigation language
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** swap liquid for solid panels in settings/forms — familiarity beats material consistency where users work

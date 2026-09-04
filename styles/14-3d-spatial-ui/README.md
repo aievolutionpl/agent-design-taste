@@ -79,3 +79,15 @@ Random purple orbs, floating glass cubes, "3D abstract shapes" hero renders with
 ## Good vs Bad examples
 - **Good:** Linear/Arc-style product heroes — a flat, readable UI plane, gently tilted, with supporting layers parallaxing behind; depth explains the product.
 - **Bad:** a landing page where the entire content column is rotated in perspective, text blurs, and a purple 3D blob covers the CTA — motion sickness, zero comprehension.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: 2D focus rings on top of the 3D layer; 3D-transformed controls must keep standard focus behavior.
+- Motion: this style tempts toward parallax responds to every mouse move — respect reduced-motion with a static 2D layout fallback. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: text on tilted/rotated 3D planes (effective size and contrast change with angle) — keep text on flat layers, 3D for objects.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** geometric sans with wide weights (Space Grotesk) matches dimensional space; thin fonts break up at small 3D scales
+- **Why this radius:** depth-driven: layer radii increase toward the viewer (8/12/16px) — the radius becomes a depth cue
+- **Why this density:** low-mid: each 3D layer costs attention; spatial UI shows FEW things in MORE space
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** a fully flat 2D section after a 3D journey gives the eyes rest and the 3D meaning — alternate dimensions deliberately

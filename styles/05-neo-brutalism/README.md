@@ -76,3 +76,15 @@ Pastel "soft brutalism" with 16px radius + tiny shadows (that's just default UI 
 ## Good vs Bad examples
 - **Good:** Gumroad post-2021 — hard borders, offset shadows, one yellow, giant caps, rigorous grid underneath the noise.
 - **Bad:** pastel cards with soft shadows and a random rotated "WOW" sticker — reads as default SaaS wearing a costume, no borders, no conviction.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: thick black 3px+ outline focus — it's already the aesthetic, keep it on every interactive element.
+- Motion: this style tempts toward bouncy spring easing everywhere — hard shadows should SNAP (150ms linear), not wobble. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: yellow-on-white or neon-on-neon text; loud style still means 4.5:1 body contrast.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** ultra-bold grotesks (Archivo Black) are the voice — the style IS loud typography; light weights contradict the material
+- **Why this radius:** 0-4px radius only; rounded brutalism is just default UI with a border — the sharpness is semantic
+- **Why this density:** high-contrast density works: big type, chunky blocks — but elements must align to a grid even when they look chaotic
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** never soften it; if the brand can't take loudness, change style — half-brutalism is the definition of slop

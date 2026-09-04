@@ -77,3 +77,15 @@ Every headline letter bouncing on load, scroll-triggered word fireworks on every
 ## Good vs Bad examples
 - **Good:** a studio hero where "Studio" inflates from wght 300→800 as you move the cursor across it, lines reveal once with a mask, then everything sits still and lets you read.
 - **Bad:** a landing where every headline shuffles letters like a slot machine, the marquee never pauses, body text fades in letter-by-letter, and nothing is readable under reduced-motion — the fallback shows an empty page.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: animated type must freeze to a readable static state under reduced-motion — no exceptions.
+- Motion: this style tempts toward THE core risk: continuous marquee/morph makes text unreadable and vestibular-hazardous — cap continuous animation to one element. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: animated or distorted display text used for critical information (prices, CTAs) — kinetic text is emotional layer, always duplicate critical info statically.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** variable/expressive families (Fraunces with animation axes, Archivo Expanded) — the font's range IS the motion vocabulary
+- **Why this radius:** driven by the letterforms, not a token — buttons/cards inherit shape language from the type (sharp type → sharp UI)
+- **Why this density:** type-dense but element-light: one screen, few words, huge scale — density lives INSIDE typography, not in layout
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** pair one dead-plain utility section (normal sans, normal size) — total kinetic saturation exhausts in 10 seconds; contrast keeps the motion special

@@ -74,3 +74,15 @@ Random `rotate(-7deg)` on every card, blurred neon glows, mixed pastel blobs, "g
 ## Good vs Bad examples
 - **Good:** Gumroad's 2023+ rebrand — heavy borders, hard shadows, acid pink accent, oversized type, controlled overlaps.
 - **Bad:** "brutalist" page where every card is rotated a different direction, centered text, pastel shadows with blur — it's birthday-party chaos, not anti-grid.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: raw but present: high-contrast outline that ignores the broken grid.
+- Motion: this style tempts toward chaotic entrances rotating from random angles — jarring without reduced-motion off-switch. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: overlapping rotated elements covering text; rotated body text below 4.5:1; screen readers reading visual order not DOM order — keep DOM order logical.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** raw system/mono fonts (Space Mono, IBM Plex Mono) — the anti-design stance includes refusing polished webfonts
+- **Why this radius:** 0 everywhere — radius is polish, and polish is what this style refuses
+- **Why this density:** uneven on purpose: dense collage next to vast emptiness — the contrast is the composition
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** break the anti-grid: ONE aligned, ordered section gives the chaos meaning — total disorder is unreadable, curated disorder is design

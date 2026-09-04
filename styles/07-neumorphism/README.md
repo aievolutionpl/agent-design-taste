@@ -86,3 +86,15 @@ Everything soft but nothing clickable, white-on-white text, gray ghost buttons e
 ## Good vs Bad examples
 - **Good:** smart-home dashboard concept — 6 large extruded tiles, inset temperature well, one accent-filled "away mode" button, all labels ≥ 4.5:1.
 - **Bad:** neumorphic settings page — ghost icon-buttons, gray labels at 1.6:1, five levels of soft elevation, no visible focus anywhere. It looks like a screensaver and behaves like one.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: critical: soft-shadow surfaces swallow focus rings — use strong color rings (3px accent), test on real keyboards.
+- Motion: this style tempts toward pressing animations with deep dual shadows — subtle 2-4px travel is enough, more looks like melting. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: THE structural flaw: same-color surfaces mean borders and states have almost no contrast — WCAG 1.4.11 (3:1 non-text) is usually impossible without adding outlines; use only for decorative surfaces, never for critical controls.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** soft rounded sans matches the extruded material; condensed or display faces make soft UI look inflated
+- **Why this radius:** large radii (16-24px) are required — soft shadows only read as extrusion on curved surfaces
+- **Why this density:** low-to-medium only: every element pays a legibility tax; dense neumorphic dashboards are unusable
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** add ONE flat, high-contrast control color (a real button) — pure monochrome neumorphism fails; hybrid soft-plus-solid works

@@ -77,3 +77,15 @@ Neon-glow "cyberpunk" dials, glass knobs, glowing purple rings, fake stitching, 
 ## Good vs Bad examples
 - **Good:** a hardware synth product page — aluminum hero console with real dials and a master fader, engraved labels, amber VU readout, spec sheet in mono, one orange action button.
 - **Bad:** dark landing with purple-glowing glass knobs, neon cyan rings, leather-textured header and stitching — five materials, zero light logic, 2008 costume party.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: physical controls already have affordance — add invisible-until-focus rings for keyboard users.
+- Motion: this style tempts toward dials and levers animating on page load — controls should move only when operated. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: real-world mimicry without semantics: a volume knob must still be a range input with aria — looks are decoration, roles are real.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** era-appropriate faces (serif for vintage audio, industrial sans for hardware) — the material tells you the family
+- **Why this radius:** material-driven: brushed metal = small radius, wooden/plastic = larger; inconsistency between materials is fine, within one material it isn't
+- **Why this density:** controls need physical size — touch-sized knobs and switches cap density; this is an instrument panel, not a spreadsheet
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** let data display go flat/digital (LCD-style) inside the tactile frame — pure physical everything gets exhausting; contrast makes tactility pop

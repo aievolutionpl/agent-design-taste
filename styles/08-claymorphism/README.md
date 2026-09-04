@@ -75,3 +75,15 @@ Purple-gradient hero + glass nav + emoji icons pasted on puffy cards = slop. Gla
 ## Good vs Bad examples
 - **Good:** a kids' pocket-money banking app — pastel lilac bg, puffy white cards with soft plum shadows, one coral CTA pill, round mascot, everything begs to be touched.
 - **Bad:** pastel landing with glass nav, sharp Inter type, hairline-bordered cards, neon green gradient CTA — four styles, zero clay.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: chunky visible outlines in a darker clay tone — pastel-on-pastel hides default focus.
+- Motion: this style tempts toward perpetual squish/bounce idle animations — clay should deform ON interaction, not breathe continuously. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: white text on pastel puffs; playful style still needs 4.5:1 — darken the clay or add darker text.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** rounded display sans (Baloo, Nunito) IS the material in type form; sharp grotesks break the soft universe
+- **Why this radius:** generous (20-32px) with puffy dual shadows — the radius carries the clay metaphor
+- **Why this density:** low: big puffy elements need air; cramming clay components reads as a toy chest, not a product
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** one sharp, flat element (a serious data table, a legal line) grounds the playfulness — all-clay pages feel unserious for anything beyond kids' products

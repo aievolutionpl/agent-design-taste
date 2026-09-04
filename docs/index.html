@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Design Taste — 15 Style Previews</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:#0b0b0f;color:#f4f4f5;padding:48px 24px}
+h1{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.03em;margin-bottom:8px}
+.sub{color:#9ca3af;margin-bottom:48px;max-width:70ch;line-height:1.6}
+a.repo{color:#818cf8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.card{background:#141419;border:1px solid #26262e;border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:#4f46e5}
+.card iframe{width:100%;height:420px;border:0;background:#fff;pointer-events:none}
+.card .bar{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.card .name{font-weight:600}
+.card .open{color:#818cf8;text-decoration:none;font-size:14px}
+.note{grid-column:1/-1;color:#6b7280;font-size:13px}
+footer{margin-top:64px;color:#6b7280;font-size:14px}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<h1>Agent Design Taste</h1>
+<p class="sub">Live previews of all 15 style example pages from the
+<a class="repo" href="https://github.com/aievolutionpl/agent-design-taste">agent-design-taste</a>
+repository. Click any title to open the full page. Each example is a self-contained
+HTML file built strictly with that style's design DNA and tokens.</p>
+<div class="grid" id="grid"></div>
+<footer>MIT · AI Evolution Polska — designed by an agent, for agents.</footer>
+<script>
+const styles=[
+["01-minimalism","NOVA — Minimalism"],["02-glassmorphism","Glassmorphism"],["03-liquid-glass","Liquid Glass"],
+["04-bento-grid","Bento Grid"],["05-neo-brutalism","Neo-Brutalism"],["06-brutalist-anti-grid","Brutalist / Anti-Grid"],
+["07-neumorphism","Neumorphism"],["08-claymorphism","Claymorphism"],["09-skeuomorphism-tactile","Skeuomorphism / Tactile"],
+["10-swiss-international","Swiss / International"],["11-editorial-magazine","Editorial / Magazine"],["12-maximalism","Maximalism"],
+["13-y2k-retrofuturism","Y2K / Retrofuturism"],["14-3d-spatial-ui","3D / Spatial UI"],["15-expressive-kinetic-typography","Kinetic Typography"]
+];
+const base="https://raw.githack.com/aievolutionpl/agent-design-taste/main/styles/";
+document.getElementById("grid").innerHTML=styles.map(([dir,name])=>`
+<div class="card">
+<iframe loading="lazy" src="${base}${dir}/example.html" title="${name} preview"></iframe>
+<div class="bar"><span class="name">${name}</span><a class="open" target="_blank" rel="noopener" href="${base}${dir}/example.html">Open full ↗</a></div>
+</div>`).join("")+`<p class="note">Note: iframes are scaled-down live renders. Some animated styles (Kinetic Typography, 3D Spatial) are best experienced via "Open full".</p>`;
+</script>
+</body>
+</html>

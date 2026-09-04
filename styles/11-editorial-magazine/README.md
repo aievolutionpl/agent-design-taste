@@ -78,3 +78,15 @@ Gradient hero text, purple CTAs, glass nav, "Trusted by 10,000 readers" ticker w
 ## Good vs Bad examples
 - **Good:** The New Yorker / Kinfolk web features — serif display, disciplined columns, pull quotes, warm paper, one accent.
 - **Bad:** "editorial" landing with Playfair on a blue-purple gradient, glass cards and centered wall-of-text — magazine costume over template defaults.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: elegant but visible: 2px serif-weighted underline or outline that fits the typography.
+- Motion: this style tempts toward smooth-scroll hijacking for 'reading experience' — reading flow belongs to the reader, never animate their scroll. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: light gray serif body text at 15px — long-form needs 17px+, #333 minimum, 65-75ch measure.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** serif display (Fraunces, Playfair) + readable text serif/sans pairing — the pairing carries literary authority; two sans-serifs is not editorial
+- **Why this radius:** 0-2px: print has no radius; images are sharp rectangles like magazine plates
+- **Why this density:** high text density with dramatic whitespace alternation — dense column next to full-page image is the magazine rhythm
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** contemporary editorials mix in one grotesk element (labels, data) — pure serif-only pages feel costume-like; the mix IS modern editorial

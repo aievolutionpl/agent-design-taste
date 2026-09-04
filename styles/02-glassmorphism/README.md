@@ -82,3 +82,15 @@ The slop tell: a purple gradient hero, five floating glass cards with generic fe
 ## Good vs Bad examples
 - **Good:** Apple Music/visionOS-style marketing pages — rich color field, one frosted panel carrying the key content, solid type elsewhere.
 - **Bad:** SaaS landing where nav, hero, all 6 feature cards, pricing and footer are translucent — fog stack, unreadable, zero hierarchy.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: a solid 2px ring — focus indicators get lost in blur and translucency.
+- Motion: this style tempts toward parallax blobs behind every glass surface — blur + movement = motion sickness and battery drain. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: text over translucent glass over a vivid image fails contrast unpredictably — always give glass surfaces a solid fallback background.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** a clean geometric sans survives blur best; thin serifs dissolve into the frosted layer and become unreadable
+- **Why this radius:** larger radii (16-20px) reinforce the soft 'pane' metaphor; sharp corners make glass look like broken windows
+- **Why this density:** 2 glass surfaces per view max — more translucency stacks into visual noise; content density belongs on solid surfaces
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** drop glass entirely for dense sections (tables, forms) — glass is for navigation, overlays and heroes, never for data

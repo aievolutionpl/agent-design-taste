@@ -76,3 +76,15 @@ Purple gradient tiles, glassmorphic blurs, emoji as tile icons, "10x your workfl
 ## Good vs Bad examples
 - **Good:** Apple M-chip pages / Linear features page — one hero tile, disciplined spans, real screenshots, monochrome with one accent.
 - **Bad:** every tile a different pastel gradient with an emoji icon, centered lorem text, five "✨ AI-powered" tiles — colorful noise, zero hierarchy.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: ring on the interactive tile only; tile borders must not all glow at once.
+- Motion: this style tempts toward every tile hovering/lifting simultaneously — stagger hover motion, animate one tile at a time. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: low-contrast text on colored tiles (white on pastel accent) — tiles are surfaces, not backgrounds for failing contrast.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** a workhorse grotesk handles varied tile content; expressive display fonts per-tile fragment the grid into a ransom note
+- **Why this radius:** one radius for all tiles — uniformity IS the bento promise; mixing radii destroys the modular metaphor
+- **Why this density:** the style's superpower and its trap: high density needs ruthless tile hierarchy (one hero tile, supporting tiles quiet)
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** one full-bleed break of the grid per page (a tile spanning edge-to-edge) adds drama without breaking the system

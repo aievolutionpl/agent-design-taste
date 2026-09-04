@@ -83,3 +83,15 @@ Slop here = randomness mistaken for richness: AI-gradient blobs, confetti emoji 
 ## Good vs Bad examples
 - **Good:** Gossip/collage editorial sites, Gucci campaign pages — dense patterns, oversized serif, saturated fields, all on strict grids with one idea per screen.
 - **Bad:** landing with a pastel gradient blob, glass navbar, neon gradient headline, 4 font families, soft shadows, confetti emojis — every layer shouting, zero shared DNA, no grid underneath.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: thick, high-contrast outlines that survive background chaos — focus must be findable in noise.
+- Motion: this style tempts toward everything animating always — in maximalism, ONE animated element reads stronger than ten; motion needs a spotlight, not a rave. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: patterned backgrounds behind text — always put text on solid plates; busy-on-busy fails every contrast rule.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** expressive display families (Unbounded, Archivo Expanded) + a disciplined text face — maximalism needs ONE calm voice amid the noise
+- **Why this radius:** intentionally mixed: mixed radii per layer is part of the language (this is the exception to consistency) — but within one component, stay consistent
+- **Why this density:** high is the point, but layers must have a hierarchy: background pattern → mid decoration → sharp foreground content
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** one zone of extreme minimalism (a plain white section) makes the maximalist rest hit harder — contrast is the real system

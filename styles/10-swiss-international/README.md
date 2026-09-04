@@ -75,3 +75,15 @@ Gradient hero text, purple CTAs, glass cards, floating blobs, "✨ premium" badg
 ## Good vs Bad examples
 - **Good:** Müller-Brockmann concert posters online — grid, Helvetica-scale grotesk, one red, index numbers, nothing floats.
 - **Bad:** "Swiss-style" landing with rounded purple buttons, centered gradient hero and soft shadows — Swiss typography as decoration over a default template.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: strict 2px black outline, offset to the grid — focus is part of the system.
+- Motion: this style tempts toward this style barely animates — if you're adding parallax you've left Swiss; fades ≤200ms max. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: red accent on gray text; also justified text creating rivers — keep text ragged-right unless hyphenation is managed.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** neo-grotesks (Helvetica family, Inter, Archivo) are the style — typography IS the design; a serif display would be a different style
+- **Why this radius:** 0 radius: the grid and the rectangle are sacred — rounding corners softens the rigor into generic modern UI
+- **Why this density:** structured medium-high density: whitespace is planned, not generous — every gap sits on the grid
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** break the grid only as an accent (one rotated element, one photo bleeding off-grid) — systematic Swiss with one rupture is the master move

@@ -87,3 +87,15 @@ Slop here = purple-blue mesh gradient hero with white glass cards (that's generi
 ## Good vs Bad examples
 - **Good:** early-2000s Sony/Nokia product pages reborn — chromed headlines, capsule navs, bezel panels, disciplined pastel skies with mono system readouts.
 - **Bad:** dark page with neon green code rain, glass navbar, purple mesh blob and gradient button text — four trend fragments, zero 1999 optimism, unreadable contrast.
+## 14 · Accessibility Notes
+- Contrast targets: body 4.5:1, large text/UI 3:1 — verify every text/background pair in this style's palette.
+- Focus states: chrome and iridescence swallow thin focus rings — bold dark outlines or inverted pills required.
+- Motion: this style tempts toward looping shimmer/glow on everything — loop ONE hero element; shimmer fatigue is instant. Every animated surface needs a `prefers-reduced-motion` static fallback.
+- Common a11y failure in this style: silver/chrome text on light backgrounds, white on iridescent gradients — chrome needs a dark backing plate to pass contrast.
+
+## 15 · Design Decisions Explained (why, not just what)
+- **Why these fonts:** bubble/techno display (Orbitron-like, ultra-rounded) — Y2K type is nostalgic hardware UI; neutral grotesks kill the era
+- **Why this radius:** extreme pills and bubbles (999px) plus blob shapes — Y2K never met a corner it liked
+- **Why this density:** medium-high visual density with metallic shine stacking — but interactive content stays on solid 'screen' areas
+- **Signature move:** the ONE element that makes a page instantly recognizable as this style — use once per page, deliberately.
+- **When to break the rules:** one flat, modern, quiet section makes the retro zones read as intentional art direction instead of a costume
