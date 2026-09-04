@@ -1,0 +1,93 @@
+/* 03 · Liquid Glass — design tokens (canonical) */
+:root {
+  --color-bg: #0B1120;
+  --color-surface: #141C2F;
+  --color-text: #FFFFFF;
+  --color-text-secondary: rgb(255 255 255 / 0.62);
+  --color-border: rgb(255 255 255 / 0.12);
+  --color-primary: #0A84FF;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #0A84FF;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #30D158;
+  --color-warning: #FFD60A;
+  --color-error: #FF453A;
+
+  /* Rich, moving media beneath — glass needs changing light */
+  --media-mesh: radial-gradient(60% 80% at 20% 20%, rgb(14 165 233 / 0.5), transparent 60%),
+                radial-gradient(50% 70% at 80% 30%, rgb(139 92 246 / 0.45), transparent 60%),
+                radial-gradient(60% 60% at 50% 90%, rgb(244 114 182 / 0.35), transparent 60%),
+                linear-gradient(180deg, #0B1120, #101A33);
+
+  /* Liquid glass recipe — controls & floating chrome only */
+  --lg-bg: rgb(255 255 255 / 0.14);
+  --lg-border: rgb(255 255 255 / 0.22);
+  --lg-blur: 14px;
+  --lg-saturation: 180%;
+  --lg-brightness: 1.08;
+  --lg-specular: inset 0 1px 0 rgb(255 255 255 / 0.40), inset 0 -1px 0 rgb(255 255 255 / 0.06);
+  --lg-shadow: 0 12px 40px rgb(0 0 0 / 0.18);
+  --lg-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation)) brightness(var(--lg-brightness));
+  --lg-surface: rgb(255 255 255 / 0.72); /* solid fallback */
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Figtree', 'Inter', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
+
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  /* Continuous curves & capsules — the material's identity */
+  --radius-sm: 12px; --radius-md: 24px; --radius-lg: 32px; --radius-pill: 999px;
+  --shadow-float: var(--lg-shadow);
+  --shadow-focus: 0 0 0 4px rgb(10 132 255 / 0.45);
+
+  --border-default: 1px solid var(--color-border);
+
+  --container-width: 1200px;
+
+  /* Springy motion — liquid, never linear */
+  --motion-fast: 200ms;
+  --motion-normal: 350ms;
+  --motion-slow: 500ms;
+  --motion-ambient: 90s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring-soft: cubic-bezier(0.34, 1.3, 0.5, 1);
+}
+[data-theme="light"] {
+  --color-bg: #F5F7FA;
+  --color-surface: #FFFFFF;
+  --color-text: #0B1120;
+  --color-text-secondary: rgb(11 17 32 / 0.6);
+  --color-border: rgb(11 17 32 / 0.10);
+  --lg-surface: rgb(11 17 32 / 0.72); /* dark-glass fallback on light bg */
+}
+
+/* Required usage guard */
+.liquid {
+  background: var(--lg-tint, rgb(255 255 255 / 0.14));
+  border: 1px solid var(--lg-border);
+  box-shadow: var(--lg-specular), var(--lg-shadow);
+  -webkit-backdrop-filter: var(--lg-filter);
+  backdrop-filter: var(--lg-filter);
+}
+[data-theme="light"] .liquid { --lg-tint: rgb(255 255 255 / 0.55); }
+@supports not (backdrop-filter: blur(1px)) {
+  .liquid { background: var(--lg-surface); }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-ambient: 0s; }
+  * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}

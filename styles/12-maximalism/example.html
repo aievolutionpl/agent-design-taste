@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cacophony — Independent Music Festival, Aug 14–16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Archivo:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FDF6EC;--surface:#fff;--tint:#FFE8CC;--ink:#1A0B2E;--sec:#5C4A72;--primary:#E8442E;--a1:#FFB000;--a2:#7B2FA0;--a3:#0FA3A3;--fast:150ms;--spring:cubic-bezier(.34,1.56,.64,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 17px/1.65 'Archivo',sans-serif;color:var(--ink);background:var(--bg)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.stamp{font:700 12px/1 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:2px solid var(--ink)}
+.logo{font:900 22px 'Fraunces',serif}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+nav a:hover{color:var(--primary)}
+.btn{display:inline-block;background:var(--primary);color:var(--bg);font:700 16px 'Archivo';padding:14px 30px;border:2px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;transition:transform var(--fast) var(--spring),box-shadow var(--fast) var(--spring)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn.ghost{background:var(--surface);color:var(--ink)}
+/* ticker */
+.ticker{overflow:hidden;background:var(--ink);color:var(--bg);border-bottom:2px solid var(--ink);white-space:nowrap;padding:10px 0}
+.ticker span{display:inline-block;font:700 13px 'Space Mono';letter-spacing:.12em;text-transform:uppercase;animation:slide 28s linear infinite}
+.ticker:hover span{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* hero — pattern field */
+.hero{position:relative;background:repeating-conic-gradient(var(--tint) 0% 25%,transparent 0% 50%);background-size:32px 32px;border-bottom:2px solid var(--ink);padding:88px 0;overflow:hidden}
+.hero .blob{position:absolute;right:-80px;top:-60px;width:380px;height:380px;background:var(--a2);border-radius:58% 42% 55% 45%/45% 55% 45% 55%;border:2px solid var(--ink);opacity:.9}
+.hero .inner{position:relative;max-width:820px}
+h1{font:900 clamp(44px,7vw,92px)/0.95 'Fraunces',serif;letter-spacing:-.02em;margin:18px 0 24px}
+h1 .outline{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+.hero p.lead{color:var(--sec);max-width:52ch;margin-bottom:32px}
+.sticker{display:inline-block;background:var(--a1);border:2px solid var(--ink);border-radius:999px;padding:8px 18px;font:700 12px 'Space Mono';letter-spacing:.12em;text-transform:uppercase;transform:rotate(-4deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:12px}
+/* lineup mosaic */
+section{padding:88px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+h2{font:900 clamp(30px,4.4vw,52px)/1 'Fraunces',serif}
+.lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:28px;box-shadow:4px 4px 0 var(--ink);transition:transform var(--fast) var(--spring),box-shadow var(--fast) var(--spring)}
+.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.card .day{display:inline-block;margin-bottom:14px}
+.card.c1{background:var(--tint)}.card.c2{background:#E7D4F5}.card.c3{background:#CFEDEA}
+.card h3{font:700 26px 'Fraunces',serif;margin-bottom:6px}
+.card p{font-size:15px;color:var(--sec)}
+.card ul{list-style:none;margin-top:16px;font-size:14px;font-weight:500}
+.card ul li{padding:6px 0;border-top:1px dashed var(--ink)}
+/* tickets */
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.plan{background:var(--surface);border:2px solid var(--ink);padding:32px;box-shadow:4px 4px 0 var(--ink)}
+.plan.hot{background:repeating-conic-gradient(var(--tint) 0% 25%,var(--surface) 0% 50%);background-size:28px 28px;box-shadow:8px 8px 0 var(--ink)}
+.plan .price{font:900 44px 'Fraunces',serif;margin:10px 0 18px}
+.plan ul{list-style:none;font-size:15px;margin-bottom:24px}
+.plan ul li{padding:7px 0;border-bottom:2px dashed var(--ink)}
+/* cta band */
+.band{background:var(--a3);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;padding:80px 24px}
+.band h2{margin-bottom:20px}
+footer{padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){.lineup,.tickets{grid-template-columns:1fr}.hero{padding:64px 0}.hero .blob{width:220px;height:220px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Cacophony*</span><ul><li><a href="#lineup">Lineup</a></li><li><a href="#tickets">Tickets</a></li></ul><a class="btn ghost" href="#tickets">Get tickets</a></nav>
+</div>
+<div class="ticker" aria-hidden="true"><span>AUG 14–16 · FORT GREEN DOCKS, BRISTOL · 42 ARTISTS · 3 STAGES · RAIN OR SHINE · AUG 14–16 · FORT GREEN DOCKS, BRISTOL · 42 ARTISTS · 3 STAGES · RAIN OR SHINE · </span></div>
+<header class="hero"><div class="blob" aria-hidden="true"></div>
+<div class="container"><div class="inner">
+<span class="sticker">3 days · 42 artists · 1 docks</span>
+<h1>Loud is a <span class="outline">flavour.</span><br>Taste all of it.</h1>
+<p class="lead">Cacophony books the acts your algorithm keeps burying — post-punk, footwork, ambient folk and everything that refuses a genre field. Three docks, one weekend, zero VIP tiers.</p>
+<a class="btn" href="#tickets">Grab a wristband — £89</a>
+</div></div>
+</header>
+<section id="lineup"><div class="container">
+<div class="sec-head"><h2>The lineup</h2><span class="stamp">Full schedule drops July 1</span></div>
+<div class="lineup">
+<div class="card c1"><span class="stamp day" style="background:var(--a1);border:2px solid var(--ink);border-radius:999px;padding:6px 14px">Fri · Dock North</span><h3>Molar & the Molars</h3><p>Slacker-rock six-piece closing the night with a 20-minute feedback suite.</p><ul><li>Doors 17:00</li><li>Basement Fox · 18:30</li><li>Molar & the Molars · 22:00</li></ul></div>
+<div class="card c2"><span class="stamp day" style="background:#fff;border:2px solid var(--ink);border-radius:999px;padding:6px 14px">Sat · Dock South</span><h3>Nightbus Collective</h3><p>Footwork meets field recordings from the 8 night bus loop.</p><ul><li>Doors 16:00</li><li>Vera Chord · 19:00</li><li>Nightbus Collective · 23:00</li></ul></div>
+<div class="card c3"><span class="stamp day" style="background:#fff;border:2px solid var(--ink);border-radius:999px;padding:6px 14px">Sun · Dock Yard</span><h3>Moth Radio</h3><p>Ambient folk for the send-off — brings the weekend down softly.</p><ul><li>Doors 15:00</li><li>Sable & Co · 18:00</li><li>Moth Radio · 21:30</li></ul></div>
+</div>
+</div></section>
+<section id="tickets"><div class="container">
+<div class="sec-head"><h2>Tickets</h2><span class="stamp">Payment plans available</span></div>
+<div class="tickets">
+<div class="plan"><span class="stamp">Day pass</span><p class="price">£45</p><ul><li>Any one day</li><li>All 3 stages</li><li>Re-entry until 20:00</li></ul><a class="btn ghost" href="#">Buy day pass</a></div>
+<div class="plan hot"><span class="stamp" style="background:var(--a1);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;transform:rotate(-3deg);display:inline-block">Weekend · best value</span><p class="price">£89</p><ul><li>All 3 days</li><li>Dock camping field</li><li>Late-night yard stage</li><li>Refundable until July 14</li></ul><a class="btn" href="#">Buy weekend</a></div>
+<div class="plan"><span class="stamp">Crew support</span><p class="price">£140</p><ul><li>Weekend + merch drop</li><li>Keeps the festival independent</li><li>Name on the thanks wall</li></ul><a class="btn ghost" href="#">Support the crew</a></div>
+</div>
+</div></section>
+<div class="band"><h2>Last year sold out in 9 days.</h2><a class="btn" href="#">Don't find out the hard way</a></div>
+<footer><div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%"><span>© 2026 Cacophony Festival CIC, Bristol</span><span>hello@cacophonyfest.co.uk</span></div></footer>
+</body>
+</html>

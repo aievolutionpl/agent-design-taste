@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasterwerk — Architecture & Spatial Planning, Zürich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--surface:#F4F4F2;--text:#111;--sec:#5C5C5C;--border:#D9D9D6;--accent:#E2231A;--container:1280px;--fast:120ms;--ease:cubic-bezier(.2,0,0,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 16px/1.5 Inter,sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+nav{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border)}
+.logo{font:700 20px 'Inter Tight',sans-serif}
+nav ul{display:flex;gap:32px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+nav a:hover{color:var(--accent)}
+.cta-top{font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;padding:12px 24px;background:var(--text);color:#fff;text-decoration:none;transition:background var(--fast) var(--ease)}
+.cta-top:hover{background:var(--accent)}
+.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:48px;padding:112px 0 96px;border-bottom:1px solid var(--border)}
+.hero-meta{border-left:1px solid var(--border);padding-left:24px;align-self:end}
+.hero-meta p{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sec);margin-bottom:16px}
+h1{font:700 64px/1.06 'Inter Tight',sans-serif;letter-spacing:-.03em;margin-bottom:32px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--sec);max-width:52ch;margin-bottom:32px}
+.cta{display:inline-block;background:var(--accent);color:#fff;font:500 15px Inter;padding:16px 32px;text-decoration:none;transition:background var(--fast) var(--ease)}
+.cta:hover{background:var(--text)}
+section{padding:96px 0}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:48px;margin-bottom:48px;border-bottom:1px solid var(--border);padding-bottom:24px}
+.index{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.sec-head h2{font:700 40px/1.1 'Inter Tight',sans-serif;letter-spacing:-.02em}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.col{background:var(--bg);padding:0 32px 0 0}
+.col+.col{padding-left:32px;border-left:1px solid var(--border)}
+.col h3{font:600 22px/1.2 'Inter Tight',sans-serif;margin:16px 0 8px}
+.col p{color:var(--sec);font-size:15px}
+.projects{border-top:1px solid var(--text)}
+.proj{display:grid;grid-template-columns:64px 1.2fr .8fr auto;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--border)}
+.proj .no{font:500 12px 'IBM Plex Mono',monospace;color:var(--accent)}
+.proj h3{font:600 22px 'Inter Tight',sans-serif}
+.proj span{font-size:14px;color:var(--sec)}
+.proj a{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--text)}
+.proj a:hover{color:var(--accent);border-color:var(--accent)}
+.band{background:var(--surface);padding:96px 24px;text-align:left}
+.band h2{font:700 40px/1.1 'Inter Tight',sans-serif;letter-spacing:-.02em;margin-bottom:32px}
+footer{border-top:1px solid var(--text);padding:40px 0;color:var(--sec);font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:64px 0}.hero-meta{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:16px}h1{font-size:36px}.sec-head{grid-template-columns:1fr;gap:8px}.cols,.proj{grid-template-columns:1fr}.col+.col{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.col{padding:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Rasterwerk</span><ul><li><a href="#w">Work</a></li><li><a href="#s">Studio</a></li></ul><a class="cta-top" href="#">Start a project</a></nav>
+<header class="hero">
+<div><h1>Space, planned to the <em>millimetre</em>.</h1><p>Rasterwerk is a Zürich studio for architecture and spatial planning. We design housing, cultural buildings and public space — documented, permitted and built with the same discipline the drawings demand.</p><a class="cta" href="#">Start a project</a></div>
+<div class="hero-meta"><p>Est. 2011 — Zürich</p><p>42 built projects</p><p>SI A / SIA 102 certified</p></div>
+</header>
+<section id="s">
+<div class="sec-head"><p class="index">01/ Studio</p><h2>Method before form.</h2></div>
+<div class="cols">
+<div class="col"><p class="index">A</p><h3>Analysis</h3><p>Site, regulation, budget and usage mapped before a single line is drawn.</p></div>
+<div class="col"><p class="index">B</p><h3>Grid</h3><p>Every project starts from a structural grid that carries services, structure and cost.</p></div>
+<div class="col"><p class="index">C</p><h3>Delivery</h3><p>One team from competition sketch to handover file. No handoffs, no drift.</p></div>
+</div>
+</section>
+<section id="w">
+<div class="sec-head"><p class="index">02/ Selected work</p><h2>Built and documented.</h2></div>
+<div class="projects">
+<div class="proj"><span class="no">01</span><h3>Limmattal Housing</h3><span>Residential · 128 units · 2024</span><a href="#">Case study</a></div>
+<div class="proj"><span class="no">02</span><h3>Werkhalle Oerlikon</h3><span>Cultural · conversion · 2023</span><a href="#">Case study</a></div>
+<div class="proj"><span class="no">03</span><h3>Quaibrücke Pavilion</h3><span>Public space · competition win · 2022</span><a href="#">Case study</a></div>
+<div class="proj"><span class="no">04</span><h3>Hardturm Studios</h3><span>Workspace · 4,800 m² · 2021</span><a href="#">Case study</a></div>
+</div>
+</section>
+<section><div class="band"><p class="index">03/ Contact</p><br><h2>Bring us a site. We'll bring the grid.</h2><a class="cta" href="#">Start a project</a></div></section>
+<footer><span>© 2026 Rasterwerk AG, Zürich</span><span>studio@rasterwerk.ch</span></footer>
+</div>
+</body>
+</html>

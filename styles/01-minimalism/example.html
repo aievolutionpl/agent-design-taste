@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledgerly — Bookkeeping for freelancers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--surface:#F7F7F5;--text:#111;--sec:#555;--border:#E5E5E2;--accent:#2563EB;--container:1200px;--fast:150ms;--ease:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--border)}
+.logo{font:600 20px Archivo,sans-serif}
+nav ul{display:flex;gap:32px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--accent)}
+.cta-top{font:500 15px Inter;padding:10px 20px;border:1px solid var(--text);border-radius:8px;text-decoration:none;color:var(--text);transition:all var(--fast) var(--ease)}
+.cta-top:hover{background:var(--text);color:#fff}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding:112px 0}
+.eyebrow{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--sec);margin-bottom:16px}
+h1{font:600 56px/1.15 Archivo,sans-serif;letter-spacing:-.02em;margin-bottom:24px}
+.hero p{color:var(--sec);max-width:46ch;margin-bottom:32px}
+.cta{display:inline-block;background:var(--text);color:#fff;font:500 16px Inter;padding:14px 28px;border-radius:8px;text-decoration:none;transition:opacity var(--fast) var(--ease)}
+.cta:hover{opacity:.85}
+.mock{border:1px solid var(--border);border-radius:12px;padding:24px;background:var(--surface)}
+.mock .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
+.mock .row:last-child{border:0}
+.mock .mono{font:500 12px 'IBM Plex Mono',monospace;color:var(--sec)}
+section{padding:96px 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.feature{background:var(--bg);padding:32px 0 32px 32px}
+.feature h3{font:600 22px Archivo;margin:12px 0 8px}
+.feature p{color:var(--sec);font-size:15px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;max-width:900px;margin:0 auto}
+.plan h3{font:600 18px Archivo;margin-bottom:8px}
+.price{font:600 40px Archivo;margin-bottom:16px}
+.plan ul{list-style:none;color:var(--sec);font-size:15px;margin-bottom:24px}
+.plan li{padding:6px 0;border-bottom:1px solid var(--border)}
+.band{background:var(--surface);text-align:center;border-radius:12px;padding:80px 24px}
+footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:64px 0}h1{font-size:34px}.features,.pricing{grid-template-columns:1fr}.feature{padding:24px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Ledgerly</span><ul><li><a href="#f">Features</a></li><li><a href="#p">Pricing</a></li></ul><a class="cta-top" href="#">Start free</a></nav>
+<header class="hero">
+<div><p class="eyebrow">Bookkeeping</p><h1>Your books, done before coffee.</h1><p>Ledgerly categorizes every transaction the moment it happens, reconciles with your bank nightly, and hands your accountant a clean file in April.</p><a class="cta" href="#">Start free — no card</a></div>
+<div class="mock">
+<div class="row"><span>Stripe payout</span><span class="mono">CAT. SOFTWARE INCOME</span><span>+£2,480</span></div>
+<div class="row"><span>Figma subscription</span><span class="mono">CAT. TOOLS</span><span>−£15</span></div>
+<div class="row"><span>Trainline</span><span class="mono">CAT. TRAVEL</span><span>−£86</span></div>
+<div class="row"><span class="mono">RECONCILED 03:00 NIGHTLY</span><span></span><span></span></div>
+</div>
+</header>
+<section id="f">
+<div class="features">
+<div class="feature"><p class="eyebrow">01</p><h3>Auto-categorized</h3><p>Every transaction lands in the right category. You correct one in a thousand.</p></div>
+<div class="feature"><p class="eyebrow">02</p><h3>Nightly reconciliation</h3><p>Bank feed matched against your ledger while you sleep.</p></div>
+<div class="feature"><p class="eyebrow">03</p><h3>Accountant-ready</h3><p>One-click export in the exact format your accountant asks for.</p></div>
+</div>
+</section>
+<section id="p">
+<div class="pricing">
+<div class="plan"><h3>Solo</h3><p class="price">£9<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>1 bank feed</li><li>Auto-categorization</li><li>Invoice tracking</li></ul><a class="cta" href="#">Start free</a></div>
+<div class="plan"><h3>Freelance</h3><p class="price">£19<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>3 bank feeds</li><li>Tax estimate runway</li><li>Accountant export</li><li>Receipt capture</li></ul><a class="cta" href="#">Start free</a></div>
+<div class="plan"><h3>Limited</h3><p class="price">£49<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>Unlimited feeds</li><li>Multi-entity</li><li>Priority support</li></ul><a class="cta" href="#">Talk to us</a></div>
+</div>
+</section>
+<section><div class="band"><p class="eyebrow">April is coming</p><h1 style="font-size:40px">Be the freelancer who's ready.</h1><br><a class="cta" href="#">Start free — no card</a></div></section>
+<footer><span>© 2026 Ledgerly Ltd, Bristol, UK</span><span>hello@ledgerly.app</span></footer>
+</div>
+</body>
+</html>

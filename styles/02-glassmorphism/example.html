@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse — Music that moves with you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F172A;--surface:#1E293B;--text:#F8FAFC;--sec:#94A3B8;--border:rgb(255 255 255/.10);--accent:#A78BFA;--accent-strong:#8B5CF6;--glass-bg:rgb(255 255 255/.12);--glass-border:rgb(255 255 255/.25);--glass-shadow:0 8px 32px rgb(0 0 0/.12);--container:1200px;--fast:150ms;--normal:200ms;--ease:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg);min-height:100vh;position:relative;overflow-x:hidden}
+/* Vivid field behind everything — glass needs something to blur */
+.field{position:fixed;inset:0;z-index:-2;background:linear-gradient(135deg,#6366F1 0%,#A855F7 45%,#EC4899 100%)}
+.field::before,.field::after{content:"";position:absolute;border-radius:50%;filter:blur(90px)}
+.field::before{width:520px;height:520px;background:rgb(99 102 241/.55);top:-120px;left:-80px;animation:drift 60s ease-in-out infinite alternate}
+.field::after{width:620px;height:620px;background:rgb(236 72 153/.45);bottom:-180px;right:-120px;animation:drift 80s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(60px,40px)}}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+/* Glass surface 1 of 2: navbar */
+nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;margin-top:20px;border-radius:18px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%)}
+.logo{font:700 20px 'Plus Jakarta Sans',sans-serif}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:15px;transition:opacity var(--fast) var(--ease)}
+nav a:hover{opacity:.75}
+.cta-top{font:500 14px Inter;padding:9px 18px;border-radius:10px;text-decoration:none;color:#0F172A;background:var(--text);transition:opacity var(--fast) var(--ease)}
+.cta-top:hover{opacity:.85}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:96px 0}
+.eyebrow{font:600 12px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sec);margin-bottom:16px}
+h1{font:700 56px/1.12 'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em;margin-bottom:24px}
+.hero p{color:var(--sec);max-width:44ch;margin-bottom:32px}
+.cta{display:inline-block;background:var(--accent);color:#0F172A;font:600 16px Inter;padding:14px 28px;border-radius:12px;text-decoration:none;transition:filter var(--normal) var(--ease)}
+.cta:hover{filter:brightness(1.08)}
+.cta.ghost{background:transparent;color:var(--text);border:1px solid var(--border);margin-left:12px}
+/* Glass surface 2 of 2: the hero "now playing" card */
+.player{border-radius:24px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);padding:28px}
+.player .art{height:200px;border-radius:16px;background:linear-gradient(120deg,#F59E0B,#EC4899 55%,#6366F1);margin-bottom:20px}
+.player h3{font:600 20px 'Plus Jakarta Sans';margin-bottom:4px}
+.player .meta{color:var(--sec);font-size:14px;margin-bottom:20px}
+.bar{height:6px;border-radius:3px;background:rgb(255 255 255/.18);position:relative;margin-bottom:8px}
+.bar i{position:absolute;inset:0 62% 0 0;border-radius:3px;background:var(--accent)}
+.times{display:flex;justify-content:space-between;font:600 11px 'JetBrains Mono';color:var(--sec);margin-bottom:20px}
+.controls{display:flex;gap:14px;align-items:center}
+.controls button{flex:1;height:44px;border:1px solid var(--border);border-radius:10px;background:rgb(255 255 255/.06);color:var(--text);font:500 14px Inter;cursor:pointer;transition:filter var(--normal) var(--ease)}
+.controls button:hover{filter:brightness(1.15)}
+.controls button.primary{background:var(--text);color:#0F172A;border:0;font-weight:600}
+/* Everything below is SOLID — the 2-glass budget is spent */
+section{padding:96px 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px}
+.feature h3{font:600 22px 'Plus Jakarta Sans';margin:12px 0 8px}
+.feature p{color:var(--sec);font-size:15px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px;display:flex;gap:64px;justify-content:center;flex-wrap:wrap;text-align:center}
+.stat b{display:block;font:700 40px 'Plus Jakarta Sans'}
+.stat span{color:var(--sec);font-size:14px}
+.band{background:var(--surface);border:1px solid var(--border);border-radius:24px;text-align:center;padding:72px 24px}
+.band h2{font:700 40px 'Plus Jakarta Sans';letter-spacing:-.02em;margin-bottom:16px}
+footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:64px 0}h1{font-size:34px}.features{grid-template-columns:1fr}}
+/* Mobile / fallback: glass gets expensive and fragile — go solid */
+@media(max-width:720px){
+  nav,.player{background:var(--surface);-webkit-backdrop-filter:none;backdrop-filter:none;border-color:var(--border)}
+}
+@supports not (backdrop-filter:blur(1px)){nav,.player{background:var(--surface)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.field::before,.field::after{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="field" aria-hidden="true"></div>
+<div class="container">
+<nav><span class="logo">Pulse</span><ul><li><a href="#f">Features</a></li><li><a href="#p">Pricing</a></li></ul><a class="cta-top" href="#">Get the app</a></nav>
+<header class="hero">
+<div><p class="eyebrow">Streaming</p><h1>Music that moves with you.</h1><p>Pulse learns what you play at 6am, at the gym, and on the night bus — then builds tomorrow's mix before you ask. 90 million tracks, one tap away.</p><a class="cta" href="#">Start listening free</a><a class="cta ghost" href="#">See plans</a></div>
+<div class="player">
+<div class="art" role="img" aria-label="Album artwork for Night Signal"></div>
+<h3>Night Signal</h3><p class="meta">Kaelo Vane · Midnight Frequencies</p>
+<div class="bar"><i></i></div><div class="times"><span>1:24</span><span>3:47</span></div>
+<div class="controls"><button>Shuffle</button><button class="primary">Play</button><button>Queue</button></div>
+</div>
+</header>
+<section id="f">
+<div class="features">
+<div class="feature"><p class="eyebrow">01</p><h3>Mixes before you ask</h3><p>Daily mixes tuned to your routine — morning calm, focus hours, late-night drives.</p></div>
+<div class="feature"><p class="eyebrow">02</p><h3>Lossless everywhere</h3><p>24-bit streaming over Wi-Fi and offline downloads that survive the underground.</p></div>
+<div class="feature"><p class="eyebrow">03</p><h3>Artists first</h3><p>85% of every pound goes to artists. Your plays pay the people who made them.</p></div>
+</div>
+</section>
+<section><div class="stat"><div><b>90M</b><span>tracks, lossless</span></div><div><b>4.9★</b><span>App Store rating</span></div><div><b>85%</b><span>of revenue to artists</span></div></div></section>
+<section id="p"><div class="band"><p class="eyebrow">Ready when you are</p><h2>Press play on Pulse.</h2><br><a class="cta" href="#">Start listening free</a></div></section>
+<footer><span>© 2026 Pulse Audio Ltd, London, UK</span><span>hello@pulse.audio</span></footer>
+</div>
+</body>
+</html>

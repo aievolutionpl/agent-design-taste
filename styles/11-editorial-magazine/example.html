@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fieldnotes — A journal for slow travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FDFBF7;--surface:#F4EFE6;--text:#1A1815;--sec:#6B6259;--border:#E3DCD0;--accent:#8C2F1B;--container:1200px;--fast:150ms;--ease:cubic-bezier(.22,1,.36,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 18px/1.7 'Source Serif 4',Georgia,serif;color:var(--text);background:var(--bg)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-top:3px solid var(--text);border-bottom:1px solid var(--border)}
+.logo{font:600 24px 'Fraunces',Georgia,serif}
+nav ul{display:flex;gap:32px;list-style:none}
+nav a{font:500 13px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--text);text-decoration:none}
+nav a:hover{color:var(--accent)}
+.kicker{font:500 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hero{padding:80px 0 64px;border-bottom:1px solid var(--border)}
+h1{font:600 56px/1.07 'Fraunces',Georgia,serif;letter-spacing:-.01em;max-width:18ch;margin-bottom:24px}
+.deck{font:italic 400 22px/1.5 'Source Serif 4',Georgia,serif;color:var(--sec);max-width:52ch;margin-bottom:16px}
+.byline{font:500 13px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--sec)}
+.byline b{color:var(--accent)}
+.feature{display:grid;grid-template-columns:7fr 5fr;gap:64px;padding:96px 0;border-bottom:1px solid var(--border)}
+.feature.flip{grid-template-columns:5fr 7fr}
+.feature img{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.credit{font:400 13px Inter,sans-serif;color:var(--sec);margin-top:8px}
+h2{font:600 40px/1.1 'Fraunces',Georgia,serif;letter-spacing:-.01em;margin-bottom:24px}
+.feature p+p{margin-top:16px}
+.dropcap::first-letter{font:600 64px/.9 'Fraunces',Georgia,serif;float:left;padding:8px 12px 0 0;color:var(--accent)}
+.pullquote{font:italic 500 32px/1.3 'Fraunces',Georgia,serif;border-top:1px solid var(--text);border-bottom:1px solid var(--text);padding:32px 0;margin:0 0 0 16.66%;max-width:70%}
+.pullquote span{color:var(--accent)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:48px}
+.plan{padding:40px 32px;border-right:1px solid var(--border)}
+.plan:last-child{border-right:0}
+.plan h3{font:600 22px 'Fraunces',Georgia,serif;margin-bottom:8px}
+.price{font:600 40px 'Fraunces',Georgia,serif;margin-bottom:16px}
+.plan ul{list-style:none;margin-bottom:24px}
+.plan li{font:400 15px 'Source Serif 4',Georgia,serif;color:var(--sec);padding:8px 0;border-bottom:1px solid var(--border)}
+.cta{display:inline-block;background:var(--text);color:var(--bg);font:500 14px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:background var(--fast) var(--ease)}
+.cta:hover{background:var(--accent)}
+.subscribe{background:var(--surface);padding:96px 24px;margin:96px 0 0}
+.subscribe h2{font:600 40px/1.1 'Fraunces',Georgia,serif;margin-bottom:16px;max-width:22ch}
+.subscribe p{color:var(--sec);max-width:52ch;margin-bottom:32px}
+footer{border-top:1px solid var(--border);margin-top:96px;padding:40px 0;color:var(--sec);font:400 13px Inter,sans-serif;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+@media(max-width:900px){h1{font-size:34px}.feature,.feature.flip{grid-template-columns:1fr;gap:32px;padding:64px 0}.pullquote{margin:0;max-width:100%;font-size:26px}.plans{grid-template-columns:1fr}.plan{border-right:0;border-bottom:1px solid var(--border)}.plan:last-child{border-bottom:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Fieldnotes</span><ul><li><a href="#s">Stories</a></li><li><a href="#p">Print</a></li></ul><a class="cta" href="#">Subscribe</a></nav>
+<header class="hero">
+<p class="kicker">Issue 24 · The Slow Miles</p>
+<h1>Fourteen days on the wrong train.</h1>
+<p class="deck">We skipped the itinerary and followed the timetable's mistakes — through the Dolomites' back valleys, one missed connection at a time.</p>
+<p class="byline">Words by <b>Marta Keil</b> · Photography <b>J. Ferreira</b></p>
+</header>
+<section class="feature" id="s">
+<div>
+<h2>The beauty of the unplanned stop</h2>
+<p class="dropcap">The ticket said Bolzano. The train disagreed. Somewhere after the third tunnel we stopped at a village with no name on our map, and the conductor — unbothered, almost apologetic — pointed us toward a trailhead behind the station. That was the moment the trip actually began.</p>
+<p>Slow travel isn't about moving slowly; it's about letting the route talk back. Every missed connection in these fourteen days handed us a town we'd never have chosen and couldn't now cut from the story.</p>
+</div>
+<div>
+<img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=900&q=60" alt="Dolomite valley in morning light">
+<p class="credit">Val di Funes, morning — J. Ferreira for Fieldnotes</p>
+</div>
+</section>
+<section>
+<blockquote class="pullquote">"The best itinerary is the one <span>the mountains rewrite</span> by lunchtime."</blockquote>
+</section>
+<section class="feature flip">
+<div>
+<img src="https://images.unsplash.com/photo-1516571748831-5d81767b788d?w=900&q=60" alt="Old railway platform">
+<p class="credit">Platform 2, Brenner Pass — J. Ferreira for Fieldnotes</p>
+</div>
+<div>
+<h2>What the timetable hides</h2>
+<p class="dropcap">Print timetables are honest in a way apps refuse to be: they show gaps. In those gaps live the pharmacies, the grandmother running the station café, the two-hour walk that turns a wait into a destination. Our correspondents plan for gaps the way sailors plan for wind.</p>
+<p>In this issue: the café at Brenner, a ferry timetable as poetry, and why the slowest line in the Alps sells out first.</p>
+</div>
+</section>
+<section id="p">
+<p class="kicker">Print subscription</p>
+<h2>Four issues a year. Paper that lasts.</h2>
+<div class="plans">
+<div class="plan"><h3>Digital</h3><p class="price">€6<span style="font:400 15px Inter;color:var(--sec)">/mo</span></p><ul><li>Full digital archive</li><li>Weekly letter</li><li>Audio editions</li></ul><a class="cta" href="#">Subscribe</a></div>
+<div class="plan"><h3>Print</h3><p class="price">€68<span style="font:400 15px Inter;color:var(--sec)">/yr</span></p><ul><li>4 print issues</li><li>Full digital archive</li><li>Weekly letter</li></ul><a class="cta" href="#">Subscribe</a></div>
+<div class="plan"><h3>Patron</h3><p class="price">€120<span style="font:400 15px Inter;color:var(--sec)">/yr</span></p><ul><li>4 issues, early delivery</li><li>Annual print annual</li><li>Reader weekends</li></ul><a class="cta" href="#">Subscribe</a></div>
+</div>
+</section>
+<section class="subscribe"><h2>Read it the way it was written — slowly.</h2><p>Fieldnotes is written on trains, edited at kitchen tables, and printed on paper worth keeping. Join 40,000 readers who still let a story take fourteen days.</p><a class="cta" href="#">Subscribe from €6/month</a></section>
+<footer><span>© 2026 Fieldnotes Publishing, Trieste</span><span>Set in Fraunces & Source Serif · Printed on recycled stock</span></footer>
+</div>
+</body>
+</html>

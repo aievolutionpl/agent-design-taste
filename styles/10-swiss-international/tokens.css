@@ -1,0 +1,56 @@
+/* 10 · Swiss International — design tokens (canonical) */
+:root {
+  --color-bg: #FFFFFF;
+  --color-surface: #F4F4F2;
+  --color-text: #111111;
+  --color-text-secondary: #5C5C5C;
+  --color-border: #D9D9D6;
+  --color-primary: #111111;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #E2231A;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #1A7A3C;
+  --color-warning: #C77800;
+  --color-error: #E2231A;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --font-size-h1: 64px;
+  --font-size-h2: 40px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 16px;
+  --font-size-small: 13px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 0px; --radius-md: 2px; --radius-lg: 2px;
+  --shadow-none: none;
+  --shadow-focus: 0 0 0 3px rgb(226 35 26 / 0.35);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
+
+  --container-width: 1280px;
+
+  --motion-fast: 120ms;
+  --motion-normal: 200ms;
+  --motion-slow: 320ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+[data-theme="dark"] {
+  --color-bg: #0C0C0C;
+  --color-surface: #171717;
+  --color-text: #F2F2F0;
+  --color-text-secondary: #9C9C98;
+  --color-border: #2A2A2A;
+  --color-primary: #F2F2F0;
+  --color-primary-contrast: #0C0C0C;
+}

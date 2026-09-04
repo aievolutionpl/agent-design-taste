@@ -1,0 +1,78 @@
+/* 13 · Y2K Retrofuturism — design tokens (canonical) */
+:root {
+  --color-bg: #E8F1F8;
+  --color-surface: #FFFFFF;
+  --color-text: #1B2A3A;
+  --color-text-secondary: #5A7086;
+  --color-border: #B9CCDD;
+  --color-primary: #3B5BDB;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent-1: #C77DFF; /* lilac */
+  --color-accent-2: #64E0D4; /* aqua  */
+  --color-accent-3: #FFB8D1; /* bubble pink */
+  --color-success: #1FA97C;
+  --color-warning: #E0A010;
+  --color-error: #E04060;
+
+  /* signature gradients — CSS only, never images */
+  --gradient-chrome: linear-gradient(180deg,#F5FAFF 0%,#C6D6E4 30%,#6E8497 55%,#EAF2F8 75%,#8FA6B8 100%);
+  --gradient-chrome-text: linear-gradient(180deg,#EAF6FF 0%,#9FB8CC 55%,#3A4A5C 100%);
+  --gradient-iridescent: linear-gradient(135deg,#FFB8D1 0%,#E3D0FF 35%,#A8E8FF 65%,#B8FFE3 100%);
+  --gradient-sky: linear-gradient(180deg,#DCEBFA 0%,#F3E9FA 55%,#FFE9F1 100%);
+  --gradient-glow: radial-gradient(circle, rgb(59 91 219 / 0.35) 0%, transparent 70%);
+
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Orbitron', 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --font-size-h1: 56px;
+  --font-size-h2: 38px;
+  --font-size-h3: 26px;
+  --font-size-h4: 20px;
+  --font-size-h5: 17px;
+  --font-size-h6: 15px;
+  --font-size-body: 16px;
+  --font-size-small: 13px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --bezel-highlight: inset 0 2px 2px rgb(255 255 255 / 0.8);
+  --bezel-shadow: inset 0 -3px 4px rgb(0 0 0 / 0.12);
+  --bezel: var(--bezel-highlight), var(--bezel-shadow);
+  --shadow-panel: 0 8px 24px rgb(27 42 58 / 0.10);
+  --shadow-focus: 0 0 0 3px rgb(59 91 219 / 0.35);
+
+  --container-width: 1200px;
+
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ambient-bob: 6s;   /* float ±4px */
+  --shimmer-cycle: 4s; /* chrome CTA sweep */
+  --ambient-max: 2;    /* max ambient animations on screen */
+}
+[data-theme="dark"] {
+  --color-bg: #0E1626;
+  --color-surface: #1A2A44;
+  --color-text: #E8F1F8;
+  --color-text-secondary: #8FA6C4;
+  --color-border: #34507A;
+  --color-primary: #7AA8FF;
+  --color-primary-contrast: #0E1626;
+  --color-accent-1: #D9A8FF;
+  --color-accent-2: #7CF0E4;
+  --color-accent-3: #FFC4DC;
+  --gradient-sky: linear-gradient(180deg,#1A2A44 0%,#241F44 55%,#2E1E38 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --ambient-bob: 0s; --shimmer-cycle: 0s; --motion-ease: linear; }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piggo — Pocket money that teaches kids about money</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F1FA;--surface:#fff;--text:#2D2438;--sec:#6B5E7F;--primary:#7C5CFC;
+  --primary-soft:#E6DEFF;--pink:#FF8FA3;--green:#4ADE80;
+  --clay:8px 8px 24px rgba(124,92,252,.18),-8px -8px 24px #fff,inset 0 2px 0 rgba(255,255,255,.7);
+  --clay-sm:4px 4px 12px rgba(124,92,252,.16),-4px -4px 12px #fff,inset 0 1px 0 rgba(255,255,255,.7);
+  --btn:inset 0 -4px 0 rgba(0,0,0,.18),0 12px 24px rgba(124,92,252,.30);
+  --btn-press:inset 0 -1px 0 rgba(0,0,0,.18),0 4px 8px rgba(124,92,252,.25);
+  --inset:inset 0 2px 6px rgba(45,36,56,.12);
+  --container:1140px;--normal:300ms;--ease:cubic-bezier(.34,1.56,.64,1);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#1E1830;--surface:#2A2142;--text:#F3EFFA;--sec:#B8A9D9;--primary:#9B7DFF;--primary-soft:#3D2E68;
+    --clay:8px 8px 24px rgba(0,0,0,.45),-8px -8px 24px rgba(155,125,255,.07),inset 0 2px 0 rgba(255,255,255,.06);
+    --clay-sm:4px 4px 12px rgba(0,0,0,.40),-4px -4px 12px rgba(155,125,255,.06),inset 0 1px 0 rgba(255,255,255,.06);
+    --btn:inset 0 -4px 0 rgba(0,0,0,.35),0 12px 24px rgba(0,0,0,.45);
+    --btn-press:inset 0 -1px 0 rgba(0,0,0,.35),0 4px 8px rgba(0,0,0,.40);
+    --inset:inset 0 2px 6px rgba(0,0,0,.35);}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 16px/1.6 'Nunito Sans',sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;background:var(--surface);border-radius:999px;padding:12px 12px 12px 28px;box-shadow:var(--clay-sm)}
+.logo{font:700 20px 'Baloo 2';color:var(--primary)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-weight:600;font-size:15px}
+nav a:hover{color:var(--primary)}
+.btn{display:inline-block;background:var(--primary);color:#fff;font:700 16px 'Nunito Sans';padding:14px 30px;border-radius:999px;text-decoration:none;box-shadow:var(--btn);transition:all var(--normal) var(--ease)}
+.btn:hover{transform:scale(1.03)}
+.btn:active{transform:translateY(2px);box-shadow:var(--btn-press)}
+.btn.pink{background:var(--pink);box-shadow:inset 0 -4px 0 rgba(0,0,0,.15),0 12px 24px rgba(255,143,163,.35)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:96px 0}
+.eyebrow{display:inline-block;font:700 12px 'Nunito Sans';letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:var(--primary-soft);padding:8px 18px;border-radius:999px;margin-bottom:20px}
+h1{font:700 52px/1.12 'Baloo 2';margin-bottom:20px}
+.hero p{color:var(--sec);font-size:18px;max-width:44ch;margin-bottom:32px}
+.phone{background:var(--surface);border-radius:32px;padding:24px;box-shadow:var(--clay)}
+.bal-row{display:flex;justify-content:space-between;align-items:center;background:var(--primary-soft);border-radius:20px;padding:18px 20px;margin-bottom:16px}
+.bal-row b{font:700 30px 'Baloo 2'}
+.task{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--surface);border:2px solid var(--bg);border-radius:16px;margin-bottom:12px;font-weight:600}
+.task .done{background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
+.task .todo{background:var(--bg);color:var(--sec);font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
+section{padding:80px 0}
+h2{font:700 36px/1.2 'Baloo 2';text-align:center;margin-bottom:16px}
+.sub{text-align:center;color:var(--sec);max-width:52ch;margin:0 auto 48px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.card{background:var(--surface);border-radius:24px;padding:32px;box-shadow:var(--clay)}
+.icon{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+.icon.v{background:var(--primary-soft)}.icon.p{background:#FFE3E9}.icon.g{background:#D9FBE8}
+.card h3{font:700 22px 'Baloo 2';margin-bottom:8px}
+.card p{color:var(--sec);font-size:15px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:960px;margin:0 auto;align-items:start}
+.plan{background:var(--surface);border-radius:24px;padding:32px;box-shadow:var(--clay-sm)}
+.plan.pop{box-shadow:var(--clay);transform:translateY(-12px);background:var(--primary-soft)}
+.plan h3{font:700 20px 'Baloo 2';margin-bottom:8px}
+.price{font:700 40px 'Baloo 2';margin-bottom:16px}
+.plan ul{list-style:none;color:var(--sec);font-size:15px;margin-bottom:24px}
+.plan li{padding:8px 0;border-bottom:2px solid var(--bg)}
+.band{background:var(--surface);border-radius:32px;padding:72px 24px;text-align:center;box-shadow:var(--clay)}
+.band h2{margin-bottom:24px}
+footer{padding:48px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:64px 0;gap:48px}
+  h1{font-size:32px}
+  .cards,.pricing{grid-template-columns:1fr}
+  .plan.pop{transform:none}
+  nav ul{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">🐷 Piggo</span><ul><li><a href="#f">How it works</a></li><li><a href="#p">Plans</a></li></ul><a class="btn" href="#" style="padding:10px 22px;font-size:14px">Get the app</a></nav>
+<header class="hero">
+<div>
+<p class="eyebrow">Pocket money, upgraded</p>
+<h1>Chores done. Money learned. Tantrums optional.</h1>
+<p>Piggo turns pocket money into a game: kids complete chores, watch their piggy balance grow, and learn to save before they can spend. Parents stay in control from one app.</p>
+<a class="btn" href="#">Download free</a> &nbsp;<a class="btn pink" href="#">See how it works</a>
+</div>
+<div class="phone">
+<div class="bal-row"><span>Mia's piggy</span><b>£24.50</b></div>
+<div class="task"><span>🧹 Tidy my room</span><span class="done">+£2.00</span></div>
+<div class="task"><span>📚 Reading 20 min</span><span class="done">+£1.50</span></div>
+<div class="task"><span>🐾 Walk Bruno</span><span class="todo">TODAY</span></div>
+<div class="task"><span>🏦 Save goal: bike</span><span class="todo">£24 / £80</span></div>
+</div>
+</header>
+<section id="f">
+<h2>Money skills, minus the lectures</h2>
+<p class="sub">Three habits, built one chore and one piggy bank at a time.</p>
+<div class="cards">
+<div class="card"><div class="icon v">✅</div><h3>Chores → coins</h3><p>Assign tasks in seconds. Kids tick them off and watch the balance puff up instantly — instant feedback beats IOUs.</p></div>
+<div class="card"><div class="icon p">🏦</div><h3>Save goals</h3><p>Every piggy has a goal with a progress bar. Mia sees exactly how many walks until the bike is hers.</p></div>
+<div class="card"><div class="icon g">👪</div><h3>Parents in charge</h3><p>Set allowances, approve spending, pause anytime. Your card never goes to your kid's hands.</p></div>
+</div>
+</section>
+<section id="p">
+<h2>Pick your piggy plan</h2>
+<p class="sub">Start free, upgrade when the whole gang joins.</p>
+<div class="pricing">
+<div class="plan"><h3>One Piglet</h3><p class="price">Free</p><ul><li>1 kid profile</li><li>Unlimited chores</li><li>1 save goal</li></ul><a class="btn" href="#" style="display:block;text-align:center">Start free</a></div>
+<div class="plan pop"><h3>The Litter</h3><p class="price">£4<span style="font:600 16px 'Nunito Sans';color:var(--sec)">/mo</span></p><ul><li>Up to 4 kids</li><li>Save goals + interest boosts</li><li>Weekly money missions</li><li>Gift money from family</li></ul><a class="btn" href="#" style="display:block;text-align:center">Try 30 days</a></div>
+<div class="plan"><h3>Farm</h3><p class="price">£8<span style="font:600 16px 'Nunito Sans';color:var(--sec)">/mo</span></p><ul><li>Unlimited kids</li><li>Real prepaid card option</li><li>Priority support</li></ul><a class="btn" href="#" style="display:block;text-align:center">Talk to us</a></div>
+</div>
+</section>
+<section><div class="band">
+<h2 style="font-size:32px">Give them pocket money. Give them a head start.</h2>
+<a class="btn" href="#">Download Piggo free</a>
+</div></section>
+<footer><span>© 2026 Piggo Financial Ltd, Manchester, UK</span><span>hello@piggo.app</span></footer>
+</div>
+</body>
+</html>

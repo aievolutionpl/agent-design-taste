@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@theme {
+  --color--bg: #E8E9EB;
+  --color--panel: #F2F3F4;
+  --color--well: #D7D9DC;
+  --color--text: #1F2328;
+  --color--text-secondary: #5A6068;
+  --color--primary: #2F6FED;
+  --color--primary-contrast: #FFFFFF;
+  --color--action-hw: #F25C05;
+  --color--readout: #FFB000;
+  --color--led-ok: #3DDC84;
+  --color--led-warn: #FFB000;
+  --color--led-err: #FF4D4D;
+  --color--success: #2E9E5B;
+  --color--warning: #B87400;
+  --color--error: #C93A3A;
+  --font--sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font--display: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+  --font--mono: 'JetBrains Mono', monospace;
+  --fontSize--h1: 48px;
+  --fontSize--h2: 34px;
+  --fontSize--h3: 24px;
+  --fontSize--h4: 19px;
+  --fontSize--body: 16px;
+  --fontSize--small: 13px;
+  --fontSize--label: 10px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-11: 44px;
+  --spacing-14: 56px;
+  --spacing-24: 96px;
+  --radiu--xs: 4px;
+  --radiu--sm: 6px;
+  --radiu--md: 8px;
+  --radiu--lg: 12px;
+  --shadow--raised: 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.08),
+                   inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --shadow--press: inset 0 2px 5px rgba(0, 0, 0, 0.28);
+  --shadow--well: inset 0 2px 4px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  --shadow--btn: 0 2px 0 rgba(0, 0, 0, 0.35), 0 4px 10px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  --shadow--knob: 0 3px 8px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.55),
+                 inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+  --shadow--focus: 0 0 0 3px rgba(47, 111, 237, 0.40);
+}

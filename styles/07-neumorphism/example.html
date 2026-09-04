@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HavenPod — Your home, in one soft pane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ECF0F3;--text:#111827;--sec:#4B5563;--dark:#C8D0E0;--light:#FFF;--accent:#4F6AF0;--fast:200ms;--ease:cubic-bezier(.22,1,.36,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 16px/1.65 'Nunito Sans',sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font:800 20px Manrope,sans-serif}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:15px}
+nav a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.navcta{font:700 14px 'Nunito Sans';padding:10px 22px;border-radius:999px;background:var(--accent);color:#fff;box-shadow:6px 6px 12px var(--dark),-6px -6px 12px var(--light);text-decoration:none;transition:all var(--fast) var(--ease)}
+.navcta:hover{transform:translateY(-2px)}
+.btn{display:inline-block;font:700 16px 'Nunito Sans';padding:15px 32px;border-radius:999px;background:var(--accent);color:#fff;box-shadow:8px 8px 16px var(--dark),-8px -8px 16px var(--light);border:0;text-decoration:none;cursor:pointer;transition:all var(--fast) var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{box-shadow:inset 4px 4px 8px rgba(0,0,0,.25)}
+.btn:focus-visible{outline:3px solid var(--text);outline-offset:3px}
+.btn:focus-visible:not(:active){outline:3px solid var(--accent)}
+.btn-ghost{background:var(--bg);color:var(--text);border:1px solid var(--dark)}
+.btn-ghost:hover{border-color:var(--text)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:88px 0}
+.pill{display:inline-block;font:600 11px/1 'Nunito Sans';letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:999px;box-shadow:inset 3px 3px 6px var(--dark),inset -3px -3px 6px var(--light);color:var(--sec);margin-bottom:20px}
+h1{font:800 48px/1.1 Manrope,sans-serif;letter-spacing:-.015em;margin-bottom:20px}
+.hero p{color:var(--sec);max-width:48ch;margin-bottom:32px}
+.widget{border-radius:24px;background:var(--bg);box-shadow:10px 10px 20px var(--dark),-10px -10px 20px var(--light);padding:32px}
+.widget .row{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.widget .row+.row{border-top:1px solid #dde3ea}
+.temp-well{border-radius:16px;box-shadow:inset 4px 4px 8px var(--dark),inset -4px -4px 8px var(--light);padding:12px 20px;font:700 22px Manrope,sans-serif}
+.wlabel{font:600 13px 'Nunito Sans';color:var(--sec)}
+.badge{font:700 11px 'Nunito Sans';letter-spacing:.04em;padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.badge.off{background:var(--bg);color:var(--sec);box-shadow:inset 2px 2px 5px var(--dark),inset -2px -2px 5px var(--light)}
+section{padding:96px 0}
+.sec-head{text-align:center;max-width:60ch;margin:0 auto 56px}
+h2{font:800 36px/1.2 Manrope,sans-serif;letter-spacing:-.015em;margin-bottom:12px}
+.sec-head p{color:var(--sec)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.card{border-radius:24px;padding:36px 32px;box-shadow:6px 6px 12px var(--dark),-6px -6px 12px var(--light)}
+.icon{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:inset 4px 4px 8px var(--dark),inset -4px -4px 8px var(--light);margin-bottom:20px}
+.card h3{font:800 20px Manrope;margin-bottom:8px}
+.card p{color:var(--sec);font-size:15px}
+.demo{max-width:720px;margin:0 auto;border-radius:28px;box-shadow:10px 10px 20px var(--dark),-10px -10px 20px var(--light);padding:40px;text-align:center}
+.dial{width:190px;height:190px;border-radius:50%;margin:24px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 8px 8px 16px var(--dark),inset -8px -8px 16px var(--light)}
+.dial b{font:800 44px Manrope,sans-serif}
+.dial span{font:600 13px 'Nunito Sans';color:var(--sec)}
+.demo-btns{display:flex;gap:16px;justify-content:center;margin-top:8px}
+.chip{padding:12px 24px;border-radius:999px;background:var(--bg);border:0;font:700 14px 'Nunito Sans';color:var(--sec);cursor:pointer;box-shadow:5px 5px 10px var(--dark),-5px -5px 10px var(--light);transition:all var(--fast) var(--ease)}
+.chip[aria-pressed="true"]{box-shadow:inset 4px 4px 8px var(--dark),inset -4px -4px 8px var(--light);color:var(--accent)}
+.chip:hover{border:1px solid var(--dark);padding:11px 23px}
+.chip:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:960px;margin:0 auto}
+.plan{border-radius:24px;padding:36px 32px;box-shadow:6px 6px 12px var(--dark),-6px -6px 12px var(--light)}
+.plan.hot{outline:2px solid var(--accent);outline-offset:-2px}
+.plan h3{font:800 18px Manrope;margin-bottom:6px}
+.price{font:800 40px Manrope;margin:10px 0 18px}
+.plan ul{list-style:none;color:var(--sec);font-size:15px;margin-bottom:26px}
+.plan li{padding:7px 0}
+footer{padding:40px 0 56px;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;border-top:1px solid var(--dark);margin-top:48px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:56px 0}h1{font-size:34px}.cards,.pricing{grid-template-columns:1fr}section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">HavenPod</span><ul><li><a href="#f">Features</a></li><li><a href="#d">Demo</a></li><li><a href="#p">Pricing</a></li></ul><a class="navcta" href="#">Open app</a></nav>
+<header class="hero">
+<div><span class="pill">Smart home · no yelling at speakers</span><h1>Your home, in one soft pane.</h1><p>HavenPod puts every room on one calm screen — temperature, locks, lights and energy, all reachable in two taps and none of the shouting.</p><a class="btn" href="#">Start free for 30 days</a> <a class="btn btn-ghost" href="#d" style="margin-left:12px">See it live</a></div>
+<div class="widget">
+<div class="row"><span class="wlabel">Living room</span><span class="badge">Heating · on</span></div>
+<div class="row"><span class="wlabel">Target temp</span><span class="temp-well">21.5°C</span></div>
+<div class="row"><span class="wlabel">Front door</span><span>Locked · 18:42</span></div>
+<div class="row"><span class="wlabel">Energy today</span><b style="font:700 18px Manrope">4.2 kWh</b></div>
+</div>
+</header>
+<section id="f">
+<div class="sec-head"><h2>Quietly in control</h2><p>Three things HavenPod does so you stop opening five apps.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">🌡️</div><h3>One pane, every room</h3><p>Heating, humidity and air in a single view. Set a room, not a ritual.</p></div>
+<div class="card"><div class="icon">🔒</div><h3>Doors that tell you things</h3><p>Lock, check, and get pinged only when something's actually off.</p></div>
+<div class="card"><div class="icon">⚡</div><h3>Energy without the guilt trip</h3><p>Daily kWh in plain numbers, with a nudge when a habit costs real money.</p></div>
+</div>
+</section>
+<section id="d">
+<div class="sec-head"><h2>Try the pane</h2><p>A real slice of the app — press the modes.</p></div>
+<div class="demo">
+<div class="demo-btns" style="margin-bottom:24px"><button class="chip" aria-pressed="true">Home</button><button class="chip" aria-pressed="false">Away</button><button class="chip" aria-pressed="false">Night</button></div>
+<div class="dial"><b>21.5°</b><span>LIVING ROOM · HEATING</span></div>
+<p style="color:var(--sec);font-size:14px">Away mode drops target to 17° and switches everything off in one tap.</p>
+</div>
+</section>
+<section id="p">
+<div class="sec-head"><h2>Simple pricing</h2><p>Hardware you own. Hub optional.</p></div>
+<div class="pricing">
+<div class="plan"><h3>Solo</h3><p class="price">£0<span style="font-size:15px;color:var(--sec)">/mo</span></p><ul><li>3 rooms</li><li>Heating + lights</li><li>7-day history</li></ul><a class="btn btn-ghost" href="#" style="display:block;text-align:center">Start free</a></div>
+<div class="plan hot"><h3>Home</h3><p class="price">£6<span style="font-size:15px;color:var(--sec)">/mo</span></p><ul><li>Unlimited rooms</li><li>Locks + energy</li><li>Away automations</li><li>90-day history</li></ul><a class="btn" href="#" style="display:block;text-align:center">Start free</a></div>
+<div class="plan"><h3>Household</h3><p class="price">£11<span style="font-size:15px;color:var(--sec)">/mo</span></p><ul><li>Unlimited everything</li><li>5 profiles</li><li>Priority support</li></ul><a class="btn btn-ghost" href="#" style="display:block;text-align:center">Talk to us</a></div>
+</div>
+</section>
+<footer><span>© 2026 HavenPod Ltd, Manchester, UK</span><span>hello@havenpod.app</span></footer>
+</div>
+<script>
+document.querySelectorAll('.chip').forEach(c=>{c.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed','false'));c.setAttribute('aria-pressed','true');});});
+</script>
+</body>
+</html>

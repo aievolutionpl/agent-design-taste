@@ -1,0 +1,75 @@
+/* 14 · 3D Spatial UI — design tokens (canonical) */
+:root {
+  --color-bg: #F4F4F0;
+  --color-surface: #FFFFFF;
+  --color-text: #101014;
+  --color-text-secondary: #5A5A5E;
+  --color-border: #E3E3DE;
+  --color-primary: #101014;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #4F46E5;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-glow: rgb(79 70 229 / 0.12);
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'Space Mono', 'IBM Plex Mono', monospace;
+
+  --font-size-h1: 60px;
+  --font-size-h2: 42px;
+  --font-size-h3: 26px;
+  --font-size-h4: 21px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-label: 11px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+
+  /* Depth system */
+  --perspective: 1200px;
+  --z-near: 80px;      /* interactive plane */
+  --z-mid: 0px;        /* content plane */
+  --z-far: -160px;     /* ambient/context plane */
+  --tilt-max: 6deg;    /* hover tilt cap */
+  --rot-y-max: 18deg;  /* composition rotation cap */
+
+  --shadow-plane: 0 24px 60px -24px rgb(16 16 20 / 0.25);
+  --shadow-lift: 0 32px 72px -28px rgb(16 16 20 / 0.35);
+  --shadow-focus: 0 0 0 3px rgb(79 70 229 / 0.35);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
+
+  --container-width: 1200px;
+
+  --motion-fast: 200ms;
+  --motion-normal: 350ms;
+  --motion-slow: 500ms;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-theme="dark"] {
+  --color-bg: #060608;
+  --color-surface: #101014;
+  --color-text: #F2F2F0;
+  --color-text-secondary: #8E8E94;
+  --color-border: #1F1F26;
+  --color-primary: #F2F2F0;
+  --color-primary-contrast: #060608;
+  --color-accent: #8B8BF5;
+  --color-accent-contrast: #060608;
+  --color-glow: rgb(139 139 245 / 0.14);
+  --shadow-plane: 0 24px 60px -20px rgb(0 0 0 / 0.7);
+  --shadow-lift: 0 32px 80px -24px rgb(0 0 0 / 0.85);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --z-near: 0px; --z-far: 0px; --tilt-max: 0deg; --rot-y-max: 0deg; }
+}

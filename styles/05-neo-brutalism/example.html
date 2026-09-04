@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAMPART — Uptime monitoring with no bloat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFDF5;--ink:#111;--yellow:#FFD02F;--pink:#FF90E8;--blue:#4D7CFE;--sec:#3D3D3A;--container:1200px;--fast:120ms}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:500 16px/1.6 'Space Grotesk',sans-serif;color:var(--ink);background:var(--bg)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+h1,h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+h1{font-size:64px;line-height:1.0}
+h2{font-size:44px;line-height:1.05}
+h3{font:700 26px/1.3 'Space Grotesk'}
+.stamp{font:700 12px/1 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;display:inline-block;padding:5px 10px;border:2px solid var(--ink);background:#fff}
+a{color:var(--ink)}
+.btn{display:inline-block;font:700 16px 'Space Grotesk';text-decoration:none;padding:14px 28px;border:2px solid var(--ink);background:var(--yellow);box-shadow:6px 6px 0 var(--ink);transition:transform var(--fast) linear,box-shadow var(--fast) linear;color:var(--ink)}
+.btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.btn.small{padding:9px 18px;font-size:14px;box-shadow:4px 4px 0 var(--ink)}
+.btn.small:hover{box-shadow:2px 2px 0 var(--ink)}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:2px solid var(--ink);margin-bottom:0}
+.logo{font:400 22px 'Archivo Black';text-transform:uppercase}
+nav ul{display:flex;gap:24px;list-style:none;font-weight:700}
+nav ul a{text-decoration:none}
+
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:80px 0;position:relative}
+.hero .field{position:absolute;inset:40% 0 -20px 0;background:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);z-index:-1}
+.hero p.lede{font-size:18px;max-width:44ch;margin:24px 0 32px;color:var(--sec)}
+.status{background:#fff;border:2px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:24px;transform:rotate(1deg)}
+.status .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:2px solid var(--ink);font:700 14px 'Space Mono',monospace;text-transform:uppercase}
+.status .row:last-child{border:0}
+.up{background:var(--yellow);padding:2px 8px;border:2px solid var(--ink)}
+
+.marquee{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--pink);overflow:hidden;white-space:nowrap;padding:12px 0}
+.marquee span{font:700 14px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.1em;display:inline-block;animation:scroll 22s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee:hover span{animation-play-state:paused}
+
+section{padding:88px 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.card{border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:28px;background:#fff}
+.card:nth-child(2){background:var(--yellow);transform:rotate(-1deg)}
+.card:nth-child(3){background:var(--pink)}
+.card h3{margin:16px 0 8px}
+.card p{color:var(--sec)}
+.card:nth-child(2) p,.card:nth-child(3) p{color:var(--ink)}
+
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto}
+.plan{border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:28px;background:#fff}
+.plan.featured{background:var(--yellow);box-shadow:10px 10px 0 var(--ink);transform:rotate(1deg)}
+.price{font:400 56px/1 'Archivo Black';margin:12px 0}
+.plan ul{list-style:none;margin:16px 0 24px}
+.plan li{padding:8px 0;border-bottom:2px solid var(--ink);font-weight:500}
+.plan.featured li{border-color:var(--ink)}
+
+.bigfoot{background:var(--ink);color:var(--bg);padding:64px 0;border-top:2px solid var(--ink)}
+.bigfoot h2{font-size:48px;margin-bottom:24px}
+.bigfoot .btn{box-shadow:6px 6px 0 var(--bg)}
+.bigfoot .btn:hover{box-shadow:3px 3px 0 var(--bg)}
+.bigfoot p.meta{font:700 13px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-top:24px;opacity:.7}
+
+footer{background:var(--ink);color:var(--bg);border-top:2px solid var(--bg);padding:24px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font:700 13px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.1em}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:56px 0}
+  h1{font-size:38px}.bigfoot h2{font-size:32px}
+  .features,.pricing{grid-template-columns:1fr}
+  .card,.plan.featured{transform:none}
+  .status{transform:none}
+  nav ul{display:none}
+}
+@media(prefers-reduced-motion:reduce){.marquee span{animation:none}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">RAMPART</span><ul><li><a href="#f">Features</a></li><li><a href="#p">Pricing</a></li></ul><a class="btn small" href="#">Start free</a></nav>
+
+<header class="hero">
+  <div>
+    <p class="stamp">UPTIME MONITORING</p>
+    <h1>Your site went down.<br>We yelled first.</h1>
+    <p class="lede">Rampart pings your endpoints every 30 seconds from 6 regions and screams into Slack before your users tweet at you. No dashboards to build. No 40-page invoice.</p>
+    <a class="btn" href="#">Start free — no card</a>
+  </div>
+  <div class="status">
+    <div class="row"><span>API.EU</span><span class="up">UP · 87ms</span></div>
+    <div class="row"><span>APP.US</span><span class="up">UP · 112ms</span></div>
+    <div class="row"><span>CDN.GLOBAL</span><span class="up">UP · 34ms</span></div>
+    <div class="row"><span>CHECKS / MO</span><span>1.2M</span></div>
+  </div>
+  <div class="field" aria-hidden="true"></div>
+</header>
+</div>
+
+<div class="marquee"><span>99.98% UPTIME LAST 90 DAYS — 30-SECOND CHECKS — 6 REGIONS — SLACK + EMAIL + SMS — NO BLOAT — 99.98% UPTIME LAST 90 DAYS — 30-SECOND CHECKS — 6 REGIONS — SLACK + EMAIL + SMS — NO BLOAT — </span></div>
+
+<div class="container">
+<section id="f">
+  <h2>Built like a brick.<br>Works like one too.</h2>
+  <div class="features" style="margin-top:48px">
+    <div class="card"><p class="stamp">01</p><h3>30-second checks</h3><p>Most monitors check every 5 minutes — that's 4 minutes of downtime you never hear about. We check twice a minute, from six regions.</p></div>
+    <div class="card"><p class="stamp">02</p><h3>Alerts that arrive</h3><p>Slack, email, SMS. Escalation if nobody acks in 5 minutes. No digest emails, no "incident summary" 3 hours later.</p></div>
+    <div class="card"><p class="stamp">03</p><h3>Public status pages</h3><p>One click gives your users a status page on your domain, with real incident history. Trust earned, not claimed.</p></div>
+  </div>
+</section>
+
+<section id="p">
+  <h2 style="text-align:center">Pick a plan. Any plan.</h2>
+  <div class="pricing" style="margin-top:48px">
+    <div class="plan"><h3>Solo</h3><p class="price">$5</p><ul><li>10 monitors</li><li>1-min checks</li><li>Email alerts</li></ul><a class="btn small" href="#">Start free</a></div>
+    <div class="plan featured"><h3>Indie</h3><p class="price">$12</p><ul><li>50 monitors</li><li>30-sec checks</li><li>Slack + SMS</li><li>Status page</li></ul><a class="btn small" href="#">Start free</a></div>
+    <div class="plan"><h3>Studio</h3><p class="price">$29</p><ul><li>Unlimited monitors</li><li>Team + on-call</li><li>API access</li></ul><a class="btn small" href="#">Talk to us</a></div>
+  </div>
+</section>
+
+<section class="bigfoot" style="border:2px solid var(--ink);box-shadow:10px 10px 0 var(--pink);margin-bottom:64px">
+  <h2>Stop finding out from your users.</h2>
+  <a class="btn" href="#">Start free — 14 days</a>
+  <p class="meta">SETUP IN 2 MIN · NO CARD · CANCEL IN ONE CLICK</p>
+</section>
+
+<footer><span>© 2026 Rampart sp. z o.o., Wrocław</span><span>hey@rampart.dev</span></footer>
+</div>
+</body>
+</html>

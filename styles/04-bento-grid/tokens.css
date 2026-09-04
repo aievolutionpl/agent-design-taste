@@ -1,0 +1,62 @@
+/* 04 · Bento Grid — design tokens (canonical) */
+:root {
+  --color-bg: #F4F4F2;
+  --color-surface: #FFFFFF;          /* tile surface */
+  --color-surface-strong: #111111;   /* featured dark tile */
+  --color-text: #111111;
+  --color-text-secondary: #5C5C58;
+  --color-border: #E2E2DE;
+  --color-primary: #111111;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #0D9488;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --font-size-h1: 52px;
+  --font-size-h2: 36px;
+  --font-size-h3: 24px;
+  --font-size-h4: 20px;
+  --font-size-h5: 17px;
+  --font-size-body: 16px;
+  --font-size-tile-body: 15px;
+  --font-size-small: 13px;
+  --font-size-label: 11px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --grid-gap: 16px;
+
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+  --shadow-tile-hover: 0 2px 0 0 var(--color-border);
+  --shadow-focus: 0 0 0 3px rgb(13 148 136 / 0.35);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 2px solid var(--color-text);
+
+  --container-width: 1240px;
+
+  --motion-fast: 180ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-stagger: 40ms;
+}
+[data-theme="dark"] {
+  --color-bg: #0C0C0B;
+  --color-surface: #161615;
+  --color-surface-strong: #F4F4F2;
+  --color-text: #F4F4F2;
+  --color-text-secondary: #A1A19B;
+  --color-border: #262624;
+  --color-primary: #F4F4F2;
+  --color-primary-contrast: #0C0C0B;
+  --color-accent: #2DD4BF;
+}

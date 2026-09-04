@@ -1,0 +1,75 @@
+/* 15 · Expressive Kinetic Typography — design tokens (canonical) */
+:root {
+  --color-bg: #FAF7F2;
+  --color-surface: #FFFFFF;
+  --color-text: #14120E;
+  --color-text-secondary: #6B675F;
+  --color-border: #E8E3DA;
+  --color-primary: #14120E;
+  --color-primary-contrast: #FAF7F2;
+  --color-accent: #E4572E;
+  --color-accent-contrast: #FAF7F2;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Inter', serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Kinetic type scale — display sizes clamp to viewport */
+  --font-size-h1: clamp(48px, 9vw, 96px);
+  --font-size-h2: 42px;
+  --font-size-h3: 26px;
+  --font-size-h4: 21px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+  --font-size-marquee: clamp(24px, 4vw, 40px);
+
+  /* Variable font axes (Fraunces: wght 100–900, SOFT 0–100, WONK 0–1, opsz 9–144) */
+  --vf-rest: 'wght' 560, 'SOFT' 0, 'WONK' 0;
+  --vf-hot: 'wght' 800, 'SOFT' 100, 'WONK' 1;
+  --vf-thin: 'wght' 300, 'SOFT' 0, 'WONK' 0;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 0px; --radius-md: 0px; --radius-lg: 0px;
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
+  --rule: 2px solid var(--color-text);
+
+  --container-width: 1200px;
+
+  /* Kinetic motion */
+  --motion-hover: 250ms;
+  --motion-reveal: 700ms;
+  --motion-marquee: 42s;       /* full loop duration */
+  --motion-stagger: 60ms;      /* per line */
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-board: steps(8, end); /* departure-board shuffle */
+}
+[data-theme="dark"] {
+  --color-bg: #0D0C0A;
+  --color-surface: #171512;
+  --color-text: #F5F1E8;
+  --color-text-secondary: #9B968B;
+  --color-border: #262320;
+  --color-primary: #F5F1E8;
+  --color-primary-contrast: #0D0C0A;
+  --color-accent: #FF6B3D;
+  --color-accent-contrast: #0D0C0A;
+}
+/* Motion fallback: kinetic effects render in final state, marquees frozen */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-reveal: 0ms;
+    --motion-marquee: 999999s; /* effectively paused at first frame */
+    --vf-rest: 'wght' 700, 'SOFT' 0, 'WONK' 0;
+  }
+}

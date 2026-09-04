@@ -1,0 +1,91 @@
+/* 02 · Glassmorphism — design tokens (canonical) */
+:root {
+  --color-bg: #F4F4FB;
+  --color-surface: #FFFFFF;
+  --color-text: #111111;
+  --color-text-secondary: #555555;
+  --color-border: #E4E4EF;
+  --color-primary: #111111;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #8B5CF6;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  /* Vivid backdrop glass needs something to blur */
+  --backdrop-gradient: linear-gradient(135deg, #6366F1 0%, #A855F7 45%, #EC4899 100%);
+  --backdrop-glow-1: rgb(99 102 241 / 0.35);
+  --backdrop-glow-2: rgb(236 72 153 / 0.28);
+
+  /* Glass recipe — max 2 surfaces per view */
+  --glass-bg-light: rgb(255 255 255 / 0.62);
+  --glass-bg-dark: rgb(255 255 255 / 0.12);
+  --glass-border: rgb(255 255 255 / 0.25);
+  --glass-blur: 20px;
+  --glass-saturation: 160%;
+  --glass-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
+  --glass-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
+  --shadow-card: 0 8px 32px rgb(0 0 0 / 0.12);
+  --shadow-focus: 0 0 0 3px rgb(139 92 246 / 0.40);
+
+  --border-default: 1px solid var(--color-border);
+  --border-glass: 1px solid var(--glass-border);
+
+  --container-width: 1200px;
+
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --motion-slow: 400ms;
+  --motion-ambient: 60s;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glass is fragile under motion preferences — freeze ambient drift */
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-ambient: 0s; --motion-fast: 0ms; --motion-normal: 0ms; --motion-slow: 0ms; }
+}
+[data-theme="dark"] {
+  --color-bg: #0F172A;
+  --color-surface: #1E293B;
+  --color-text: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-border: rgb(255 255 255 / 0.10);
+  --color-primary: #F8FAFC;
+  --color-primary-contrast: #0F172A;
+  --glass-bg: var(--glass-bg-dark);
+  --color-accent: #A78BFA;
+}
+
+/* Required usage guard */
+.glass {
+  background: var(--glass-bg-light);
+  border: var(--border-glass);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+}
+[data-theme="dark"] .glass { background: var(--glass-bg-dark); }
+@supports not (backdrop-filter: blur(1px)) {
+  .glass { background: var(--color-surface); border: var(--border-default); }
+}

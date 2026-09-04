@@ -1,0 +1,59 @@
+/* 11 · Editorial Magazine — design tokens (canonical) */
+:root {
+  --color-bg: #FDFBF7;
+  --color-surface: #F4EFE6;
+  --color-text: #1A1815;
+  --color-text-secondary: #6B6259;
+  --color-border: #E3DCD0;
+  --color-primary: #1A1815;
+  --color-primary-contrast: #FDFBF7;
+  --color-accent: #8C2F1B;
+  --color-accent-contrast: #FDFBF7;
+  --color-success: #3E6B3A;
+  --color-warning: #A86B1C;
+  --color-error: #8C2F1B;
+
+  --font-serif-body: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 18px;
+  --font-size-small: 14px;
+  --font-size-caption: 13px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 2px; --radius-md: 2px; --radius-lg: 4px;
+  --shadow-none: none;
+  --shadow-paper: 0 8px 24px rgb(26 24 21 / 0.08);
+  --shadow-focus: 0 0 0 3px rgb(140 47 27 / 0.3);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
+
+  --container-width: 1200px;
+
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-theme="dark"] {
+  --color-bg: #14110E;
+  --color-surface: #1F1B16;
+  --color-text: #F2ECE2;
+  --color-text-secondary: #A69C8E;
+  --color-border: #35302A;
+  --color-primary: #F2ECE2;
+  --color-primary-contrast: #14110E;
+}

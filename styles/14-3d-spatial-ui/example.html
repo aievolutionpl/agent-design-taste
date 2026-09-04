@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Depthline — 3D asset review for game studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060608;--surface:#101014;--text:#F2F2F0;--sec:#8E8E94;--border:#1F1F26;
+  --accent:#8B8BF5;--glow:rgb(139 139 245/.14);
+  --perspective:1200px;--ease:cubic-bezier(.16,1,.3,1);
+  --fast:200ms;--normal:350ms;--slow:500ms;
+  --shadow-plane:0 24px 60px -20px rgb(0 0 0/.7);
+  --shadow-lift:0 32px 80px -24px rgb(0 0 0/.85);
+}
+[data-theme="light"]{
+  --bg:#F4F4F0;--surface:#FFFFFF;--text:#101014;--sec:#5A5A5E;--border:#E3E3DE;
+  --accent:#4F46E5;--glow:rgb(79 70 229/.12);
+  --shadow-plane:0 24px 60px -24px rgb(16 16 20/.25);
+  --shadow-lift:0 32px 72px -28px rgb(16 16 20/.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+/* ---- flat chrome (never floats) ---- */
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--border)}
+.logo{font:700 20px 'Space Grotesk',sans-serif}
+nav ul{display:flex;gap:32px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:15px;transition:color var(--fast) var(--ease)}
+nav a:hover{color:var(--accent)}
+.cta-top{font:500 15px Inter;padding:10px 20px;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color var(--fast) var(--ease)}
+.cta-top:hover{border-color:var(--accent)}
+/* ---- spatial stage ---- */
+.scene{perspective:var(--perspective)}
+.layer{transform-style:preserve-3d;will-change:transform}
+.eyebrow{font:400 11px/1 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--sec);margin-bottom:16px}
+h1{font:700 60px/1.06 'Space Grotesk',sans-serif;letter-spacing:-.02em;margin-bottom:24px}
+.sub{color:var(--sec);max-width:46ch;margin-bottom:32px}
+.cta{display:inline-block;background:var(--accent);color:#060608;font:500 16px Inter;padding:14px 28px;border-radius:12px;text-decoration:none;box-shadow:inset 0 1px 0 rgb(255 255 255/.25),var(--shadow-plane);transition:transform var(--normal) var(--ease),box-shadow var(--normal) var(--ease)}
+.cta:hover{transform:translateZ(8px);box-shadow:inset 0 1px 0 rgb(255 255 255/.25),var(--shadow-lift)}
+.cta.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
+.cta.ghost:hover{border-color:var(--accent)}
+/* ---- hero ---- */
+.hero{position:relative;padding:112px 0 96px}
+.hero .atmos{position:absolute;inset:-120px 0 auto -10%;height:640px;background:radial-gradient(600px 360px at 30% 20%,var(--glow),transparent 70%);transform:translateZ(-300px);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero-copy{transform:translateZ(40px)}
+.hero-stage{position:relative;transform-style:preserve-3d}
+.ui-plane{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow-plane);transform:translateZ(60px)}
+.ui-plane .bar{display:flex;gap:6px;margin-bottom:14px}
+.ui-plane .bar i{width:9px;height:9px;border-radius:50%;background:var(--border);display:block}
+.ui-plane .bar i:first-child{background:var(--accent)}
+.viewport{aspect-ratio:16/9;background:linear-gradient(160deg,var(--glow),transparent 65%),var(--bg);border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden}
+.viewport .grid-floor{position:absolute;inset:45% 0 0;background:
+  repeating-linear-gradient(90deg,var(--border) 0 1px,transparent 1px 48px),
+  repeating-linear-gradient(0deg,var(--border) 0 1px,transparent 1px 32px);
+  transform:perspective(300px) rotateX(55deg) scale(1.6);transform-origin:top;opacity:.7}
+.viewport .model{position:absolute;left:50%;top:44%;width:56px;height:56px;margin:-28px;border:2px solid var(--accent);border-radius:8px;transform:rotate3d(1,1,0,32deg);animation:idlespin 14s linear infinite}
+@keyframes idlespin{from{transform:rotate3d(1,1,0,32deg) rotateY(0)}to{transform:rotate3d(1,1,0,32deg) rotateY(360deg)}}
+.panel-behind{position:absolute;top:36px;left:-64px;right:64px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 20px;box-shadow:var(--shadow-plane);transform:rotateY(-14deg) translateZ(-120px);filter:saturate(.85)}
+.panel-behind .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.panel-behind .row:last-child{border:0}
+.label{font:400 10px/1 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--sec)}
+.label b{color:var(--accent);font-weight:400}
+.hero-stage .label.far{position:absolute;bottom:-34px;left:0;transform:translateZ(-120px)}
+/* ---- layered features ---- */
+section{padding:96px 0}
+.sec-head{max-width:56ch;margin-bottom:56px}
+h2{font:700 42px/1.15 'Space Grotesk',sans-serif;letter-spacing:-.02em;margin-bottom:12px}
+h3{font:700 26px/1.3 'Space Grotesk',sans-serif;margin:14px 0 8px}
+.features{perspective:var(--perspective)}
+.fan{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;transform-style:preserve-3d}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;box-shadow:var(--shadow-plane);transform:translateZ(0);transition:transform var(--slow) var(--ease),box-shadow var(--slow) var(--ease)}
+.card:hover{transform:translateZ(24px);box-shadow:var(--shadow-lift)}
+.fan:hover .card:not(:hover){transform:translateZ(-20px);filter:saturate(.7)}
+.card .num{font:400 11px 'Space Mono',monospace;letter-spacing:.12em;color:var(--accent)}
+.card p{color:var(--sec);font-size:15px}
+.card .znote{margin-top:20px;padding-top:14px;border-top:1px solid var(--border);font:400 10px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--sec)}
+/* ---- exploded section ---- */
+.exploded{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.stack{position:relative;height:380px;transform-style:preserve-3d}
+.plane{position:absolute;left:8%;right:8%;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-plane)}
+.plane .label{margin-bottom:10px;display:block}
+/* ---- flat pricing ---- */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:960px;margin:0 auto}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px}
+.plan.hot{border-color:var(--accent)}
+.price{font:700 40px 'Space Grotesk',sans-serif;margin:12px 0 16px}
+.plan ul{list-style:none;color:var(--sec);font-size:15px;margin-bottom:24px}
+.plan li{padding:7px 0;border-bottom:1px solid var(--border)}
+/* ---- band + footer ---- */
+.band{background:radial-gradient(480px 260px at 50% 0%,var(--glow),transparent 70%),var(--surface);border:1px solid var(--border);border-radius:20px;padding:80px 24px;text-align:center}
+footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between}
+/* ---- responsive: collapse depth ---- */
+@media(max-width:900px){
+  .hero-grid,.exploded{grid-template-columns:1fr;padding-top:0}
+  .hero{padding:64px 0}h1{font-size:36px}h2{font-size:30px}
+  .features,.fan,.stack{transform-style:flat;perspective:none}
+  .hero-copy,.ui-plane{transform:none}
+  .panel-behind{position:static;transform:none;margin-top:24px;filter:none}
+  .stack{height:auto}.plane{position:static;margin-bottom:16px}
+  .fan,.pricing{grid-template-columns:1fr}
+  .model{display:none}
+  .card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .layer,.hero-copy,.ui-plane,.card,.hero-stage{transform:none!important}
+  .panel-behind{transform:none!important;filter:none}
+  .features,.fan,.stack{perspective:none;transform-style:flat}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Depthline</span><ul><li><a href="#f">Features</a></li><li><a href="#x">Pipeline</a></li><li><a href="#p">Pricing</a></li></ul><a class="cta-top" href="#">Book a demo</a></nav>
+
+<header class="hero scene">
+  <div class="atmos layer" data-depth="-0.4"></div>
+  <div class="hero-grid">
+    <div class="hero-copy layer" data-depth="0.5">
+      <p class="eyebrow">3D asset review</p>
+      <h1>Review game assets in real depth.</h1>
+      <p class="sub">Depthline puts your team inside the model — annotations pinned to vertices, versions compared in 3D, sign-off recorded where the work actually lives.</p>
+      <a class="cta" href="#">Start free — 5 seats</a>
+      <a class="cta ghost" href="#x" style="margin-left:12px">See the pipeline</a>
+    </div>
+    <div class="hero-stage layer" data-depth="1">
+      <span class="label" style="position:absolute;top:-26px;left:2px">LAYER 01 · <b>Z:+60PX</b> · UI PLANE</span>
+      <div class="ui-plane">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="viewport"><div class="grid-floor"></div><div class="model"></div></div>
+      </div>
+      <div class="panel-behind">
+        <span class="label">LAYER 02 · <b>Z:−120PX</b> · VERSION HISTORY</span>
+        <div class="row"><span>shield_high_v14.fbx</span><span style="color:var(--accent)">approved</span></div>
+        <div class="row"><span>shield_high_v13.fbx</span><span>changes requested</span></div>
+        <div class="row"><span>shield_high_v12.fbx</span><span>archived</span></div>
+      </div>
+      <span class="label far">LAYER 03 · Z:−300PX · AMBIENT</span>
+    </div>
+  </div>
+</header>
+
+<section id="f" class="scene">
+  <div class="sec-head"><p class="eyebrow">Why depth helps</p><h2>Flat review tools flatten your feedback.</h2><p style="color:var(--sec);max-width:52ch">Depthline keeps each part of review on its own layer — close to you where you act on it, far where you only glance.</p></div>
+  <div class="features"><div class="fan">
+    <div class="card"><span class="num">01</span><h3>Annotations in space</h3><p>Pins attach to vertices, not screenshots. Rotate the model and the note rotates with it.</p><div class="znote">Z:+24PX · NEAR PLANE</div></div>
+    <div class="card"><span class="num">02</span><h3>Version diffing</h3><p>Overlay v13 on v14 with a slider. Mass, tris and texel density compared side by side.</p><div class="znote">Z:0 · CONTENT PLANE</div></div>
+    <div class="card"><span class="num">03</span><h3>Pipeline telemetry</h3><p>See where every asset waits: layout, art review, optimization. Quietly, in the background.</p><div class="znote">Z:−120PX · FAR PLANE</div></div>
+  </div></div>
+</section>
+
+<section id="x" class="scene">
+  <div class="exploded">
+    <div class="stack" style="perspective:var(--perspective)">
+      <div class="plane" style="top:0;transform:translateZ(70px)"><span class="label">IMPORT · <b>Z:+70PX</b></span>FBX, glTF, USD. Drag in, LODs auto-detected.</div>
+      <div class="plane" style="top:130px;transform:translateZ(0)"><span class="label">REVIEW · <b>Z:0</b></span>Annotate, diff, request changes. Status lives on the model.</div>
+      <div class="plane" style="top:260px;transform:translateZ(-90px)"><span class="label">SIGN-OFF · <b>Z:−90PX</b></span>Approved assets sync straight to your engine repo.</div>
+    </div>
+    <div>
+      <p class="eyebrow">The pipeline</p>
+      <h2>Three planes. One trail of custody.</h2>
+      <p class="sub">Every stage sits at a different depth on purpose: what your team touches is closest; what's already decided recedes but stays visible.</p>
+      <a class="cta" href="#">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<section id="p">
+  <div class="sec-head" style="text-align:center;margin:0 auto 56px"><p class="eyebrow">Pricing · kept flat on purpose</p><h2>Pay per studio, not per headache.</h2></div>
+  <div class="pricing">
+    <div class="plan"><h3 style="font:700 18px 'Space Grotesk'">Indie</h3><p class="price">$49<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>5 seats</li><li>Unlimited assets</li><li>3D annotations</li><li>Version diffing</li></ul><a class="cta ghost" href="#">Start free</a></div>
+    <div class="plan hot"><h3 style="font:700 18px 'Space Grotesk'">Studio</h3><p class="price">$149<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>25 seats</li><li>Engine repo sync</li><li>Pipeline telemetry</li><li>SSO + audit log</li></ul><a class="cta" href="#">Start free</a></div>
+    <div class="plan"><h3 style="font:700 18px 'Space Grotesk'">Publisher</h3><p class="price">Talk<span style="font:500 16px Inter;color:var(--sec)"> to us</span></p><ul><li>Unlimited seats</li><li>Multi-project boards</li><li>On-prem option</li><li>Dedicated support</li></ul><a class="cta ghost" href="#">Contact sales</a></div>
+  </div>
+</section>
+
+<section><div class="band"><p class="eyebrow">Next milestone</p><h1 style="font-size:40px">Your pipeline, but you can see through it.</h1><br><a class="cta" href="#">Start free — 5 seats</a></div></section>
+
+<footer><span>© 2026 Depthline Ltd, Warsaw, PL</span><span>hello@depthline.io</span></footer>
+</div>
+
+<script>
+(function () {
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+  if (reduced || !fine) return;
+  var layers = document.querySelectorAll('[data-depth]');
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+  function tick() {
+    cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+    layers.forEach(function (el) {
+      var d = parseFloat(el.dataset.depth) || 0;
+      el.style.transform = 'translate3d(' + (cx * 10 * d).toFixed(2) + 'px,' + (cy * 10 * d).toFixed(2) + 'px,0)';
+    });
+    if (Math.abs(tx - cx) > .001 || Math.abs(ty - cy) > .001) raf = requestAnimationFrame(tick);
+    else raf = null;
+  }
+  addEventListener('pointermove', function (e) {
+    tx = e.clientX / innerWidth - 0.5;
+    ty = e.clientY / innerHeight - 0.5;
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

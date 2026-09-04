@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@theme {
+  --color--bg: #F5F1FA;
+  --color--surface: #FFFFFF;
+  --color--surface-tint: #FBF9FE;
+  --color--text: #2D2438;
+  --color--text-secondary: #6B5E7F;
+  --color--border: rgba(45, 36, 56, 0.08);
+  --color--primary: #7C5CFC;
+  --color--primary-soft: #E6DEFF;
+  --color--primary-contrast: #FFFFFF;
+  --color--accent: #FF8FA3;
+  --color--accent-soft: #FFE3E9;
+  --color--success: #4ADE80;
+  --color--warning: #FBBF24;
+  --color--error: #F87171;
+  --font--sans: 'Nunito Sans', system-ui, sans-serif;
+  --font--display: 'Baloo 2', 'Nunito Sans', sans-serif;
+  --fontSize--h1: 52px;
+  --fontSize--h2: 36px;
+  --fontSize--h3: 26px;
+  --fontSize--h4: 20px;
+  --fontSize--body: 16px;
+  --fontSize--small: 14px;
+  --fontSize--label: 12px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --radiu--sm: 16px;
+  --radiu--md: 24px;
+  --radiu--lg: 32px;
+  --radiu--pill: 999px;
+  --shadow--clay: 8px 8px 24px rgba(124, 92, 252, 0.18), -8px -8px 24px #FFFFFF,
+                 inset 0 2px 0 rgba(255, 255, 255, 0.7);
+  --shadow--clay-sm: 4px 4px 12px rgba(124, 92, 252, 0.16), -4px -4px 12px #FFFFFF,
+                    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --shadow--btn: inset 0 -4px 0 rgba(0, 0, 0, 0.18), 0 12px 24px rgba(124, 92, 252, 0.30);
+  --shadow--btn-press: inset 0 -1px 0 rgba(0, 0, 0, 0.18), 0 4px 8px rgba(124, 92, 252, 0.25);
+  --shadow--inset: inset 0 2px 6px rgba(45, 36, 56, 0.12);
+  --shadow--focus: 0 0 0 4px rgba(124, 92, 252, 0.35);
+}

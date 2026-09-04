@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulseboard — Analytics for indie SaaS founders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F2;--tile:#fff;--tile-dark:#111;--text:#111;--sec:#5C5C58;--border:#E2E2DE;--accent:#0D9488;--container:1240px;--gap:16px;--fast:180ms;--ease:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 16px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--border)}
+.logo{font:600 20px 'Space Grotesk',sans-serif}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--accent)}
+.cta-top{font:500 15px Inter;padding:10px 20px;border:1px solid var(--text);border-radius:12px;text-decoration:none;color:var(--text);transition:all var(--fast) var(--ease)}
+.cta-top:hover{background:var(--text);color:#fff}
+
+/* ---- the bento ---- */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);padding:48px 0 96px}
+.tile{background:var(--tile);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:transform var(--fast) var(--ease),border-color var(--fast) var(--ease)}
+.tile:hover{transform:translateY(-2px);border-color:#c9c9c4}
+.tile-label{font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sec)}
+.tile h2{font:600 52px/1.1 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.tile h3{font:600 24px/1.3 'Space Grotesk',sans-serif}
+.tile p{font-size:15px;line-height:1.5;color:var(--sec)}
+.tile-dark{background:var(--tile-dark);color:#fff;border-color:var(--tile-dark)}
+.tile-dark .tile-label,.tile-dark p{color:#a8a8a2}
+.tile-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tile-accent .tile-label{color:rgba(255,255,255,.75)}
+.stat-num{font:600 44px/1 'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.stat-num small{font:500 16px Inter;color:var(--sec)}
+.tile-dark .stat-num small{color:#a8a8a2}
+.chart{width:100%;margin-top:auto}
+.chart svg{display:block;width:100%;height:auto}
+.cta{display:inline-block;background:var(--text);color:#fff;font:500 16px Inter;padding:14px 28px;border-radius:12px;text-decoration:none;transition:opacity var(--fast) var(--ease)}
+.tile-dark .cta{background:#fff;color:#111}
+.tile-accent .cta{background:#fff;color:var(--accent)}
+.cta:hover{opacity:.85}
+.shot{border:1px solid var(--border);border-radius:10px;padding:14px;font:500 12px 'IBM Plex Mono',monospace;color:var(--sec);margin-top:auto;width:100%}
+.shot .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)}
+.shot .row:last-child{border:0}
+.badge{font:500 11px 'IBM Plex Mono',monospace;padding:4px 8px;border:1px solid var(--border);border-radius:6px;color:var(--sec)}
+
+/* spans — the asymmetry IS the design */
+.t-hero{grid-column:span 8;grid-row:span 2}
+.t-stat-a{grid-column:span 4}
+.t-stat-b{grid-column:span 4}
+.t-chart{grid-column:span 7}
+.t-feature{grid-column:span 5}
+.t-shot{grid-column:span 5;grid-row:span 2}
+.t-quote{grid-column:span 7}
+.t-pricing{grid-column:span 4}
+.t-cta{grid-column:span 4}
+.t-foot{grid-column:span 4}
+
+footer{border-top:1px solid var(--border);padding:32px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media(max-width:1024px){
+  .t-hero,.t-chart,.t-quote{grid-column:span 12}
+  .t-stat-a,.t-stat-b,.t-feature,.t-pricing,.t-cta,.t-foot{grid-column:span 6}
+  .t-shot{grid-column:span 12;grid-row:auto}
+  .tile h2{font-size:40px}
+}
+@media(max-width:640px){
+  .bento>*{grid-column:span 12!important;grid-row:auto!important}
+  .tile{padding:20px}
+  .tile h2{font-size:32px}
+  nav ul{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Pulseboard</span><ul><li><a href="#b">Board</a></li><li><a href="#p">Pricing</a></li></ul><a class="cta-top" href="#">Start free</a></nav>
+
+<section class="bento" id="b">
+  <!-- dominant hero tile -->
+  <div class="tile tile-dark t-hero">
+    <p class="tile-label">Analytics · Indie SaaS</p>
+    <h2>Know your numbers<br>before you guess them.</h2>
+    <p>Pulseboard plugs into Stripe, GitHub and your app in one afternoon, then shows MRR, churn and activation on a single board — no SQL, no dashboards to build.</p>
+    <a class="cta" href="#">Start free — 14 days</a>
+    <p style="font-size:13px">No card required · 2-minute setup</p>
+  </div>
+
+  <!-- stacked stat tiles -->
+  <div class="tile t-stat-a">
+    <p class="tile-label">MRR</p>
+    <p class="stat-num">$14,280 <small>mo</small></p>
+    <p>+9.4% vs last month · all plans</p>
+  </div>
+  <div class="tile t-stat-b">
+    <p class="tile-label">Churn</p>
+    <p class="stat-num">2.1<small>%</small></p>
+    <p>Logo churn, trailing 30 days</p>
+  </div>
+
+  <!-- chart tile -->
+  <div class="tile t-chart">
+    <p class="tile-label">MRR · last 12 weeks</p>
+    <h3>Growth is compounding, not spiking.</h3>
+    <div class="chart">
+      <svg viewBox="0 0 400 120" role="img" aria-label="MRR trend, rising from 9,000 to 14,280 over 12 weeks">
+        <polyline points="0,95 36,90 72,88 108,80 144,78 180,70 216,66 252,55 288,50 324,38 360,30 400,22" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="0" y1="118" x2="400" y2="118" stroke="#E2E2DE" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- feature tile -->
+  <div class="tile t-feature">
+    <p class="tile-label">Activation</p>
+    <h3>See who's stuck at step 3.</h3>
+    <p>Funnel view per signup cohort. Pulseboard flags the exact step where trial users stall, so you fix onboarding instead of buying more ads.</p>
+  </div>
+
+  <!-- product shot tile -->
+  <div class="tile t-shot">
+    <p class="tile-label">Alerts</p>
+    <h3>Slack pings, not silent dips.</h3>
+    <div class="shot">
+      <div class="row"><span>#growth — MRR down 4.2% w/w</span><span>09:02</span></div>
+      <div class="row"><span>#growth — churn spike: 3 cancels</span><span>Tue</span></div>
+      <div class="row"><span>#growth — new plan: Scale ×2</span><span>Mon</span></div>
+    </div>
+  </div>
+
+  <!-- quote tile -->
+  <div class="tile t-quote">
+    <p class="tile-label">Customer</p>
+    <p style="font-size:18px;color:var(--text)">“We cancelled two dashboards and a $200/mo BI tool. Pulseboard is the only tab I keep open on Mondays.”</p>
+    <p class="badge">Marta K. · founder, 2-person SaaS, Kraków</p>
+  </div>
+
+  <!-- pricing tile -->
+  <div class="tile t-pricing" id="p">
+    <p class="tile-label">Pricing</p>
+    <p class="stat-num">$29 <small>/mo</small></p>
+    <p>Unlimited sources, 12-month history, Slack alerts. Annual: 2 months free.</p>
+  </div>
+
+  <!-- accent CTA tile -->
+  <div class="tile tile-accent t-cta">
+    <p class="tile-label">Start today</p>
+    <h3>Connect Stripe. See your board in 2 minutes.</h3>
+    <a class="cta" href="#">Start free — 14 days</a>
+  </div>
+
+  <!-- small foot tile -->
+  <div class="tile t-foot">
+    <p class="tile-label">Trust</p>
+    <p>Read-only API access. Data encrypted at rest, EU hosting, delete everything with one click.</p>
+  </div>
+</section>
+
+<footer><span>© 2026 Pulseboard sp. z o.o., Gdańsk, PL</span><span>hello@pulseboard.app</span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+/* 01 · Minimalism — design tokens (canonical) */
+:root {
+  --color-bg: #FFFFFF;
+  --color-surface: #F7F7F5;
+  --color-text: #111111;
+  --color-text-secondary: #555555;
+  --color-border: #E5E5E2;
+  --color-primary: #111111;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #2563EB;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Archivo', 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px;
+  --shadow-none: none;
+  --shadow-focus: 0 0 0 3px rgb(37 99 235 / 0.35);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text);
+
+  --container-width: 1200px;
+
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-theme="dark"] {
+  --color-bg: #0A0A0A;
+  --color-surface: #161616;
+  --color-text: #F5F5F4;
+  --color-text-secondary: #A3A3A3;
+  --color-border: #262626;
+  --color-primary: #F5F5F4;
+  --color-primary-contrast: #0A0A0A;
+}

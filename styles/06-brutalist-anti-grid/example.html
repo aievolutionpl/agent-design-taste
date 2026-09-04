@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIFTZINE — Limited drops, no restocks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--surface:#fff;--text:#111;--sec:#444;--border:#111;--accent:#CCFF00;--fast:120ms}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 16px/1.6 'Space Grotesk',sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:3px solid var(--border)}
+.logo{font:700 20px 'Space Mono',monospace;text-transform:uppercase}
+nav ul{display:flex;gap:28px;list-style:none;font:400 13px 'Space Mono',monospace;text-transform:uppercase}
+nav a{color:var(--text);text-decoration:none}
+nav a:hover{background:var(--text);color:var(--bg)}
+.hero{position:relative;padding:96px 0 72px}
+.hero h1{font:400 clamp(48px,9vw,110px)/0.95 'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-.02em;width:120%;position:relative;z-index:1}
+.hero .sub{max-width:44ch;color:var(--sec);margin-top:24px;position:relative;z-index:1}
+.hero .ticket{position:absolute;right:0;top:64px;width:300px;background:var(--surface);border:2px solid var(--border);box-shadow:8px 8px 0 var(--border);padding:20px;z-index:2;transform:rotate(1.4deg)}
+.hero .sticker{position:absolute;left:52%;top:0;background:var(--accent);border:2px solid var(--border);padding:8px 14px;font:700 12px 'Space Mono',monospace;text-transform:uppercase;z-index:3;transform:rotate(-2deg)}
+.cta{display:inline-block;background:var(--text);color:var(--bg);font:500 16px 'Space Grotesk';padding:14px 28px;border:2px solid var(--border);box-shadow:4px 4px 0 var(--border);text-decoration:none;transition:transform var(--fast) linear,box-shadow var(--fast) linear}
+.cta:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--border)}
+.cta.accent{background:var(--accent);color:var(--text)}
+.meta{font:400 12px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sec)}
+section{padding:72px 0}
+.sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:48px}
+.sec-head h2{font:400 44px/1.05 'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-.02em}
+.releases{display:grid;grid-template-columns:repeat(3,1fr)}
+.rel{position:relative;background:var(--surface);border:2px solid var(--border);box-shadow:8px 8px 0 var(--border);padding:24px}
+.rel:nth-child(1){z-index:1}
+.rel:nth-child(2){z-index:2;margin:-24px 0 0 -40px;transform:rotate(-1.2deg)}
+.rel:nth-child(3){z-index:3;margin:-32px 0 0 -36px;transform:rotate(1.6deg)}
+.rel .tag{position:absolute;top:-14px;left:20px;background:var(--accent);border:2px solid var(--border);padding:4px 10px;font:700 11px 'Space Mono',monospace;text-transform:uppercase}
+.rel h3{font:500 22px 'Space Grotesk';margin:12px 0 4px}
+.rel p{color:var(--sec);font-size:14px}
+.rel .price{font:700 26px 'Space Mono',monospace;margin-top:16px;display:block}
+.marquee{border-top:3px solid var(--border);border-bottom:3px solid var(--border);overflow:hidden;padding:12px 0;background:var(--surface)}
+.marquee span{display:inline-block;white-space:nowrap;font:700 14px 'Space Mono',monospace;text-transform:uppercase;animation:scroll 40s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;max-width:1000px;margin:0 auto}
+.plan{background:var(--surface);border:2px solid var(--border);box-shadow:8px 8px 0 var(--border);padding:28px}
+.plan:nth-child(2){transform:translateY(-16px) rotate(1deg);z-index:2;position:relative}
+.price{font:700 40px 'Space Mono',monospace;margin:12px 0 16px}
+.plan ul{list-style:none;margin-bottom:24px}
+.plan li{padding:8px 0;border-bottom:2px solid var(--border);font-size:15px}
+.band{background:var(--surface);border:3px solid var(--border);box-shadow:12px 12px 0 var(--accent);padding:64px 40px}
+.band h2{font:400 48px/1 'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:24px;width:110%}
+footer{border-top:3px solid var(--border);margin-top:72px;padding:40px 0;display:flex;justify-content:space-between;align-items:center}
+footer nav2{display:flex;gap:24px}
+@media(max-width:900px){
+ .hero h1{width:100%}.hero .ticket{position:static;margin-top:32px;transform:none;width:100%;max-width:340px}
+ .hero .sticker{left:auto;right:0;top:8px}
+ .releases{grid-template-columns:1fr}
+ .rel{margin:0!important;transform:none!important;z-index:auto!important;margin-bottom:24px!important}
+ .pricing{grid-template-columns:1fr}.plan{transform:none!important}
+ .band h2{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.marquee span{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">RIFTZINE</span><ul><li><a href="#r">Drops</a></li><li><a href="#c">Club</a></li><li><a href="#p">Subs</a></li></ul><a class="cta accent" href="#" style="padding:10px 18px;font-size:14px">Shop</a></nav>
+<header class="hero">
+<p class="sticker">Drop 04 — live now</p>
+<h1>Noise from the<br>back rooms.</h1>
+<p class="sub">RIFTZINE presses limited runs of music nobody asked for and everybody needed. 300 copies per drop. When it's gone, it's gone — we never restock.</p>
+<a class="cta" href="#r">See drop 04</a>
+<div class="ticket"><p class="meta">Now playing</p><h3 style="font:500 18px 'Space Grotesk';margin:8px 0">Static Chapel — "Cathode Hymns"</h3><p style="font-size:14px;color:var(--sec)">CAS-011 · 143 copies left of 300</p></div>
+</header>
+</div>
+<div class="marquee"><span>Drop 04 out now · 143 copies left · free poster with every vinyl · drop 05 lands 12.09 · Drop 04 out now · free poster with every vinyl · drop 05 lands 12.09 ·</span></div>
+<div class="container">
+<section id="r">
+<div class="sec-head"><span class="meta">01 / Releases</span><h2>Drop 04</h2></div>
+<div class="releases">
+<div class="rel"><p class="meta" style="position:relative">RFT-034</p><h3>Cathode Hymns — Static Chapel</h3><p>Cassette · lime shell · hand-numbered. 300 copies.</p><span class="price">£14</span></div>
+<div class="rel"><span class="tag">Low stock</span><p class="meta" style="position:relative">RFT-035</p><h3>Grey District — "Peak Hours"</h3><p>12" vinyl · 180g · reverse board sleeve.</p><span class="price">£26</span></div>
+<div class="rel"><p class="meta" style="position:relative">RFT-036</p><h3>V/A — "Basement Frequencies"</h3><p>Double tape comp · 14 artists · digital code included.</p><span class="price">£18</span></div>
+</div>
+</section>
+<section id="p">
+<div class="sec-head"><span class="meta">02 / Subscriptions</span><h2>Club tiers</h2></div>
+<div class="pricing">
+<div class="plan"><h3 style="font:500 18px 'Space Grotesk'">Listener</h3><p class="price">£6<span style="font-size:14px;color:var(--sec)">/mo</span></p><ul><li>Digital drops first</li><li>Zine PDF by post is extra</li><li>Cancel anytime</li></ul><a class="cta" href="#" style="width:100%;text-align:center">Join</a></div>
+<div class="plan"><h3 style="font:500 18px 'Space Grotesk'">Member</h3><p class="price">£19<span style="font-size:14px;color:var(--sec)">/mo</span></p><ul><li>Every drop at 15% off</li><li>Printed zine quarterly</li><li>Members-only mixes</li><li>Early ticket code</li></ul><a class="cta accent" href="#" style="width:100%;text-align:center;display:inline-block">Join</a></div>
+<div class="plan"><h3 style="font:500 18px 'Space Grotesk'">Patron</h3><p class="price">£45<span style="font-size:14px;color:var(--sec)">/mo</span></p><ul><li>Everything in Member</li><li>#001–#030 of every pressing</li><li>Name in the credits</li></ul><a class="cta" href="#" style="width:100%;text-align:center;display:inline-block">Talk to us</a></div>
+</div>
+</section>
+<section>
+<div class="band"><p class="meta">03 / Warning</p><h2>Drop 04 is 52% sold.</h2><a class="cta" href="#">Claim your copies</a></div>
+</section>
+<footer><span>© 2026 RIFTZINE, Leeds, UK</span><span class="meta">hello@riftzine.co · no restocks, ever</span></footer>
+</div>
+</body>
+</html>

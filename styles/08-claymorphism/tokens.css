@@ -1,0 +1,69 @@
+/* 08 · Claymorphism — design tokens (canonical) */
+:root {
+  --color-bg: #F5F1FA;
+  --color-surface: #FFFFFF;
+  --color-surface-tint: #FBF9FE;
+  --color-text: #2D2438;
+  --color-text-secondary: #6B5E7F;
+  --color-border: rgba(45, 36, 56, 0.08);
+  --color-primary: #7C5CFC;
+  --color-primary-soft: #E6DEFF;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #FF8FA3;
+  --color-accent-soft: #FFE3E9;
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  --color-error: #F87171;
+
+  --font-sans: 'Nunito Sans', system-ui, sans-serif;
+  --font-display: 'Baloo 2', 'Nunito Sans', sans-serif;
+
+  --font-size-h1: 52px;
+  --font-size-h2: 36px;
+  --font-size-h3: 26px;
+  --font-size-h4: 20px;
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-20: 80px; --spacing-24: 96px;
+
+  --radius-sm: 16px; --radius-md: 24px; --radius-lg: 32px; --radius-pill: 999px;
+
+  --shadow-clay: 8px 8px 24px rgba(124, 92, 252, 0.18), -8px -8px 24px #FFFFFF,
+                 inset 0 2px 0 rgba(255, 255, 255, 0.7);
+  --shadow-clay-sm: 4px 4px 12px rgba(124, 92, 252, 0.16), -4px -4px 12px #FFFFFF,
+                    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --shadow-btn: inset 0 -4px 0 rgba(0, 0, 0, 0.18), 0 12px 24px rgba(124, 92, 252, 0.30);
+  --shadow-btn-press: inset 0 -1px 0 rgba(0, 0, 0, 0.18), 0 4px 8px rgba(124, 92, 252, 0.25);
+  --shadow-inset: inset 0 2px 6px rgba(45, 36, 56, 0.12);
+  --shadow-focus: 0 0 0 4px rgba(124, 92, 252, 0.35);
+
+  --container-width: 1140px;
+
+  --motion-fast: 200ms;
+  --motion-normal: 300ms;
+  --motion-slow: 450ms;
+  --motion-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[data-theme="dark"] {
+  --color-bg: #1E1830;
+  --color-surface: #2A2142;
+  --color-surface-tint: #322850;
+  --color-text: #F3EFFA;
+  --color-text-secondary: #B8A9D9;
+  --color-border: rgba(243, 239, 250, 0.10);
+  --color-primary: #9B7DFF;
+  --color-primary-soft: #3D2E68;
+  --color-accent: #FFA6B5;
+  --color-accent-soft: #4A2E3C;
+  --shadow-clay: 8px 8px 24px rgba(0, 0, 0, 0.45), -8px -8px 24px rgba(155, 125, 255, 0.07),
+                 inset 0 2px 0 rgba(255, 255, 255, 0.06);
+  --shadow-clay-sm: 4px 4px 12px rgba(0, 0, 0, 0.40), -4px -4px 12px rgba(155, 125, 255, 0.06),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --shadow-btn: inset 0 -4px 0 rgba(0, 0, 0, 0.35), 0 12px 24px rgba(0, 0, 0, 0.45);
+  --shadow-btn-press: inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 4px 8px rgba(0, 0, 0, 0.40);
+  --shadow-inset: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}

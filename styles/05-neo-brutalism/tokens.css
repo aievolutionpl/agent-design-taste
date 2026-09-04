@@ -1,0 +1,62 @@
+/* 05 · Neo-Brutalism — design tokens (canonical) */
+:root {
+  --color-bg: #FFFDF5;               /* paper */
+  --color-surface: #FFFFFF;
+  --color-surface-yellow: #FFD02F;   /* primary action block */
+  --color-surface-pink: #FF90E8;
+  --color-surface-blue: #4D7CFE;
+  --color-surface-green: #23C55E;
+  --color-surface-orange: #FF6B35;
+  --color-text: #111111;
+  --color-text-secondary: #3D3D3A;
+  --color-border: #111111;           /* borders ARE black */
+  --color-primary: #FFD02F;
+  --color-primary-contrast: #111111;
+  --color-accent: #FF90E8;
+  --color-accent-contrast: #111111;
+  --color-success: #23C55E;
+  --color-warning: #FF6B35;
+  --color-error: #E11D48;
+
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --font-size-h1: 64px;
+  --font-size-h2: 44px;
+  --font-size-h3: 26px;
+  --font-size-h4: 20px;
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-none: 0px; --radius-sm: 2px; --radius-md: 4px;
+  --shadow-offset-sm: 3px 3px 0 var(--color-border);
+  --shadow-offset-md: 6px 6px 0 var(--color-border);
+  --shadow-offset-lg: 10px 10px 0 var(--color-border);
+  --shadow-focus: 4px 4px 0 var(--color-accent);
+
+  --border-default: 2px solid var(--color-border);
+  --border-thick: 3px solid var(--color-border);
+
+  --container-width: 1200px;
+
+  --motion-fast: 120ms;
+  --motion-normal: 200ms;
+  --motion-ease: steps(4, end);      /* mechanical, not buttery */
+  --motion-press: translate(3px, 3px);
+}
+[data-theme="dark"] {
+  --color-bg: #111111;
+  --color-surface: #1E1E1E;
+  --color-text: #FFFDF5;
+  --color-text-secondary: #B8B8B0;
+  --color-border: #FFFDF5;
+  --color-primary: #E6B800;
+  --color-accent: #E879C7;
+  --color-surface-blue: #3D6BE0;
+}

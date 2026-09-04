@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TORSO FX-1 — Desktop bus compressor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E8E9EB;--panel:#F2F3F4;--well:#D7D9DC;--text:#1F2328;--sec:#5A6068;
+  --orange:#F25C05;--amber:#FFB000;--led:#3DDC84;
+  --raised:0 2px 2px rgba(0,0,0,.12),0 4px 10px rgba(0,0,0,.08),inset 0 1px 0 rgba(255,255,255,.7);
+  --wellsh:inset 0 2px 4px rgba(0,0,0,.25),inset 0 -1px 0 rgba(255,255,255,.5);
+  --btnsh:0 2px 0 rgba(0,0,0,.35),0 4px 10px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.35);
+  --knobsh:0 3px 8px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25);
+  --clunk:cubic-bezier(.2,.9,.3,1.2);--fast:200ms;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#14161A;--panel:#1E2126;--well:#0E1013;--text:#E8EAED;--sec:#9AA0A6;--orange:#FF6B14;--amber:#FFC133;
+    --raised:0 2px 2px rgba(0,0,0,.55),0 4px 10px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);
+    --wellsh:inset 0 2px 4px rgba(0,0,0,.60),inset 0 -1px 0 rgba(255,255,255,.08);
+    --btnsh:0 2px 0 rgba(0,0,0,.60),0 4px 10px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.18);
+    --knobsh:0 3px 8px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 4px rgba(0,0,0,.45);}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 16px/1.6 'IBM Plex Sans',sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.en{font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--sec)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(0,0,0,.15)}
+@media(prefers-color-scheme:dark){nav{border-color:rgba(255,255,255,.12)}}
+.logo{font:600 18px 'Space Grotesk';letter-spacing:.04em}
+.logo b{color:var(--orange)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:600}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:96px 0}
+h1{font:500 48px/1.12 'Space Grotesk';letter-spacing:-.01em;margin:16px 0 20px}
+.hero p{color:var(--sec);max-width:44ch;margin-bottom:32px}
+.btn{display:inline-block;background:var(--orange);color:#fff;font:600 15px 'IBM Plex Sans';padding:14px 28px;border:0;border-radius:8px;box-shadow:var(--btnsh);text-decoration:none;cursor:pointer;transition:all var(--fast) var(--clunk)}
+.btn:active{transform:translateY(2px);box-shadow:inset 0 2px 5px rgba(0,0,0,.35)}
+.ghost{background:var(--panel);color:var(--text);box-shadow:var(--raised)}
+/* ---- console ---- */
+.console{background:var(--panel);border-radius:12px;padding:24px;box-shadow:var(--raised);border-top:1px solid rgba(255,255,255,.85);border-bottom:1px solid rgba(0,0,0,.25)}
+.well{background:var(--well);border-radius:10px;padding:20px;box-shadow:var(--wellsh)}
+.readout{font:600 30px/1 'JetBrains Mono';font-variant-numeric:tabular-nums;color:var(--amber);background:#2A2622;border-radius:8px;padding:14px 18px;box-shadow:var(--wellsh);display:flex;justify-content:space-between;align-items:baseline}
+.readout small{font:500 10px 'JetBrains Mono';letter-spacing:.15em;color:#B98A3F}
+.knobrow{display:flex;justify-content:space-around;margin:22px 0 8px}
+.knob{width:76px;height:76px;border-radius:50%;position:relative;
+  background:
+    radial-gradient(circle at 50% 32%, #F6F7F8 0 22%, transparent 23%),
+    conic-gradient(from 210deg, #DFE1E4 0deg 300deg, #C9CCD0 300deg 360deg);
+  box-shadow:var(--knobsh);border-top:1px solid rgba(255,255,255,.8)}
+.knob::after{content:'';position:absolute;left:50%;top:8px;width:3px;height:24px;background:var(--orange);border-radius:2px;transform:translateX(-50%)}
+.k-l::before,.k-r::before{content:'';position:absolute;inset:-4px;border-radius:50%;
+  background:repeating-conic-gradient(rgba(0,0,0,.18) 0 1.5deg, transparent 1.5deg 15deg);z-index:-1}
+.knob span{position:absolute;bottom:-24px;left:0;right:0;text-align:center}
+.fader{margin:34px 8px 30px;height:14px;border-radius:7px;position:relative;box-shadow:var(--wellsh);
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.22) 0 2px,transparent 2px 12px)}
+.thumb{position:absolute;top:-11px;left:62%;width:34px;height:36px;border-radius:6px;background:linear-gradient(#F6F7F8,#D2D5D9);box-shadow:var(--knobsh);border-top:1px solid rgba(255,255,255,.9)}
+.thumb::after{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:3px;margin-left:-1.5px;background:var(--orange);border-radius:2px}
+.switchrow{display:flex;justify-content:space-between;align-items:center}
+.switch{width:64px;height:30px;border-radius:15px;background:var(--well);box-shadow:var(--wellsh);position:relative;transition:background var(--fast) var(--clunk)}
+.switch .kn{position:absolute;top:3px;left:4px;width:24px;height:24px;border-radius:50%;background:linear-gradient(#FAFBFC,#D8DBDF);box-shadow:var(--knobsh);transition:transform var(--fast) var(--clunk)}
+.switch.on{background:rgba(61,220,132,.35)}
+.switch.on .kn{transform:translateX(32px)}
+.led{width:8px;height:8px;border-radius:50%;background:var(--led);box-shadow:0 0 6px rgba(61,220,132,.8);display:inline-block}
+.led.a{background:var(--amber);box-shadow:0 0 6px rgba(255,176,0,.8)}
+/* ---- sections ---- */
+section{padding:88px 0}
+h2{font:500 34px/1.2 'Space Grotesk';margin-bottom:12px}
+.sub{color:var(--sec);max-width:52ch;margin-bottom:44px}
+.panelgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.wellcard{background:var(--well);border-radius:10px;padding:24px;box-shadow:var(--wellsh)}
+.wellcard h3{font:500 20px 'Space Grotesk';margin:14px 0 8px}
+.wellcard p{color:var(--sec);font-size:15px}
+.chip{width:40px;height:40px;border-radius:8px;background:var(--panel);box-shadow:var(--raised);display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(255,255,255,.85)}
+/* spec table */
+.spec{background:var(--panel);border-radius:12px;padding:8px 24px;box-shadow:var(--raised);border-top:1px solid rgba(255,255,255,.85);border-bottom:1px solid rgba(0,0,0,.25)}
+.spec .row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.10);font-size:14px}
+.spec .row:last-child{border:0}
+.spec .mono{font:500 14px 'JetBrains Mono';font-variant-numeric:tabular-nums}
+/* pricing */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
+.plan{background:var(--panel);border-radius:12px;padding:28px;box-shadow:var(--raised);border-top:1px solid rgba(255,255,255,.85);border-bottom:1px solid rgba(0,0,0,.25)}
+.plan h3{font:500 18px 'Space Grotesk';margin-bottom:10px}
+.price{font:600 36px 'JetBrains Mono';font-variant-numeric:tabular-nums;margin-bottom:16px}
+.plan ul{list-style:none;color:var(--sec);font-size:14px;margin-bottom:24px}
+.plan li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.10)}
+.band{background:var(--panel);border-radius:12px;padding:72px 24px;text-align:center;box-shadow:var(--raised);border-top:1px solid rgba(255,255,255,.85);border-bottom:1px solid rgba(0,0,0,.25);margin-bottom:0}
+.band h2{margin-bottom:24px}
+footer{padding:44px 0;color:var(--sec);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(0,0,0,.12);margin-top:88px}
+@media(prefers-color-scheme:dark){.spec .row,.plan li{border-color:rgba(255,255,255,.10)}footer,nav{border-color:rgba(255,255,255,.12)}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:64px 0;gap:56px}
+  h1{font-size:32px}
+  .panelgrid,.pricing{grid-template-columns:1fr}
+  .knob{width:64px;height:64px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">TORSO <b>FX-1</b></span><ul><li><a href="#f">Panel</a></li><li><a href="#s">Specs</a></li><li><a href="#p">Buy</a></li></ul><a class="btn" href="#" style="padding:10px 20px;font-size:14px">Pre-order</a></nav>
+
+<header class="hero">
+<div>
+<p class="en">Bus compressor · Desktop unit</p>
+<h1>Glue for your mix, on your desk.</h1>
+<p>The FX-1 is a hardware bus compressor with true VCA gain reduction, a front-panel VU meter, and USB-C control surface. No menus. Every parameter is a dial you can set by feel — and hear.</p>
+<p style="display:flex;gap:16px;align-items:center"><a class="btn" href="#">Pre-order — £449</a><a class="btn ghost" href="#">Listen to samples</a></p>
+</div>
+<div class="console">
+<div class="readout"><span>−3.2</span><small>dB GR &nbsp;|&nbsp; <span class="led a"></span> IN &nbsp;<span class="led"></span> GR</small></div>
+<div class="knobrow">
+<div class="knob k-l"><span class="en">THRESH</span></div>
+<div class="knob k-l"><span class="en">RATIO</span></div>
+<div class="knob k-r"><span class="en">RELEASE</span></div>
+</div>
+<div class="fader"><div class="thumb"></div><span class="en" style="position:absolute;right:0;top:18px">MAKE-UP GAIN</span></div>
+<div class="switchrow"><span class="en">BYPASS</span><div class="switch"><div class="kn"></div></div><span class="en">TRUE GR</span></div>
+</div>
+</header>
+
+<section id="f">
+<h2>Built like an instrument, not an accessory.</h2>
+<p class="sub">Aluminum enclosure, sealed rotary encoders, relay-based true bypass. Serviceable for decades.</p>
+<div class="panelgrid">
+<div class="wellcard"><div class="chip">◧</div><h3>True VCA compression</h3><p> THAT 4301 engine, 0.1% THD at 6 dB GR. The character of a rack classic, none of the rack.</p></div>
+<div class="wellcard"><div class="chip">◉</div><h3>Analog VU + LED bridge</h3><p>Backlit amber meter shows gain reduction like it's 1976, with modern calibration you can trust.</p></div>
+<div class="wellcard"><div class="chip">⟐</div><h3>USB-C control surface</h3><p>Dials send MIDI CC to your DAW. Automate the hardware from the box; the panel always follows.</p></div>
+</div>
+</section>
+
+<section id="s">
+<h2>Specifications</h2>
+<p class="sub">Measured, not marketed.</p>
+<div class="spec">
+<div class="row"><span class="en">Frequency response</span><span class="mono">20 Hz – 22 kHz ±0.2 dB</span></div>
+<div class="row"><span class="en">Dynamic range</span><span class="mono">121 dB (A-wtd)</span></div>
+<div class="row"><span class="en">Ratio</span><span class="mono">1.5 : 1 – 10 : 1</span></div>
+<div class="row"><span class="en">Attack / Release</span><span class="mono">0.1 – 30 ms / 0.05 – 1.2 s</span></div>
+<div class="row"><span class="en">I/O</span><span class="mono">2× XLR combo · USB-C · DIN MIDI</span></div>
+<div class="row"><span class="en">Enclosure</span><span class="mono">6063 aluminum · 240 × 148 × 44 mm</span></div>
+</div>
+</section>
+
+<section id="p">
+<h2>One unit. Two ways to get it.</h2>
+<p class="sub">Batch 03 ships November 2026. Fully refundable until dispatch.</p>
+<div class="pricing">
+<div class="plan"><h3>Reserve</h3><p class="price">£30</p><ul><li>Deposit locks batch-03 price</li><li>Serial of your choice</li><li>Refundable anytime</li></ul><a class="btn" href="#">Reserve slot</a></div>
+<div class="plan"><h3>Pre-order</h3><p class="price">£449</p><ul><li>FX-1 unit + PSU</li><li>2-year warranty</li><li>Preset card set</li></ul><a class="btn" href="#">Pre-order</a></div>
+<div class="plan"><h3>Studio pair</h3><p class="price">£840</p><ul><li>2× matched units</li><li>Calibration report per unit</li><li>Priority support line</li></ul><a class="btn ghost" href="#">Talk to us</a></div>
+</div>
+</section>
+
+<section><div class="band">
+<p class="en">Batch 03 · November 2026</p>
+<h2 style="font-size:32px;margin:12px 0 24px">Put one on the desk. Hear the difference tonight.</h2>
+<a class="btn" href="#">Pre-order the FX-1</a>
+</div></section>
+
+<footer><span>© 2026 Torso Audio AB, Gothenburg, Sweden</span><span>support@torsoaudio.se</span></footer>
+</div>
+</body>
+</html>

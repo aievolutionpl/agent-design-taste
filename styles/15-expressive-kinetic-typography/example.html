@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pressform — Independent type foundry & print studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@400;500&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F2;--surface:#FFFFFF;--text:#14120E;--sec:#6B675F;--border:#E8E3DA;
+  --accent:#E4572E;--container:1200px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --reveal:700ms;--hover:250ms;--marquee:42s;--stagger:60ms;
+}
+@media(prefers-reduced-motion:reduce){
+  :root{--reveal:0ms;--marquee:999999s}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+.ticker{font:400 12px/1 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--sec)}
+/* ---- typographic nav ---- */
+nav{display:flex;justify-content:space-between;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--text)}
+.logo{font:600 24px 'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 1}
+nav ul{display:flex;gap:36px;list-style:none}
+nav a{font:600 21px 'Fraunces',serif;color:var(--text);text-decoration:none;font-variation-settings:'wght' 400;transition:font-variation-settings var(--hover) var(--ease),color var(--hover) var(--ease)}
+nav a:hover{font-variation-settings:'wght' 800,'SOFT' 100;color:var(--accent)}
+nav a.talk{font-variation-settings:'wght' 800;border-bottom:3px solid var(--accent);padding-bottom:2px}
+/* ---- kinetic hero ---- */
+.hero{padding:120px 0 96px;border-bottom:1px solid var(--text)}
+.hero h1{font:600 clamp(52px,9.2vw,112px)/1.0 'Fraunces',serif;letter-spacing:-.02em;font-variation-settings:'SOFT' 0,'WONK' 0}
+.hero h1 em{font-style:normal;font-variation-settings:'wght' 300,'SOFT' 100,'WONK' 1;color:var(--accent);transition:font-variation-settings 400ms var(--ease)}
+.hero h1 em:hover{font-variation-settings:'wght' 900,'SOFT' 100,'WONK' 1}
+.line{display:block;overflow:hidden}
+.line>span{display:inline-block}
+/* mask reveal — initial offset applied by JS only (no-JS safe) */
+.js .line>span{transform:translateY(110%);transition:transform var(--reveal) var(--ease)}
+.js .line.in>span{transform:translateY(0)}
+.hero .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:40px;flex-wrap:wrap;gap:16px}
+/* ---- marquee ---- */
+.marquee{overflow:hidden;border-bottom:1px solid var(--text);padding:20px 0}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:slide var(--marquee) linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font:600 clamp(24px,4vw,40px)/1 'Fraunces',serif;white-space:nowrap}
+.marquee span:nth-child(odd){font-variation-settings:'wght' 300,'SOFT' 100}
+.marquee span:nth-child(even){font-variation-settings:'wght' 700;color:var(--accent)}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+/* ---- numbered list: rows inflate ---- */
+section{padding:96px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:48px;border-bottom:1px solid var(--border);padding-bottom:16px}
+h2{font:600 clamp(30px,4.5vw,48px)/1.1 'Fraunces',serif;font-variation-settings:'SOFT' 0}
+.list{list-style:none}
+.list li{display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--border);transition:padding var(--hover) var(--ease)}
+.list li:hover{padding-left:12px}
+.list .num{font:400 13px 'Space Mono',monospace;color:var(--accent)}
+.list .what{font:500 clamp(22px,3.4vw,36px)/1.2 'Fraunces',serif;font-variation-settings:'wght' 480;transition:font-variation-settings var(--hover) var(--ease)}
+.list li:hover .what{font-variation-settings:'wght' 800,'SOFT' 100}
+.list .why{color:var(--sec);font-size:15px;max-width:34ch;text-align:right}
+/* ---- quiet manifesto ---- */
+.quiet{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.quiet .inner{max-width:62ch;margin:0 auto}
+.quiet p{font-size:19px;line-height:1.75;margin-bottom:24px}
+.quiet .drop{font:600 60px/1 'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 1;float:left;margin:6px 16px 0 0;color:var(--accent)}
+/* ---- type-only pricing ---- */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.tier{background:var(--bg);padding:40px 32px}
+.tier .name{font:600 22px 'Fraunces',serif}
+.tier .amount{font:600 clamp(44px,6vw,72px)/1 'Fraunces',serif;font-variation-settings:'wght' 300;margin:16px 0 8px;transition:font-variation-settings var(--hover) var(--ease)}
+.tier:hover .amount{font-variation-settings:'wght' 800,'SOFT' 100}
+.tier .per{font:400 12px 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--sec)}
+.tier ul{list-style:none;margin:24px 0 28px;color:var(--sec);font-size:15px}
+.tier li{padding:8px 0;border-bottom:1px solid var(--border)}
+/* typographic CTA */
+.link-cta{font:600 22px 'Fraunces',serif;font-variation-settings:'wght' 560;color:var(--text);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:3px;transition:font-variation-settings var(--hover) var(--ease),color var(--hover)}
+.link-cta::after{content:' →';transition:margin var(--hover) var(--ease)}
+.link-cta:hover{font-variation-settings:'wght' 800,'SOFT' 100;color:var(--accent)}
+.link-cta:hover::after{margin-left:6px}
+/* ---- footer ---- */
+footer{border-top:1px solid var(--text);padding:48px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer .big{font:600 clamp(36px,7vw,80px)/1 'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 1;color:var(--text)}
+footer a{color:var(--text)}
+/* ---- responsive ---- */
+@media(max-width:900px){
+  .hero{padding:72px 0 64px}
+  .list li{grid-template-columns:48px 1fr}
+  .list .why{display:none}
+  .pricing{grid-template-columns:1fr}
+  nav ul{gap:20px}nav a{font-size:17px}
+}
+/* ---- mandatory reduced-motion: final state, static ---- */
+@media(prefers-reduced-motion:reduce){
+  .js .line>span{transform:none!important;transition:none!important}
+  .marquee-track{animation:none!important}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<nav><span class="logo">Pressform</span><ul><li><a href="#faces">Faces</a></li><li><a href="#price">Licensing</a></li></ul><a class="talk" href="#">Request trial fonts</a></nav>
+
+<header class="hero">
+  <p class="ticker">Independent foundry · est. 2019 · Rotterdam</p>
+  <h1 style="margin-top:28px">
+    <span class="line"><span>Letters that</span></span>
+    <span class="line"><span><em>behave</em> like</span></span>
+    <span class="line"><span>software.</span></span>
+  </h1>
+  <div class="row">
+    <p style="color:var(--sec);max-width:46ch">Pressform draws and ships variable typefaces for print and screen. Seven families, 41 axes, zero lock-in.</p>
+    <span class="ticker">VARIABLE · WOFF2 · DESKTOP · FREE TRIALS</span>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Grotesk</span><span>Serif</span><span>Mono</span><span>Display</span><span>Stencil</span><span>Variable</span>
+    <span>Grotesk</span><span>Serif</span><span>Mono</span><span>Display</span><span>Stencil</span><span>Variable</span>
+  </div>
+</div>
+
+<section id="faces">
+  <div class="sec-head"><h2>The faces</h2><span class="ticker">07 FAMILIES · HOVER TO INFLATE</span></div>
+  <ul class="list">
+    <li><span class="num">01</span><span class="what">Tolva Grotesk</span><span class="why" style="color:var(--sec);font-size:15px">Workhorse sans, wdth 75–125. Made for dense UI and wayfinding.</span></li>
+    <li><span class="num">02</span><span class="what">Marlow Serif</span><span class="why" style="color:var(--sec);font-size:15px">Editorial serif with a SOFT axis that runs from crisp to velvet.</span></li>
+    <li><span class="num">03</span><span class="what">Klem Mono</span><span class="why" style="color:var(--sec);font-size:15px">Terminal mono with code-ready ligatures, WONK optional.</span></li>
+    <li><span class="num">04</span><span class="what">Brak Stencil</span><span class="why" style="color:var(--sec);font-size:15px">Display stencil for posters — one weight, no apologies.</span></li>
+  </ul>
+</section>
+
+<section class="quiet">
+  <div class="inner">
+    <span class="drop">W</span>
+    <p>e are four people who draw letters in a studio above a print shop in Rotterdam. Every family ships as a variable font, because static weights are how foundries sell you the same letter eleven times.</p>
+    <p>Trial fonts are free, full and forever — we trust you to pay when the project pays. Licensing is one page, in plain language, priced per company size, not per "seat" fiction.</p>
+  </div>
+</section>
+
+<section id="price">
+  <div class="sec-head"><h2>Licensing</h2><span class="ticker">ONE PAGE · PLAIN LANGUAGE</span></div>
+  <div class="pricing">
+    <div class="tier"><p class="name">Freelance</p><p class="amount">$<span class="count" data-count="120">120</span></p><span class="per">per family · one person</span><ul><li>All formats</li><li>Unlimited projects</li><li>Free updates forever</li></ul><a class="link-cta" href="#">License</a></div>
+    <div class="tier"><p class="name">Studio</p><p class="amount">$<span class="count" data-count="480">480</span></p><span class="per">per family · up to 20 people</span><ul><li>Everything in Freelance</li><li>Web + app embedding</li><li>Broadcast rights</li></ul><a class="link-cta" href="#">License</a></div>
+    <div class="tier"><p class="name">Everything</p><p class="amount">$<span class="count" data-count="1900">1900</span></p><span class="per">all 7 families · one company</span><ul><li>Every current &amp; future face</li><li>Custom axis tuning</li><li>Direct line to the designers</li></ul><a class="link-cta" href="#">License</a></div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="big">Set something.</span><br><span class="ticker" style="display:block;margin-top:12px">TRIALS · hello@pressform.nl</span></div>
+  <span>© 2026 Pressform, Rotterdam NL</span>
+</footer>
+</div>
+
+<script>
+(function () {
+  var d = document.documentElement;
+  d.classList.add('js');
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Line-mask reveal (once). No-JS: everything visible; reduced: final state instantly.
+  if (reduced) {
+    document.querySelectorAll('.line').forEach(function (l) { l.classList.add('in'); });
+  } else {
+    var lines = document.querySelectorAll('.line');
+    lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('in'); }, 120 + i * 120); });
+  }
+
+  // Departure-board shuffle on the hero word "behave"
+  var word = document.querySelector('.hero h1 em');
+  var chars = 'abcdefghijklmnopqrstuvwxyz#%&';
+  if (word && !reduced) {
+    var final = word.textContent, n = 0;
+    var iv = setInterval(function () {
+      n++;
+      word.textContent = final.split('').map(function (c, i) {
+        return i < n ? c : chars[Math.floor(Math.random() * chars.length)];
+      }).join('');
+      if (n >= final.length) clearInterval(iv);
+    }, 55);
+  }
+
+  // Count-up prices (reduced-motion keeps final values in markup)
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, end = +el.dataset.count, t0 = null;
+        iv2(el);
+        function iv2(el) {
+          requestAnimationFrame(function step(t) {
+            if (!t0) t0 = t;
+            var p = Math.min((t - t0) / 900, 1);
+            el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(iv2(el));
+          });
+        }
+        io.unobserve(el);
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.count').forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

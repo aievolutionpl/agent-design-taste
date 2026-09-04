@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halo — Your home, one touch away</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@400;500;600&family=Geist+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B1120;--surface:#141C2F;--text:#fff;--sec:rgb(255 255 255/.65);--border:rgb(255 255 255/.12);--accent:#0A84FF;--lg-tint:rgb(255 255 255/.14);--lg-border:rgb(255 255 255/.22);--lg-spec:inset 0 1px 0 rgb(255 255 255/.40),inset 0 -1px 0 rgb(255 255 255/.06);--lg-shadow:0 12px 40px rgb(0 0 0/.18);--container:1200px;--spring:cubic-bezier(.34,1.56,.64,1);--soft:cubic-bezier(.34,1.3,.5,1);--out:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;position:relative}
+/* Rich moving light beneath the glass */
+.mesh{position:fixed;inset:0;z-index:-2;background:var(--bg)}
+.mesh::before,.mesh::after,.mesh i{content:"";position:absolute;border-radius:50%;filter:blur(100px)}
+.mesh::before{width:560px;height:560px;background:rgb(14 165 233/.40);top:-100px;left:-100px;animation:drift 90s ease-in-out infinite alternate}
+.mesh::after{width:520px;height:520px;background:rgb(139 92 246/.38);top:20%;right:-160px;animation:drift 70s ease-in-out infinite alternate-reverse}
+.mesh i{width:640px;height:640px;background:rgb(244 114 182/.30);bottom:-220px;left:30%;animation:drift 110s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(80px,60px)}}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+/* Liquid glass = controls only */
+.liquid{background:var(--lg-tint);border:1px solid var(--lg-border);box-shadow:var(--lg-spec),var(--lg-shadow);-webkit-backdrop-filter:blur(14px) saturate(180%) brightness(1.08);backdrop-filter:blur(14px) saturate(180%) brightness(1.08)}
+.docknav{position:sticky;top:16px;z-index:10;display:flex;align-items:center;gap:20px;justify-content:space-between;margin:16px auto 0;max-width:760px;padding:10px 12px 10px 24px;border-radius:999px}
+.logo{font:700 19px Figtree,sans-serif}
+.docknav ul{display:flex;gap:22px;list-style:none}
+.docknav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:500;transition:opacity 200ms var(--out)}
+.docknav a:hover{opacity:.7}
+.navcta{font:600 14px Inter;color:#fff;background:var(--accent);padding:9px 18px;border-radius:999px;text-decoration:none;transition:transform 250ms var(--spring),filter 250ms var(--out)}
+.navcta:hover{filter:brightness(1.1)}
+.navcta:active{transform:scale(.97)}
+.hero{text-align:center;padding:96px 0 72px}
+.eyebrow{display:inline-block;font:600 12px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sec);padding:8px 16px;border-radius:999px;margin-bottom:24px}
+h1{font:700 56px/1.1 Figtree,sans-serif;letter-spacing:-.015em;max-width:16ch;margin:0 auto 20px}
+.hero>.container>p{color:var(--sec);max-width:52ch;margin:0 auto 32px}
+.cta{display:inline-block;background:var(--accent);color:#fff;font:600 16px Inter;padding:14px 30px;border-radius:999px;text-decoration:none;transition:transform 250ms var(--spring),filter 250ms var(--out)}
+.cta:hover{filter:brightness(1.1)}
+.cta:active{transform:scale(.97)}
+/* Signature floating dock — the glass toy */
+.dock{position:sticky;bottom:24px;z-index:10;display:flex;gap:8px;width:max-content;margin:56px auto 0;padding:10px;border-radius:999px}
+.dock button{width:56px;height:56px;border:0;border-radius:999px;background:transparent;color:var(--text);font-size:22px;cursor:pointer;transition:transform 300ms var(--spring),background 250ms var(--out)}
+.dock button:hover{background:rgb(255 255 255/.14);transform:translateY(-4px)}
+.dock button:active{transform:scale(.92)}
+.dock button.on{background:var(--accent)}
+section{padding:96px 0}
+h2{font:700 40px/1.2 Figtree;letter-spacing:-.015em;text-align:center;margin-bottom:48px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+/* Content lives on SOLID surfaces */
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px;box-shadow:0 8px 24px rgb(0 0 0/.20)}
+.feature .ico{width:44px;height:44px;border-radius:14px;background:rgb(10 132 255/.18);display:grid;place-items:center;font-size:20px;margin-bottom:16px}
+.feature h3{font:600 22px Figtree;margin-bottom:8px}
+.feature p{color:var(--sec);font-size:15px}
+/* Glass segmented control — a control, not a card */
+.seg{display:flex;width:max-content;margin:0 auto 56px;padding:6px;border-radius:999px}
+.seg button{border:0;background:transparent;color:var(--sec);font:600 14px Inter;padding:10px 22px;border-radius:999px;cursor:pointer;transition:all 300ms var(--spring)}
+.seg button.on{background:var(--text);color:var(--bg)}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:820px;margin:0 auto}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:36px}
+.plan h3{font:600 20px Figtree;margin-bottom:4px}
+.plan .price{font:700 44px Figtree;margin:12px 0 16px}
+.plan ul{list-style:none;color:var(--sec);font-size:15px;margin-bottom:24px}
+.plan li{padding:7px 0;border-bottom:1px solid var(--border)}
+.band{text-align:center;padding:80px 24px}
+.band h2{font:700 40px Figtree;letter-spacing:-.015em;margin-bottom:16px}
+footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){h1{font-size:34px}.features,.plans{grid-template-columns:1fr}.docknav ul{display:none}}
+@media(max-width:720px){.dock{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;margin:0}}
+@supports not (backdrop-filter:blur(1px)){.liquid{background:rgb(20 28 47/.92)}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition-duration:0ms!important;animation:none!important}
+  .mesh::before,.mesh::after,.mesh i{animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="mesh" aria-hidden="true"><i></i></div>
+<nav class="liquid docknav"><span class="logo">Halo</span><ul><li><a href="#f">Rooms</a></li><li><a href="#p">Plans</a></li></ul><a class="navcta" href="#">Get the app</a></nav>
+<header class="hero">
+<div class="container">
+<p class="eyebrow" style="border:1px solid var(--border)">Smart home</p>
+<h1>Your home, one touch away.</h1>
+<p>Halo ties your lights, heating, locks and cameras into one surface that feels physical — press it, slide it, and the room answers.</p>
+<a class="cta" href="#">Download free</a>
+<div class="liquid dock" role="group" aria-label="Quick controls">
+<button class="on" title="Lights">💡</button><button title="Heating">🌡️</button><button title="Locks">🔒</button><button title="Cameras">📷</button><button title="Scenes">✨</button>
+</div>
+</div>
+</header>
+<section id="f">
+<h2>Everything answers.</h2>
+<div class="features">
+<div class="feature"><div class="ico">🌙</div><h3>Scenes that follow you</h3><p>Arrive home and the hallway warms, lamps dim to 40%, and the kettle starts — one geofence, zero taps.</p></div>
+<div class="feature"><div class="ico">🔒</div><h3>Locks you can trust</h3><p>End-to-end encrypted. Every unlock logged, every guest key expiring when you say so.</p></div>
+<div class="feature"><div class="ico">📉</div><h3>Bills that shrink</h3><p>Halo shifts heating and charging to cheap hours. Homes save £240 a year on average.</p></div>
+</div>
+</section>
+<section id="p">
+<div class="seg liquid" role="tablist" aria-label="Billing period"><button class="on">Monthly</button><button>Yearly −20%</button></div>
+<div class="plans">
+<div class="plan"><h3>Home</h3><p class="price">£6<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>Up to 20 devices</li><li>Scenes & automations</li><li>2 user accounts</li></ul><a class="cta" href="#">Start free</a></div>
+<div class="plan"><h3>Home+</h3><p class="price">£11<span style="font:500 16px Inter;color:var(--sec)">/mo</span></p><ul><li>Unlimited devices</li><li>Energy scheduling</li><li>Guest access & logs</li><li>Priority support</li></ul><a class="cta" href="#">Start free</a></div>
+</div>
+</section>
+<section><div class="container"><div class="band"><p class="eyebrow" style="border:1px solid var(--border)">Ready in minutes</p><h2>Set up your Halo tonight.</h2><br><a class="cta" href="#">Download free</a></div></div></section>
+<footer><div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%"><span>© 2026 Halo Labs, Cambridge, UK</span><span>hello@halo.home</span></div></footer>
+</body>
+</html>
