@@ -228,9 +228,7 @@ See the whole thing run on one brief:
 | 14 | [3D / Spatial UI](styles/14-3d-spatial-ui/) | Depth you can move through | Web3, launches, immersive | low–med |
 | 15 | [Kinetic Typography](styles/15-expressive-kinetic-typography/) | Type as the interface | Portfolios, campaigns | low |
 
-[**Preview gallery of all 15 example pages**](docs/index.html) — open it locally, or
-publish it by enabling GitHub Pages for this repository (*Settings → Pages →
-main / `docs`*), which serves it at `https://aievolutionpl.github.io/agent-design-taste/`.
+[**Live previews of all 15 example pages →**](https://aievolutionpl.github.io/agent-design-taste/) · [source](docs/index.html)
 
 ### What is inside every style folder
 

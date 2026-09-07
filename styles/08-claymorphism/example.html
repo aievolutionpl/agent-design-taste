@@ -74,6 +74,13 @@ footer{padding:48px 0;color:var(--sec);font-size:14px;display:flex;justify-conte
   nav ul{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;transform:none!important}}
+@media(max-width:900px){nav ul{display:flex}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>

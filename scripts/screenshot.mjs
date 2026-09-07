@@ -63,34 +63,75 @@ for (const target of list) {
       reducedMotion: vp.name === 'narrow' ? 'reduce' : 'no-preference',
     });
     const page = await ctx.newPage();
-    await page.goto(target.url, { waitUntil: 'networkidle' }).catch(() => {});
-    await page.waitForTimeout(350);
+    // 'load' + fonts.ready rather than 'networkidle': a page with webfonts or a
+    // long-lived connection never goes idle, and waiting for that is minutes of
+    // nothing. Layout is settled once fonts have swapped in.
+    await page.goto(target.url, { waitUntil: 'load', timeout: 20_000 }).catch(() => {});
+    await page.evaluate(() => document.fonts?.ready).catch(() => {});
+    await page.waitForTimeout(250);
 
     const metrics = await page.evaluate(() => {
       const de = document.documentElement;
+      const label = (el) => el.tagName.toLowerCase() +
+        (typeof el.className === 'string' && el.className.trim()
+          ? '.' + el.className.trim().split(/\s+/)[0] : '');
+
+      // An element clipped by an ancestor's overflow does not create page scroll,
+      // so it must not be blamed for it (deliberate bleed is a valid technique).
+      const clipped = (el) => {
+        for (let p = el.parentElement; p && p !== de; p = p.parentElement) {
+          const ox = getComputedStyle(p).overflowX;
+          if (ox === 'hidden' || ox === 'clip' || ox === 'auto' || ox === 'scroll') return true;
+        }
+        return false;
+      };
+
       let widest = null;
       let widestOverflow = 0;
       for (const el of document.body.querySelectorAll('*')) {
+        if (clipped(el)) continue;
         const r = el.getBoundingClientRect();
         const over = Math.round(r.right - de.clientWidth);
-        if (over > widestOverflow) {
-          widestOverflow = over;
-          widest = el.tagName.toLowerCase() + (el.className && typeof el.className === 'string'
-            ? '.' + el.className.trim().split(/\s+/)[0] : '');
-        }
+        if (over > widestOverflow) { widestOverflow = over; widest = label(el); }
       }
-      const tiny = [...document.querySelectorAll('a,button,input,select,[role="button"]')]
-        .filter((el) => {
-          const r = el.getBoundingClientRect();
-          return r.width > 0 && (r.width < 44 || r.height < 44);
-        }).length;
-      return {
-        scrollW: de.scrollWidth,
-        clientW: de.clientWidth,
-        widest,
-        widestOverflow,
-        tiny,
+
+      // WCAG 2.2 SC 2.5.8 exempts targets that sit inline within a sentence or
+      // block of text, so an inline link inside a paragraph is not a finding.
+      const inlineInText = (el) => {
+        if (getComputedStyle(el).display !== 'inline') return false;
+        const p = el.parentElement;
+        if (!p) return false;
+        return (p.textContent || '').trim().length > (el.textContent || '').trim().length + 8;
       };
+
+      const targets = [...document.querySelectorAll('a,button,input,select,[role="button"]')]
+        .map((el) => ({ el, r: el.getBoundingClientRect() }))
+        .filter((t) => t.r.width > 0 && t.r.height > 0);
+
+      // SC 2.5.8 also exempts an undersized target whose 44px-diameter circle
+      // does not overlap any neighbour's — a narrow nav link with real spacing
+      // around it is comfortable to tap. Only flag targets that are BOTH
+      // undersized and crowded.
+      const crowded = (t) => targets.some((o) => {
+        if (o.el === t.el) return false;
+        const dx = (t.r.left + t.r.width / 2) - (o.r.left + o.r.width / 2);
+        const dy = (t.r.top + t.r.height / 2) - (o.r.top + o.r.height / 2);
+        return Math.hypot(dx, dy) < 44;
+      });
+
+      const small = targets
+        .filter(({ el, r }) => {
+          if (inlineInText(el)) return false;
+          if (r.width >= 44 && r.height >= 44) return false;
+          // Height below the comfortable minimum is a finding regardless of
+          // spacing — a 15px-tall link is hard to hit even in open space.
+          if (r.height < 32) return true;
+          return crowded({ el, r });
+        })
+        .map(({ el }) => el)
+        .map((el) => `${label(el)} ${Math.round(el.getBoundingClientRect().width)}x${Math.round(el.getBoundingClientRect().height)}`);
+
+      return { scrollW: de.scrollWidth, clientW: de.clientWidth, widest, widestOverflow, small };
     });
 
     const overflow = metrics.scrollW > metrics.clientW + 1;
@@ -104,7 +145,10 @@ for (const target of list) {
         (metrics.widest ? ` (widest: ${metrics.widest})` : ''));
       if (isMobile) blockers++;
     }
-    if (isMobile && metrics.tiny > 0) flags.push(`${metrics.tiny} touch target(s) < 44px`);
+    if (isMobile && metrics.small.length > 0) {
+      flags.push(`${metrics.small.length} touch target(s) < 44px: ` +
+        metrics.small.slice(0, 3).join(', ') + (metrics.small.length > 3 ? ' …' : ''));
+    }
 
     const status = flags.length ? (isMobile && overflow ? '🔴' : '🟠') : '  ';
     console.log(`  ${status} ${vp.name.padEnd(8)} ${String(vp.width).padStart(4)}px  ` +

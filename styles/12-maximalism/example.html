@@ -59,6 +59,14 @@ h2{font:900 clamp(30px,4.4vw,52px)/1 'Fraunces',serif}
 footer{padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media(max-width:900px){.lineup,.tickets{grid-template-columns:1fr}.hero{padding:64px 0}.hero .blob{width:220px;height:220px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
+body{overflow-x:clip}
+@media(max-width:720px){.hero .actions,.hero p+div{flex-wrap:wrap}.btn{max-width:100%}}
 </style>
 </head>
 <body>

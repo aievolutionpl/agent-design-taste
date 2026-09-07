@@ -97,6 +97,12 @@ footer{padding:44px 0;color:var(--sec);font-size:13px;display:flex;justify-conte
   .knob{width:64px;height:64px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:720px){
+  nav{flex-wrap:wrap;row-gap:12px}
+  nav .logo{flex:1 1 auto}
+  nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
+  nav a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 </head>
 <body>
