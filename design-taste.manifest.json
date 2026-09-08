@@ -3,8 +3,8 @@
   "name": "agent-design-taste",
   "title": "Agent Design Taste",
   "tagline": "Design Intelligence for AI Agents",
-  "repositoryVersion": "2.0.0",
-  "skillVersion": "2.0.0",
+  "repositoryVersion": "2.1.0",
+  "skillVersion": "2.1.0",
   "license": "MIT",
   "repository": "https://github.com/aievolutionpl/agent-design-taste",
   "entrypoints": {
@@ -126,6 +126,7 @@
     "generateManifest": "scripts/gen_manifest.py",
     "validate": "scripts/validate.py",
     "screenshot": "scripts/screenshot.mjs",
+    "checkContrast": "scripts/check_contrast.py",
     "install": "scripts/install.sh"
   },
   "styleCount": 15,

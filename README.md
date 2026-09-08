@@ -9,7 +9,7 @@
 **Teach your coding agent *how to design* — not just how to code.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
-[![Skill v2.0.0](https://img.shields.io/badge/skill-v2.0.0-black.svg)](SKILL.md)
+[![Skill v2.0.0](https://img.shields.io/badge/skill-v2.1.0-black.svg)](SKILL.md)
 [![15 styles](https://img.shields.io/badge/styles-15-black.svg)](#the-15-styles)
 [![validate](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml/badge.svg)](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml)
 
@@ -394,6 +394,7 @@ Fifteen is noise with a brief buried in it.**
 
 ```bash
 python3 scripts/validate.py          # full structural check — what CI runs
+python3 scripts/check_contrast.py    # WCAG AA on every style palette
 python3 scripts/validate.py --budget # measured context cost per file
 python3 scripts/gen_tokens.py        # regenerate tokens.json + tokens.tailwind.css
 python3 scripts/gen_manifest.py      # regenerate styles/index.json + manifest
@@ -403,7 +404,9 @@ node    scripts/screenshot.mjs 10    # render a style at 1440/768/390/360
 CI verifies that every style folder is complete, every required token category
 exists (including `--shadow-focus`), every internal link resolves, every
 `example.html` parses, all 15 DNAs share the 24-section architecture, and every
-generated file is in sync with its source.
+generated file is in sync with its source. It also **measures** every palette
+against WCAG AA and **renders** all 15 example pages at 1440/768/390/360,
+failing on horizontal overflow. The rules are enforced, not just written down.
 
 Adding style #16? [`CONTRIBUTING.md`](CONTRIBUTING.md) and
 [`docs/STYLE-TEMPLATE.md`](docs/STYLE-TEMPLATE.md) have the full checklist.

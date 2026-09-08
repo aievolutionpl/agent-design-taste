@@ -10,7 +10,7 @@
   --color-border: #E8E3DA;
   --color-primary: #14120E;
   --color-primary-contrast: #FAF7F2;
-  --color-accent: #E4572E;
+  --color-accent: #C24A27;
   --color-accent-contrast: #FAF7F2;
   --color-success: #16A34A;
   --color-warning: #D97706;
@@ -56,8 +56,8 @@
 /* No Tailwind namespace — use via var() */
 :root {
   --motion-hover: 250ms;
-  --motion-reveal: 0ms;
-  --motion-marquee: 999999s;
+  --motion-reveal: 700ms;
+  --motion-marquee: 42s;
   --motion-stagger: 60ms;
   --motion-board: steps(8, end);
   --border-default: 1px solid var(--color-border);

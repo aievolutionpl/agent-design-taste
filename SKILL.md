@@ -2,7 +2,7 @@
 name: agent-design-taste
 description: Use when generating, redesigning or reviewing any UI — landing page, dashboard, app screen, component, or design system. Teaches the agent to analyze product and audience first, choose one design style deliberately, build from real tokens, render it, and audit it — instead of producing generic "modern premium AI SaaS" output.
 license: MIT
-version: 2.0.0
+version: 2.1.0
 metadata:
   repository: https://github.com/aievolutionpl/agent-design-taste
   styles: 15

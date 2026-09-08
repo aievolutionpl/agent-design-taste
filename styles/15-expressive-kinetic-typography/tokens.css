@@ -7,7 +7,7 @@
   --color-border: #E8E3DA;
   --color-primary: #14120E;
   --color-primary-contrast: #FAF7F2;
-  --color-accent: #E4572E;
+  --color-accent: #C24A27;
   --color-accent-contrast: #FAF7F2;
   --color-success: #16A34A;
   --color-warning: #D97706;
@@ -74,5 +74,5 @@
     --motion-reveal: 0ms;
     --motion-marquee: 999999s; /* effectively paused at first frame */
     --vf-rest: 'wght' 700, 'SOFT' 0, 'WONK' 0;
-  }
+}
 }

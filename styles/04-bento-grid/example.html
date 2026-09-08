@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F4F4F2;--tile:#fff;--tile-dark:#111;--text:#111;--sec:#5C5C58;--border:#E2E2DE;--accent:#0D9488;--container:1240px;--gap:16px;--fast:180ms;--ease:cubic-bezier(.16,1,.3,1)}
+:root{--bg:#F4F4F2;--tile:#fff;--tile-dark:#111;--text:#111;--sec:#5C5C58;--border:#E2E2DE;--accent:#0C857A;--container:1240px;--gap:16px;--fast:180ms;--ease:cubic-bezier(.16,1,.3,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font:400 16px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg)}
 .container{max-width:var(--container);margin:0 auto;padding:0 24px}
@@ -79,6 +79,10 @@ footer{border-top:1px solid var(--border);padding:32px 0;color:var(--sec);font-s
   nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
   nav a{display:inline-flex;align-items:center;min-height:44px}
 }
+
+/* Authored focus indicator — ANTI-SLOP.md treats a missing or invisible
+   :focus-visible as a BLOCKER, so the reference page has to show one. */
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -113,7 +117,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;color:var(--sec);font-s
     <h3>Growth is compounding, not spiking.</h3>
     <div class="chart">
       <svg viewBox="0 0 400 120" role="img" aria-label="MRR trend, rising from 9,000 to 14,280 over 12 weeks">
-        <polyline points="0,95 36,90 72,88 108,80 144,78 180,70 216,66 252,55 288,50 324,38 360,30 400,22" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+        <polyline points="0,95 36,90 72,88 108,80 144,78 180,70 216,66 252,55 288,50 324,38 360,30 400,22" fill="none" stroke="#0C857A" stroke-width="2.5" stroke-linecap="round"/>
         <line x1="0" y1="118" x2="400" y2="118" stroke="#E2E2DE" stroke-width="1"/>
       </svg>
     </div>

@@ -34,6 +34,9 @@ jobs:
             exit 1
           fi
 
+      - name: Token contrast (WCAG AA on every style palette)
+        run: python3 scripts/check_contrast.py
+
       - name: Context budget
         run: python3 scripts/validate.py --budget
 
@@ -47,3 +50,30 @@ jobs:
           test -f "$tmp/.cursor/rules/agent-design-taste.mdc"
           test -f "$tmp/.windsurf/rules/agent-design-taste.md"
           test -f "$tmp/.github/copilot-instructions.md"
+
+  render:
+    name: Rendered verification of the 15 example pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright Chromium
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Render every example at 1440 / 768 / 390 / 360
+        run: node scripts/screenshot.mjs
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-screenshots
+          path: screenshots/
+          retention-days: 7
