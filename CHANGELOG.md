@@ -8,6 +8,52 @@ For a skill, "breaking" means: a renamed or moved file that installations
 reference, a changed workflow contract, or a removed rule an agent may be
 relying on.
 
+## [2.1.0] — 2026-09-08
+
+Enforcement release. 2.0.0 wrote the accessibility rules down; this one measures
+them. Both new checks found real failures in this repository on their first run.
+
+### Added
+- `scripts/check_contrast.py` — measures every style palette against WCAG AA:
+  text pairs at 4.5:1, focus indicators at 3:1, in both themes. It resolves dark
+  as light-then-dark (dark blocks are partial overrides, so the pairs most
+  likely to fail were the ones never being checked) and composites translucent
+  colors before measuring. Waivers require a written reason.
+- CI now runs the contrast check, and **renders all 15 example pages** at
+  1440/768/390/360 with `scripts/screenshot.mjs`, failing on mobile overflow and
+  uploading the screenshots as an artifact. The render check existed in 2.0.0
+  but only ever ran by hand.
+
+### Fixed
+- **Focus rings were invisible across 14 of 15 styles.** Every one used a
+  translucent color (alpha 0.30–0.45), compositing to 1.2–1.8:1 against its own
+  background — the exact 🔴 BLOCKER `ANTI-SLOP.md` defines. All are now solid.
+  Two styles were also contradicting their own §13: 05 documents a "thick black
+  outline" and shipped a pink ring at 1.98:1; 06 documents a "high-contrast
+  outline" and shipped neon yellow at 1.04:1. Both now use their text color.
+- **14 of 15 example pages had no authored focus style at all** — no
+  `:focus-visible`, no `:focus`, no `outline`. Each now ships one, using a
+  palette color verified at 3:1 against that page's own background.
+- **11 button/label pairs failed 4.5:1** — white-on-mid-tone labels at 1.86–4.48:1.
+  Fixed by adapting the label where the fill is a light tint, and by an
+  imperceptible darkening of the fill elsewhere; brand hues are preserved.
+- **Glassmorphism's accent was `#8B5CF6`** — the exact hex `ANTI-SLOP.md` names
+  as the over-used default violet, and it failed contrast at 4.23:1. Now
+  `#7C3AED`: still unmistakably violet, off the flagged default, 5.70:1.
+- `scripts/gen_tokens.py` treated **every** `:root` as the light palette,
+  including one nested inside `@media (prefers-reduced-motion: reduce)`. A token
+  misplaced there looked correct in the generated JSON while applying only to
+  reduced-motion users in a browser. At-rule blocks are now excluded.
+- Example palettes re-synced to the corrected tokens, so no reference page
+  demonstrates a failure the tokens no longer have.
+
+### Changed
+- `design-tokens/TOKENS-GUIDE.md`, `accessibility/ACCESSIBILITY.md`,
+  `CONTRIBUTING.md` and both READMEs document the enforced checks — including
+  why `--color-border` is deliberately *not* held to 3:1 (WCAG 1.4.11 exempts
+  boundaries not needed to identify a component; failing all 15 styles on
+  hairlines would get the check switched off).
+
 ## [2.0.0] — 2026-09-04
 
 The onboarding and routing release. The design knowledge was already here; this

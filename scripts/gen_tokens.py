@@ -45,8 +45,35 @@ CATEGORIES = [
 ]
 
 
+def strip_at_rules(css: str) -> str:
+    """Drop @media/@supports blocks before parsing.
+
+    A `:root` nested inside `@media (prefers-reduced-motion: reduce)` is not the
+    light palette — it applies only to that media condition. Merging it in made
+    a misplaced token look correct in the generated JSON while behaving
+    differently in a browser, so the palette is read from top-level rules only.
+    """
+    out, i = [], 0
+    pat = re.compile(r"@[a-zA-Z-]+[^{]*\{")
+    while True:
+        m = pat.search(css, i)
+        if not m:
+            out.append(css[i:])
+            break
+        out.append(css[i:m.start()])
+        depth, j = 1, m.end()
+        while j < len(css) and depth:
+            if css[j] == "{":
+                depth += 1
+            elif css[j] == "}":
+                depth -= 1
+            j += 1
+        i = j
+    return "".join(out)
+
+
 def parse_tokens(css_path: str) -> dict[str, dict[str, str]]:
-    text = open(css_path, encoding="utf-8").read()
+    text = strip_at_rules(open(css_path, encoding="utf-8").read())
     blocks = re.findall(r'(:root|\[data-theme="dark"\])\s*\{([^}]+)\}', text)
     out: dict[str, dict[str, str]] = {}
     for name, body in blocks:

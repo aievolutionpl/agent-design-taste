@@ -7,7 +7,7 @@
   --color-border: #E4E4EF;
   --color-primary: #111111;
   --color-primary-contrast: #FFFFFF;
-  --color-accent: #8B5CF6;
+  --color-accent: #7C3AED;
   --color-accent-contrast: #FFFFFF;
   --color-success: #16A34A;
   --color-warning: #D97706;
@@ -47,7 +47,7 @@
 
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
   --shadow-card: 0 8px 32px rgb(0 0 0 / 0.12);
-  --shadow-focus: 0 0 0 3px rgb(139 92 246 / 0.40);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
 
   --border-default: 1px solid var(--color-border);
   --border-glass: 1px solid var(--glass-border);
@@ -63,7 +63,8 @@
 
 /* Glass is fragile under motion preferences — freeze ambient drift */
 @media (prefers-reduced-motion: reduce) {
-  :root { --motion-ambient: 0s; --motion-fast: 0ms; --motion-normal: 0ms; --motion-slow: 0ms; }
+  :root { --motion-ambient: 0s; --motion-fast: 0ms; --motion-normal: 0ms; --motion-slow: 0ms;
+}
 }
 [data-theme="dark"] {
   --color-bg: #0F172A;
@@ -75,6 +76,7 @@
   --color-primary-contrast: #0F172A;
   --glass-bg: var(--glass-bg-dark);
   --color-accent: #A78BFA;
+  --color-accent-contrast: #111111;
 }
 
 /* Required usage guard */

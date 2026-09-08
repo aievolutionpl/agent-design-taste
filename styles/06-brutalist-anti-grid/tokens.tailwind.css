@@ -47,7 +47,7 @@
   --shadow-hard: 8px 8px 0 var(--color-text);
   --shadow-hard-sm: 4px 4px 0 var(--color-text);
   --shadow-hard-accent: 8px 8px 0 var(--color-accent);
-  --shadow-focus: 0 0 0 3px var(--color-accent);
+  --shadow-focus: 0 0 0 3px var(--color-text);
   /* motionEase */
   --ease-default: linear;
   /* container */

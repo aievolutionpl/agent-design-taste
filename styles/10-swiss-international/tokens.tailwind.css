@@ -45,7 +45,7 @@
   --radius-lg: 2px;
   /* shadows */
   --shadow-none: none;
-  --shadow-focus: 0 0 0 3px rgb(226 35 26 / 0.35);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
   /* motionEase */
   --ease-default: cubic-bezier(0.2, 0, 0, 1);
   /* container */

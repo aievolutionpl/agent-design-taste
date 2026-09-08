@@ -5,9 +5,9 @@
   --color-text: #FFFFFF;
   --color-text-secondary: rgb(255 255 255 / 0.62);
   --color-border: rgb(255 255 255 / 0.12);
-  --color-primary: #0A84FF;
+  --color-primary: #0A74E0;
   --color-primary-contrast: #FFFFFF;
-  --color-accent: #0A84FF;
+  --color-accent: #0A74E0;
   --color-accent-contrast: #FFFFFF;
   --color-success: #30D158;
   --color-warning: #FFD60A;
@@ -51,7 +51,7 @@
   /* Continuous curves & capsules — the material's identity */
   --radius-sm: 12px; --radius-md: 24px; --radius-lg: 32px; --radius-pill: 999px;
   --shadow-float: var(--lg-shadow);
-  --shadow-focus: 0 0 0 4px rgb(10 132 255 / 0.45);
+  --shadow-focus: 0 0 0 4px var(--color-accent);
 
   --border-default: 1px solid var(--color-border);
 
@@ -89,6 +89,7 @@
   .liquid { background: var(--lg-surface); }
 }
 @media (prefers-reduced-motion: reduce) {
-  :root { --motion-ambient: 0s; }
+  :root { --motion-ambient: 0s;
+}
   * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
 }

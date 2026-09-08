@@ -61,6 +61,14 @@ outlines without replacing them makes the interface unusable by keyboard —
 
 - The ring needs **3:1 against both** the component and the page behind it.
   A blue ring on a blue button is invisible.
+- **Make the ring solid.** A ring at 30–40% opacity composites to roughly a
+  third of the contrast its hue suggests — `rgb(37 99 235 / 0.35)` on white
+  measures about 1.8:1, not the 5.2:1 the colour alone would give. Every style
+  in this repository shipped a translucent ring once; all of them failed. If
+  you want a soft glow, put it *outside* a solid ring, not instead of one.
+- Verify it, don't eyeball it: `python3 scripts/check_contrast.py` resolves each
+  style's `--shadow-focus`, composites any alpha, and measures it against both
+  the page and the surface.
 - Style-specific traps: glass and neumorphism swallow thin rings — go thicker
   and solid; brutalism already *is* a thick outline, so keep it and add offset.
 - Never let a sticky header cover the focused element. `scroll-margin-top` on

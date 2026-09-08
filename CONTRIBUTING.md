@@ -9,11 +9,12 @@ measurably better, and bad if it only makes the documentation longer.**
 ## Before you open a PR
 
 ```bash
-python3 scripts/validate.py          # what CI runs
+python3 scripts/validate.py          # structure, links, generated files
+python3 scripts/check_contrast.py    # WCAG AA on every style palette
 node    scripts/screenshot.mjs       # render all 15 examples, catch overflow
 ```
 
-The first is what CI runs. It checks every style folder, every required file, every
+All three run in CI. It checks every style folder, every required file, every
 internal link, every generated file's freshness, and the 24-section structure
 of the style DNAs.
 
@@ -84,8 +85,10 @@ styles/16-your-style/
       spacing, radius, shadows, borders, container, motion, motion-ease —
       including `--shadow-focus`.
 - [ ] Light theme in `:root`, dark theme in `[data-theme="dark"]`.
-- [ ] Contrast verified: every text/background pair used together passes
-      4.5:1 (body) or 3:1 (large text and UI boundaries).
+- [ ] `python3 scripts/check_contrast.py` passes for the new style — every
+      text/background pair and the focus indicator, in both themes. Focus rings
+      must be **solid**: a translucent ring composites to roughly a third of the
+      contrast it looks like it has.
 - [ ] `example.html` opens in a browser with no build step and no network
       dependency beyond webfonts, and holds at **1440 / 768 / 390 / 360** —
       verify with `node scripts/screenshot.mjs <your-style-id>`.

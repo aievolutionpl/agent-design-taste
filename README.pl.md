@@ -9,7 +9,7 @@
 **Naucz swojego agenta *jak projektować* — nie tylko jak kodować.**
 
 [![Licencja: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
-[![Skill v2.0.0](https://img.shields.io/badge/skill-v2.0.0-black.svg)](SKILL.md)
+[![Skill v2.0.0](https://img.shields.io/badge/skill-v2.1.0-black.svg)](SKILL.md)
 [![15 stylów](https://img.shields.io/badge/style-15-black.svg)](#15-stylów)
 [![validate](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml/badge.svg)](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml)
 
@@ -408,6 +408,7 @@ szum z briefem gdzieś w środku.**
 
 ```bash
 python3 scripts/validate.py          # pełna kontrola strukturalna — to samo co CI
+python3 scripts/check_contrast.py    # WCAG AA dla palety każdego stylu
 python3 scripts/validate.py --budget # zmierzony koszt kontekstu per plik
 python3 scripts/gen_tokens.py        # regeneruje tokens.json + tokens.tailwind.css
 python3 scripts/gen_manifest.py      # regeneruje styles/index.json + manifest
@@ -417,7 +418,10 @@ node    scripts/screenshot.mjs 10    # renderuje styl w 1440/768/390/360
 CI sprawdza, czy każdy folder stylu jest kompletny, czy istnieją wszystkie
 wymagane kategorie tokenów (w tym `--shadow-focus`), czy każdy link wewnętrzny
 działa, czy każdy `example.html` się parsuje, czy wszystkie 15 DNA ma tę samą
-24-sekcyjną strukturę i czy pliki generowane są zgodne ze źródłem.
+24-sekcyjną strukturę i czy pliki generowane są zgodne ze źródłem. CI dodatkowo
+**mierzy** każdą paletę względem WCAG AA i **renderuje** wszystkie 15 stron
+przykładowych w 1440/768/390/360, kończąc błędem przy przewijaniu poziomym.
+Reguły są egzekwowane, nie tylko zapisane.
 
 Dodajesz styl #16? [`CONTRIBUTING.md`](CONTRIBUTING.md) i
 [`docs/STYLE-TEMPLATE.md`](docs/STYLE-TEMPLATE.md) mają pełną listę kontrolną.

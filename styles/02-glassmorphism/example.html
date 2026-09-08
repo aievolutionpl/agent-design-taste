@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0F172A;--surface:#1E293B;--text:#F8FAFC;--sec:#94A3B8;--border:rgb(255 255 255/.10);--accent:#A78BFA;--accent-strong:#8B5CF6;--glass-bg:rgb(255 255 255/.12);--glass-border:rgb(255 255 255/.25);--glass-shadow:0 8px 32px rgb(0 0 0/.12);--container:1200px;--fast:150ms;--normal:200ms;--ease:cubic-bezier(.16,1,.3,1)}
+:root{--bg:#0F172A;--surface:#1E293B;--text:#F8FAFC;--sec:#94A3B8;--border:rgb(255 255 255/.10);--accent:#A78BFA;--accent-strong:#7C3AED;--glass-bg:rgb(255 255 255/.12);--glass-border:rgb(255 255 255/.25);--glass-shadow:0 8px 32px rgb(0 0 0/.12);--container:1200px;--fast:150ms;--normal:200ms;--ease:cubic-bezier(.16,1,.3,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg);min-height:100vh;position:relative;overflow-x:hidden}
 /* Vivid field behind everything — glass needs something to blur */
@@ -63,6 +63,10 @@ footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-s
 }
 @supports not (backdrop-filter:blur(1px)){nav,.player{background:var(--surface)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.field::before,.field::after{animation:none!important}}
+
+/* Authored focus indicator — ANTI-SLOP.md treats a missing or invisible
+   :focus-visible as a BLOCKER, so the reference page has to show one. */
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>

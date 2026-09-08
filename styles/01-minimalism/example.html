@@ -48,6 +48,10 @@ footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-s
   nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
   nav a{display:inline-flex;align-items:center;min-height:44px}
 }
+
+/* Authored focus indicator — ANTI-SLOP.md treats a missing or invisible
+   :focus-visible as a BLOCKER, so the reference page has to show one. */
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
