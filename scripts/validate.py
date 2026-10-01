@@ -83,6 +83,7 @@ REQUIRED_DOCS = [
     "adapters/windsurf/agent-design-taste.md",
     "adapters/copilot/copilot-instructions.md",
     "scripts/gen_tokens.py", "scripts/gen_manifest.py", "scripts/install.sh",
+    "scripts/check_contrast.py",
     "scripts/screenshot.mjs", ".github/workflows/validate.yml", ".gitignore",
 ]
 

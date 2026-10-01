@@ -10,7 +10,7 @@
   --color-border: #E4E4EF;
   --color-primary: #111111;
   --color-primary-contrast: #FFFFFF;
-  --color-accent: #8B5CF6;
+  --color-accent: #7C3AED;
   --color-accent-contrast: #FFFFFF;
   --color-success: #16A34A;
   --color-warning: #D97706;
@@ -46,7 +46,7 @@
   --radius-xl: 24px;
   /* shadows */
   --shadow-card: 0 8px 32px rgb(0 0 0 / 0.12);
-  --shadow-focus: 0 0 0 3px rgb(139 92 246 / 0.40);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
   /* motionEase */
   --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
   /* container */
@@ -55,10 +55,10 @@
 
 /* No Tailwind namespace — use via var() */
 :root {
-  --motion-fast: 0ms;
-  --motion-normal: 0ms;
-  --motion-slow: 0ms;
-  --motion-ambient: 0s;
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --motion-slow: 400ms;
+  --motion-ambient: 60s;
   --border-default: 1px solid var(--color-border);
   --border-glass: 1px solid var(--glass-border);
 }

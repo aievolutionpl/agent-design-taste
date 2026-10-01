@@ -66,6 +66,10 @@ footer nav2{display:flex;gap:24px}
   nav a{display:inline-flex;align-items:center;min-height:44px}
 }
 .hero{overflow-x:clip}
+
+/* Authored focus indicator — ANTI-SLOP.md treats a missing or invisible
+   :focus-visible as a BLOCKER, so the reference page has to show one. */
+:focus-visible{outline:3px solid var(--text);outline-offset:2px}
 </style>
 </head>
 <body>

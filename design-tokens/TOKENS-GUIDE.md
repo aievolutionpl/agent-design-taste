@@ -50,9 +50,20 @@ Minimum color roles: `bg` · `surface` · `text` · `text-secondary` · `border`
    consuming project, and should be documented where it is added.
 3. **No ad-hoc values.** If you type `13px` or `#7c3aed` in a component, either
    it should be a token or the tokens are wrong. Fix the tokens.
-4. **Contrast is part of the token contract.** Every text/background pair used
-   together passes 4.5:1 (body) or 3:1 (large text and UI boundaries) — in both
-   themes. See `accessibility/ACCESSIBILITY.md`.
+4. **Contrast is part of the token contract, and it is enforced.**
+   `python3 scripts/check_contrast.py` measures every text/background pair and
+   every focus indicator in both themes, and CI fails on a miss. It resolves the
+   dark palette as light-then-dark (dark blocks are partial overrides) and
+   composites translucent colors before measuring — a ring at 35% opacity is
+   measured as what it actually paints, not as the hue it was authored in.
+   A style that genuinely cannot pass a pair adds a waiver **with a reason**
+   rather than silencing the check. See `accessibility/ACCESSIBILITY.md`.
+
+   Not checked at 3:1: `--color-border` against surfaces. WCAG 1.4.11 requires
+   that of boundaries *needed to identify a component*, not of every hairline —
+   dividers and subtle card edges are exempt, and failing all 15 styles on it
+   would get the check switched off. `--shadow-focus` carries that requirement
+   instead, and it is checked.
 5. **Semantic over literal** where hierarchy matters: `--color-text-secondary`,
    not `--color-gray-500`. Literal scales are fine for spacing.
 

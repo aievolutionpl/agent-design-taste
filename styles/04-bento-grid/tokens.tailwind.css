@@ -11,7 +11,7 @@
   --color-border: #E2E2DE;
   --color-primary: #111111;
   --color-primary-contrast: #FFFFFF;
-  --color-accent: #0D9488;
+  --color-accent: #0C857A;
   --color-accent-contrast: #FFFFFF;
   --color-success: #16A34A;
   --color-warning: #D97706;
@@ -46,7 +46,7 @@
   --radius-lg: 16px;
   /* shadows */
   --shadow-tile-hover: 0 2px 0 0 var(--color-border);
-  --shadow-focus: 0 0 0 3px rgb(13 148 136 / 0.35);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
   /* motionEase */
   --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
   /* container */

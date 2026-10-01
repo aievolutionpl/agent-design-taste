@@ -50,7 +50,7 @@
   --shadow-offset-sm: 3px 3px 0 var(--color-border);
   --shadow-offset-md: 6px 6px 0 var(--color-border);
   --shadow-offset-lg: 10px 10px 0 var(--color-border);
-  --shadow-focus: 4px 4px 0 var(--color-accent);
+  --shadow-focus: 4px 4px 0 var(--color-text);
   /* motionEase */
   --ease-default: steps(4, end);
   /* container */

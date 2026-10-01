@@ -13,8 +13,8 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SKILL_VERSION = "2.0.0"
-REPO_VERSION = "2.0.0"
+SKILL_VERSION = "2.1.0"
+REPO_VERSION = "2.1.0"
 
 # slug: (name, identity, aliases, densities, recommendedFor, supporting, incompatible, vetoedBy, scoring)
 STYLES = {
@@ -318,6 +318,7 @@ def build_manifest(index):
             "generateManifest": "scripts/gen_manifest.py",
             "validate": "scripts/validate.py",
             "screenshot": "scripts/screenshot.mjs",
+            "checkContrast": "scripts/check_contrast.py",
             "install": "scripts/install.sh",
         },
         "styleCount": index["count"],

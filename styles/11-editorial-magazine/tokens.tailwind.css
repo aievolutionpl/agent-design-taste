@@ -48,7 +48,7 @@
   /* shadows */
   --shadow-none: none;
   --shadow-paper: 0 8px 24px rgb(26 24 21 / 0.08);
-  --shadow-focus: 0 0 0 3px rgb(140 47 27 / 0.3);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
   /* motionEase */
   --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
   /* container */

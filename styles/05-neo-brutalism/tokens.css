@@ -38,7 +38,7 @@
   --shadow-offset-sm: 3px 3px 0 var(--color-border);
   --shadow-offset-md: 6px 6px 0 var(--color-border);
   --shadow-offset-lg: 10px 10px 0 var(--color-border);
-  --shadow-focus: 4px 4px 0 var(--color-accent);
+  --shadow-focus: 4px 4px 0 var(--color-text);
 
   --border-default: 2px solid var(--color-border);
   --border-thick: 3px solid var(--color-border);

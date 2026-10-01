@@ -6,7 +6,7 @@
   --color-text: #1A0B2E;
   --color-text-secondary: #5C4A72;
   --color-border: #1A0B2E;
-  --color-primary: #E8442E;
+  --color-primary: #CF3A26;
   --color-primary-contrast: #FDF6EC;
   --color-accent-1: #FFB000; /* marigold */
   --color-accent-2: #7B2FA0; /* violet  */
@@ -40,7 +40,7 @@
   --border-thick: 2px solid var(--color-border);
   --shadow-hard: 4px 4px 0 var(--color-border);
   --shadow-hard-lg: 8px 8px 0 var(--color-border);
-  --shadow-focus: 0 0 0 3px var(--color-accent-1);
+  --shadow-focus: 0 0 0 3px var(--color-primary);
 
   --pattern-dots: radial-gradient(var(--color-border) 1.5px, transparent 1.5px);
   --pattern-dots-size: 14px 14px;
@@ -69,5 +69,6 @@
   --color-primary-contrast: #1A0B2E;
 }
 @media (prefers-reduced-motion: reduce) {
-  :root { --marquee-speed: 0px; --motion-ease: linear; }
+  :root { --marquee-speed: 0px; --motion-ease: linear;
+}
 }

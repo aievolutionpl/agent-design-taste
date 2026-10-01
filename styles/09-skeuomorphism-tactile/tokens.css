@@ -45,7 +45,7 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.35);
   --shadow-knob: 0 3px 8px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.55),
                  inset 0 -2px 4px rgba(0, 0, 0, 0.25);
-  --shadow-focus: 0 0 0 3px rgba(47, 111, 237, 0.40);
+  --shadow-focus: 0 0 0 3px var(--color-primary);
   --texture-brushed: repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
 
   --container-width: 1160px;
@@ -77,4 +77,5 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.18);
   --shadow-knob: 0 3px 8px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.16),
                  inset 0 -2px 4px rgba(0, 0, 0, 0.45);
+  --color-primary-contrast: #111111;
 }

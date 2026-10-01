@@ -3,7 +3,7 @@
   --color-bg: #E8F1F8;
   --color-surface: #FFFFFF;
   --color-text: #1B2A3A;
-  --color-text-secondary: #5A7086;
+  --color-text-secondary: #596F85;
   --color-border: #B9CCDD;
   --color-primary: #3B5BDB;
   --color-primary-contrast: #FFFFFF;
@@ -48,7 +48,7 @@
   --bezel-shadow: inset 0 -3px 4px rgb(0 0 0 / 0.12);
   --bezel: var(--bezel-highlight), var(--bezel-shadow);
   --shadow-panel: 0 8px 24px rgb(27 42 58 / 0.10);
-  --shadow-focus: 0 0 0 3px rgb(59 91 219 / 0.35);
+  --shadow-focus: 0 0 0 3px var(--color-primary);
 
   --container-width: 1200px;
 

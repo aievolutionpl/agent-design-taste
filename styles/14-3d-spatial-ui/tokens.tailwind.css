@@ -47,7 +47,7 @@
   /* shadows */
   --shadow-plane: 0 24px 60px -24px rgb(16 16 20 / 0.25);
   --shadow-lift: 0 32px 72px -28px rgb(16 16 20 / 0.35);
-  --shadow-focus: 0 0 0 3px rgb(79 70 229 / 0.35);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
   /* motionEase */
   --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
   /* container */

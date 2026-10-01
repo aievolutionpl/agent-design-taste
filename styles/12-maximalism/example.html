@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Archivo:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FDF6EC;--surface:#fff;--tint:#FFE8CC;--ink:#1A0B2E;--sec:#5C4A72;--primary:#E8442E;--a1:#FFB000;--a2:#7B2FA0;--a3:#0FA3A3;--fast:150ms;--spring:cubic-bezier(.34,1.56,.64,1)}
+:root{--bg:#FDF6EC;--surface:#fff;--tint:#FFE8CC;--ink:#1A0B2E;--sec:#5C4A72;--primary:#CF3A26;--a1:#FFB000;--a2:#7B2FA0;--a3:#0FA3A3;--fast:150ms;--spring:cubic-bezier(.34,1.56,.64,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font:400 17px/1.65 'Archivo',sans-serif;color:var(--ink);background:var(--bg)}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -67,6 +67,10 @@ footer{padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-conte
 }
 body{overflow-x:clip}
 @media(max-width:720px){.hero .actions,.hero p+div{flex-wrap:wrap}.btn{max-width:100%}}
+
+/* Authored focus indicator — ANTI-SLOP.md treats a missing or invisible
+   :focus-visible as a BLOCKER, so the reference page has to show one. */
+:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
 </style>
 </head>
 <body>

@@ -8,7 +8,7 @@
   --color-border: #E2E2DE;
   --color-primary: #111111;
   --color-primary-contrast: #FFFFFF;
-  --color-accent: #0D9488;
+  --color-accent: #0C857A;
   --color-accent-contrast: #FFFFFF;
   --color-success: #16A34A;
   --color-warning: #D97706;
@@ -36,7 +36,7 @@
 
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
   --shadow-tile-hover: 0 2px 0 0 var(--color-border);
-  --shadow-focus: 0 0 0 3px rgb(13 148 136 / 0.35);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
 
   --border-default: 1px solid var(--color-border);
   --border-strong: 2px solid var(--color-text);
@@ -59,4 +59,5 @@
   --color-primary: #F4F4F2;
   --color-primary-contrast: #0C0C0B;
   --color-accent: #2DD4BF;
+  --color-accent-contrast: #111111;
 }

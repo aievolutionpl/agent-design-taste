@@ -9,7 +9,7 @@
 <style>
 :root{
   --bg:#FAF7F2;--surface:#FFFFFF;--text:#14120E;--sec:#6B675F;--border:#E8E3DA;
-  --accent:#E4572E;--container:1200px;
+  --accent:#C24A27;--container:1200px;
   --ease:cubic-bezier(.16,1,.3,1);
   --reveal:700ms;--hover:250ms;--marquee:42s;--stagger:60ms;
 }
@@ -101,6 +101,10 @@ footer a{color:var(--text)}
   nav ul{order:3;width:100%;gap:20px;flex-wrap:wrap}
   nav a{display:inline-flex;align-items:center;min-height:44px}
 }
+
+/* Authored focus indicator — ANTI-SLOP.md treats a missing or invisible
+   :focus-visible as a BLOCKER, so the reference page has to show one. */
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>

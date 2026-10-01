@@ -36,7 +36,7 @@
   --radius-sm: 2px; --radius-md: 2px; --radius-lg: 4px;
   --shadow-none: none;
   --shadow-paper: 0 8px 24px rgb(26 24 21 / 0.08);
-  --shadow-focus: 0 0 0 3px rgb(140 47 27 / 0.3);
+  --shadow-focus: 0 0 0 3px var(--color-accent);
 
   --border-default: 1px solid var(--color-border);
   --border-strong: 1px solid var(--color-text);
@@ -56,4 +56,5 @@
   --color-border: #35302A;
   --color-primary: #F2ECE2;
   --color-primary-contrast: #14110E;
+  --shadow-focus: 0 0 0 3px var(--color-text);
 }
