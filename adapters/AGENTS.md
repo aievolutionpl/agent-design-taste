@@ -23,7 +23,7 @@ UNDERSTAND → CHOOSE STYLE → TYPOGRAPHY → LAYOUT → TOKENS
 2. Choose **one** dominant style using `agent-design-taste/DECISION-MATRIX.md`,
    and say why the runner-up loses.
 3. Load **only** that style's `README.md` and `tokens.css`.
-   Never load all 15 styles.
+   Never load all 17 styles.
 4. Build from tokens. Every color, space, radius and duration resolves to one.
 5. Render at **1440 / 768 / 390** and look at it. Code review is not visual review.
 6. Audit with `evaluation/DESIGN-TASTE-SCORE.md` and `ANTI-SLOP.md`.
@@ -48,5 +48,5 @@ tokens are defaults for greenfield work, not permission to replace a brand.
 
 ### Do not load
 
-All 15 style folders · every `example.html` · `styles/*/prompts.md` (unless
+All 17 style folders · every `example.html` · `styles/*/prompts.md` (unless
 prompting another tool) · `docs/INTEGRATIONS.md` (installation only).

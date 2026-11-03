@@ -84,11 +84,11 @@ REQUIRED_DOCS = [
     "adapters/copilot/copilot-instructions.md",
     "scripts/gen_tokens.py", "scripts/gen_manifest.py", "scripts/install.sh",
     "scripts/check_contrast.py",
-    "scripts/screenshot.mjs", ".github/workflows/validate.yml", ".gitignore",
+    "scripts/screenshot.mjs", "scripts/render_assets.mjs", ".github/workflows/validate.yml", ".gitignore",
 ]
 
 README_SECTIONS = [
-    "For AI agents", "Install", "The 15 styles", "The workflow", "Why this exists",
+    "For AI agents", "Install", "The 17 styles", "The workflow", "Why this exists",
 ]
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
@@ -129,7 +129,8 @@ def style_dirs() -> list[str]:
 
 def c1_style_folders(index):
     dirs = style_dirs()
-    check(len(dirs) == 15, f"expected 15 style folders, found {len(dirs)}")
+    check(len(dirs) == index["count"] == len(index["styles"]),
+          f"index.json lists {index['count']} styles but found {len(dirs)} style folders")
     slugs = {os.path.basename(d) for d in dirs}
     for entry in index["styles"]:
         check(entry["slug"] in slugs, f"index.json lists missing style folder: {entry['slug']}")
@@ -321,7 +322,7 @@ def budget():
            for p in glob.glob("styles/*/tokens.css")]
     print(f"  {'one style DNA (avg)':<50}{round(sum(dna)/len(dna)):>9,}")
     print(f"  {'one style tokens.css (avg)':<50}{round(sum(tok)/len(tok)):>9,}")
-    print(f"  {'ALL 15 style DNAs — never load this':<50}{sum(dna):>9,}")
+    print(f"  {f'ALL {len(dna)} style DNAs — never load this':<50}{sum(dna):>9,}")
     total = sum(round(len(open(p, encoding='utf-8').read()) / 4)
                 for p in glob.glob('**/*.md', recursive=True) if not skipped(p))
     print(f"\n  {'whole repository (markdown)':<50}{total:>9,}")

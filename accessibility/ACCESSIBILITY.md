@@ -200,6 +200,8 @@ Every control has an accessible name a screen reader can announce.
 | Y2K | Chrome and iridescent text | Dark backing plate behind metallic text |
 | 3D / Spatial | Text on tilted planes; parallax on every move | Text on flat layers; static fallback |
 | Kinetic Type | Animated text carrying unique information | Duplicate critical info statically |
+| Terminal / Dev Dark | Mid-grey secondary text on near-black; sessions rendered as images | Secondary ≥ 7:1 on bg; sessions as real text |
+| Organic / Natural | Beige secondary text on cream; terracotta small copy | Secondary `#5C5647` or darker; terracotta for display and fills only |
 
 ---
 

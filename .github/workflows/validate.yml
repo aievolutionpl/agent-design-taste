@@ -52,7 +52,7 @@ jobs:
           test -f "$tmp/.github/copilot-instructions.md"
 
   render:
-    name: Rendered verification of the 15 example pages
+    name: Rendered verification of every style example page
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

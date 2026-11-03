@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="adt:out" content="workflow.png">
+<meta name="adt:size" content="1600x612">
+<title>Agent Design Taste — workflow</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+body{width:1600px;height:612px;padding:52px 56px;position:relative;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:flex-start}
+h2{font:800 40px/1.05 var(--display);letter-spacing:-.035em;margin-top:14px}
+h2 span{color:var(--violet)}
+.rule{font:500 15px/1.5 var(--body);color:var(--muted);max-width:40ch;text-align:right}
+.rule b{color:var(--gold);font-weight:700}
+.phases{display:grid;grid-template-columns:2fr 3fr 1fr 3fr 1fr;gap:12px;margin-top:40px}
+.phase{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:2px solid var(--line-strong);padding-top:10px}
+.phase.decide{border-color:var(--iris);color:var(--iris)}
+.phase.verify{border-color:var(--cyan);color:var(--cyan)}
+.track{display:grid;grid-template-columns:repeat(10,1fr);gap:12px;margin-top:18px;position:relative}
+.node{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 14px 18px;min-height:190px;position:relative}
+.node .n{font:700 13px var(--mono);color:var(--dim)}
+.node h3{font:700 17px/1.15 var(--display);letter-spacing:-.01em;margin:10px 0 8px}
+.node p{font:500 13.5px/1.42 var(--body);color:var(--muted)}
+.node.key{border-color:var(--iris);background:linear-gradient(var(--surface-2),var(--surface))}
+.node.key .n{color:var(--iris)}
+.node.check{border-color:rgb(136 229 252/.45)}
+.node.check .n{color:var(--cyan)}
+.node::after{content:"";position:absolute;right:-10px;top:50%;width:8px;height:8px;border-top:1.5px solid var(--line-strong);border-right:1.5px solid var(--line-strong);transform:translateY(-50%) rotate(45deg)}
+.node:last-child::after{display:none}
+.loop{position:relative;height:96px;margin-top:4px}
+.loop svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.loop .lab{position:absolute;left:65%;top:66px;transform:translateX(-50%);font:500 13px var(--mono);color:var(--gold);white-space:nowrap}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="lockup" data-mark><span>AI Evolution Polska<br><small>agent-design-taste · SKILL.md</small></span></div>
+  <h2>Ten steps. <span>Taste is decided before the first line of code.</span></h2></div>
+  <p class="rule">Skipping UNDERSTAND, CHOOSE, RENDER or REMOVE SLOP is a failure — <b>even when the result looks good.</b></p>
+</header>
+<div class="phases">
+  <div class="phase decide">decide</div><div class="phase">design</div><div class="phase">make</div><div class="phase verify">verify</div><div class="phase">ship</div>
+</div>
+<div class="track" id="track"></div>
+<div class="loop">
+  <svg viewBox="0 0 1488 74" preserveAspectRatio="none" style="height:74px" aria-hidden="true">
+    <path d="M1186 0 V40 Q1186 56 1170 56 H778 Q762 56 762 40 V0" fill="none" stroke="#F8DA82" stroke-width="1.6" stroke-dasharray="5 5"/>
+    <path d="M756 10 L762 0 L768 10" fill="none" stroke="#F8DA82" stroke-width="1.6"/>
+  </svg>
+  <span class="lab">score &lt; 75 or any 🔴 blocker → fix the two weakest areas, render again</span>
+</div>
+<script src="mark.js"></script>
+<script>
+const steps=[
+ ['Understand','audience · product · personality · density · emotion — in writing','key'],
+ ['Choose style','veto gates, weighted scoring, why the runner-up loses','key'],
+ ['Typography','roles before families, justified in one sentence',''],
+ ['Layout','a named pattern, not the same hero again',''],
+ ['Tokens','precedence-resolved, written into DESIGN.md',''],
+ ['Build','constraint-first: every value is a token',''],
+ ['Render','1440 · 768 · 390 in a real browser','check'],
+ ['Audit','13 weighted categories, 8 hard blockers','check'],
+ ['Remove slop','blocker · strong smell · minor smell','check'],
+ ['Polish','rhythm · focus · reduced motion · real content',''],
+];
+document.getElementById('track').innerHTML=steps.map(([t,d,c],i)=>`<div class="node ${c}"><div class="n">${String(i+1).padStart(2,'0')}</div><h3>${t}</h3><p>${d}</p></div>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="adt:out" content="routing.png">
+<meta name="adt:size" content="1600x900">
+<meta name="adt:full" content="true">
+<title>Agent Design Taste — style routing</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+body{width:1600px;padding:52px 56px 48px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:36px}
+h2{font:800 40px/1.05 var(--display);letter-spacing:-.035em;margin-top:14px}
+h2 span{color:var(--violet)}
+.note{font:500 15px/1.5 var(--body);color:var(--muted);max-width:46ch;text-align:right}
+.note code{color:var(--cyan);font:500 13px var(--mono)}
+.wrap{display:grid;grid-template-columns:420px 1fr;gap:28px}
+.brief{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;font-family:var(--mono)}
+.brief h3{font:700 13px var(--mono);letter-spacing:.14em;color:var(--iris);margin-bottom:14px}
+.brief .what{font:700 22px/1.25 var(--display);letter-spacing:-.01em;margin-bottom:18px}
+.brief dl{display:grid;grid-template-columns:auto 1fr;gap:9px 16px;font-size:13.5px}
+.brief dt{color:var(--dim)}.brief dd{color:var(--text)}
+.brief .sep{grid-column:1/-1;border-top:1px solid var(--line);margin:8px 0}
+.brief .veto{color:var(--red)}
+.brief .pick{margin-top:18px;border-top:1px solid var(--line);padding-top:16px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.brief .pick b{color:var(--gold);font-weight:700}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px}
+.row{display:grid;grid-template-columns:230px 1fr 54px;align-items:center;gap:14px;height:38px;border-bottom:1px solid rgb(38 40 59/.6)}
+.row:last-child{border-bottom:0}
+.name{font:600 14.5px var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.name i{font:500 12px var(--mono);color:var(--dim);font-style:normal;margin-right:8px}
+.bar{position:relative;height:18px}
+.bar .zero{position:absolute;top:-10px;bottom:-10px;width:1px;background:var(--line-strong)}
+.bar .v{position:absolute;top:0;height:100%;border-radius:4px}
+.v.pos{background:var(--line-strong)}.v.neg{background:rgb(255 107 107/.35)}
+.row.win .v.pos{background:var(--iris)}
+.row.win .name{color:var(--iris)}
+.row.run .v.pos{background:#5A5C82}
+.row.vetoed{opacity:.55}.row.vetoed .name{text-decoration:line-through;text-decoration-color:var(--red)}
+.score{font:700 15px var(--mono);text-align:right}
+.row.win .score{color:var(--gold)}
+.tag{font:500 11px var(--mono);color:var(--red);letter-spacing:.06em;text-transform:uppercase;position:absolute;left:8px;top:1px}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="lockup" data-mark><span>AI Evolution Polska<br><small>agent-design-taste · DECISION-MATRIX.md</small></span></div>
+  <h2>A style is a <span>consequence</span>, not a preference.</h2></div>
+  <p class="note">Computed from <code>styles/index.json</code> at render time — the same veto gates and weights the agent uses.</p>
+</header>
+<div class="wrap">
+  <aside class="brief">
+    <h3>DESIGN BRIEF</h3>
+    <div class="what">A stone-milling bakery's site, mostly opened on phones by locals.</div>
+    <dl id="sig"></dl>
+    <div class="pick" id="pick"></div>
+  </aside>
+  <section class="chart" id="chart"></section>
+</div>
+<script src="mark.js"></script>
+<script>
+const brief={
+  'personality':'warm','emotion':'calm','audience':'consumer','density':'low',
+  'conversion':'browse','device':'mobile-first','trust':'medium','session':'task'};
+const sig=Object.entries(brief).map(([k,v])=>`${k}:${v}`);
+const rows=ADT.styles.map(s=>{
+  const veto=s.vetoedBy.filter(v=>sig.includes(v));
+  const parts=sig.map(x=>[x,s.scoring[x]||0]).filter(([,n])=>n);
+  return {s,veto,parts,score:parts.reduce((a,[,n])=>a+n,0)};
+});
+const alive=rows.filter(r=>!r.veto.length).sort((a,b)=>b.score-a.score);
+const dead=rows.filter(r=>r.veto.length);
+const win=alive[0],run=alive[1];
+document.getElementById('sig').innerHTML=Object.entries(brief).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')
+ +`<div class="sep"></div><dt>vetoed</dt><dd class="veto">${dead.map(r=>`${r.s.id} (${r.veto.join(', ')})`).join('<br>')||'none'}</dd>`;
+const why=win.parts.map(([x,n])=>`${n>0?'+':''}${n} ${x}`).join(' · ');
+document.getElementById('pick').innerHTML=`<b>${win.s.id} · ${win.s.name}</b> wins with ${win.score}<br>${why}<br><br>runner-up ${run.s.id} · ${run.s.name} (${run.score})`;
+const all=[...alive,...dead];
+const max=Math.max(...rows.map(r=>r.score)),min=Math.min(0,...rows.map(r=>r.score));
+const span=max-min,zx=(-min/span)*100;
+document.getElementById('chart').innerHTML=all.map(r=>{
+  const cls=r===win?'win':r===run?'run':r.veto.length?'vetoed':'';
+  const w=Math.abs(r.score)/span*100;
+  const v=r.veto.length?`<span class="tag">vetoed</span>`:(r.score>=0?`<div class="v pos" style="left:${zx}%;width:${w}%"></div>`:`<div class="v neg" style="left:${zx-w}%;width:${w}%"></div>`);
+  return `<div class="row ${cls}"><div class="name"><i>${r.s.id}</i>${r.s.name.replace(' (Soft UI)','').replace('Expressive / ','')}</div>
+  <div class="bar"><div class="zero" style="left:${zx}%"></div>${v}</div><div class="score">${r.veto.length?'—':(r.score>0?'+':'')+r.score}</div></div>`}).join('');
+</script>
+</body>
+</html>

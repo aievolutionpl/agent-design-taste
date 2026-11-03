@@ -1,6 +1,6 @@
 # Style contribution template
 
-Copy this structure exactly. All 15 style DNAs share it, and
+Copy this structure exactly. All 17 style DNAs share it, and
 `scripts/validate.py` enforces it — headings must match, in this order.
 
 Replace every `<…>`. Delete nothing. A section you have nothing to say about

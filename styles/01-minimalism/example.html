@@ -25,7 +25,9 @@ h1{font:600 56px/1.15 Archivo,sans-serif;letter-spacing:-.02em;margin-bottom:24p
 .cta{display:inline-block;background:var(--text);color:#fff;font:500 16px Inter;padding:14px 28px;border-radius:8px;text-decoration:none;transition:opacity var(--fast) var(--ease)}
 .cta:hover{opacity:.85}
 .mock{border:1px solid var(--border);border-radius:12px;padding:24px;background:var(--surface)}
-.mock .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
+.mock .row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:4px 16px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
+.mock .row>span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.mock .row{grid-template-columns:minmax(0,1fr) auto}.mock .row .mono{grid-row:2;grid-column:1}}
 .mock .row:last-child{border:0}
 .mock .mono{font:500 12px 'IBM Plex Mono',monospace;color:var(--sec)}
 section{padding:96px 0}

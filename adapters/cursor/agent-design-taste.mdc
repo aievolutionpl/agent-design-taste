@@ -19,7 +19,7 @@ AUDIT → REMOVE SLOP → POLISH
    action and target emotion — in writing, before any code.
 2. Choose one dominant style with `agent-design-taste/DECISION-MATRIX.md` and
    say why the runner-up loses.
-3. Load only that style's `README.md` + `tokens.css`. Never all 15.
+3. Load only that style's `README.md` + `tokens.css`. Never all 17.
 4. Every color, space, radius and duration resolves to a token.
 
 ## Precedence

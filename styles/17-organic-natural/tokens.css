@@ -1,0 +1,63 @@
+/* 17 · Organic / Natural — design tokens (canonical) */
+:root {
+  --color-bg: #F6F1E7;
+  --color-surface: #EDE5D4;
+  --color-text: #2A271F;
+  --color-text-secondary: #5C5647;
+  --color-border: #DACFBA;
+  --color-primary: #3D5638;
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: #A44A26;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #3D5638;
+  --color-warning: #8C5A12;
+  --color-error: #A3271C;
+  --color-paper-grain: rgb(42 39 31 / 0.05);
+
+  --font-sans: 'Figtree', system-ui, sans-serif;
+  --font-display: 'Young Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --font-size-h1: 68px;
+  --font-size-h2: 44px;
+  --font-size-h3: 26px;
+  --font-size-h4: 21px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 18px;
+  --font-size-small: 15px;
+  --font-size-label: 13px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 10px; --radius-md: 18px; --radius-lg: 28px; --radius-pill: 999px;
+  --radius-organic: 58% 42% 47% 53% / 52% 46% 54% 48%;
+
+  --shadow-soft: 0 10px 30px -18px rgb(61 46 20 / 0.35);
+  --shadow-focus: 0 0 0 3px var(--color-primary);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1.5px solid var(--color-text);
+
+  --container-width: 1180px;
+
+  --motion-fast: 180ms;
+  --motion-normal: 320ms;
+  --motion-slow: 600ms;
+  --motion-ease: cubic-bezier(0.33, 1, 0.68, 1);
+}
+[data-theme="dark"] {
+  --color-bg: #1B1A15;
+  --color-surface: #25231C;
+  --color-text: #EFE8D7;
+  --color-text-secondary: #B5AD99;
+  --color-border: #3A372C;
+  --color-primary: #A9C49B;
+  --color-primary-contrast: #1B1A15;
+  --color-accent: #E39069;
+  --color-accent-contrast: #1B1A15;
+  --color-paper-grain: rgb(239 232 215 / 0.04);
+  --shadow-soft: 0 10px 30px -18px rgb(0 0 0 / 0.6);
+}

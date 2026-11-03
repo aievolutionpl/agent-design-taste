@@ -11,7 +11,9 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font:400 17px/1.6 Inter,sans-serif;color:var(--text);background:var(--bg);min-height:100vh;position:relative;overflow-x:hidden}
 /* Vivid field behind everything — glass needs something to blur */
-.field{position:fixed;inset:0;z-index:-2;background:linear-gradient(135deg,#6366F1 0%,#A855F7 45%,#EC4899 100%)}
+/* the scrim keeps text that sits directly on the field above 4.5:1 */
+.field{position:fixed;inset:0;z-index:-2;background:linear-gradient(rgb(15 23 42/.42),rgb(15 23 42/.42)),linear-gradient(135deg,#6366F1 0%,#A855F7 45%,#EC4899 100%)}
+
 .field::before,.field::after{content:"";position:absolute;border-radius:50%;filter:blur(90px)}
 .field::before{width:520px;height:520px;background:rgb(99 102 241/.55);top:-120px;left:-80px;animation:drift 60s ease-in-out infinite alternate}
 .field::after{width:620px;height:620px;background:rgb(236 72 153/.45);bottom:-180px;right:-120px;animation:drift 80s ease-in-out infinite alternate-reverse}
@@ -26,9 +28,9 @@ nav a:hover{opacity:.75}
 .cta-top{font:500 14px Inter;padding:9px 18px;border-radius:10px;text-decoration:none;color:#0F172A;background:var(--text);transition:opacity var(--fast) var(--ease)}
 .cta-top:hover{opacity:.85}
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:96px 0}
-.eyebrow{font:600 12px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--sec);margin-bottom:16px}
+.eyebrow{font:600 12px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:rgb(255 255 255/.85);margin-bottom:16px}
 h1{font:700 56px/1.12 'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em;margin-bottom:24px}
-.hero p{color:var(--sec);max-width:44ch;margin-bottom:32px}
+.hero p{color:rgb(255 255 255/.9);max-width:44ch;margin-bottom:32px}
 .cta{display:inline-block;background:var(--accent);color:#0F172A;font:600 16px Inter;padding:14px 28px;border-radius:12px;text-decoration:none;transition:filter var(--normal) var(--ease)}
 .cta:hover{filter:brightness(1.08)}
 .cta.ghost{background:transparent;color:var(--text);border:1px solid var(--border);margin-left:12px}
@@ -36,10 +38,10 @@ h1{font:700 56px/1.12 'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em;margi
 .player{border-radius:24px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);padding:28px}
 .player .art{height:200px;border-radius:16px;background:linear-gradient(120deg,#F59E0B,#EC4899 55%,#6366F1);margin-bottom:20px}
 .player h3{font:600 20px 'Plus Jakarta Sans';margin-bottom:4px}
-.player .meta{color:var(--sec);font-size:14px;margin-bottom:20px}
+.player .meta{color:rgb(255 255 255/.82);font-size:14px;margin-bottom:20px}
 .bar{height:6px;border-radius:3px;background:rgb(255 255 255/.18);position:relative;margin-bottom:8px}
 .bar i{position:absolute;inset:0 62% 0 0;border-radius:3px;background:var(--accent)}
-.times{display:flex;justify-content:space-between;font:600 11px 'JetBrains Mono';color:var(--sec);margin-bottom:20px}
+.times{display:flex;justify-content:space-between;font:600 11px 'JetBrains Mono';color:rgb(255 255 255/.8);margin-bottom:20px}
 .controls{display:flex;gap:14px;align-items:center}
 .controls button{flex:1;height:44px;border:1px solid var(--border);border-radius:10px;background:rgb(255 255 255/.06);color:var(--text);font:500 14px Inter;cursor:pointer;transition:filter var(--normal) var(--ease)}
 .controls button:hover{filter:brightness(1.15)}
@@ -58,6 +60,7 @@ section{padding:96px 0}
 footer{border-top:1px solid var(--border);padding:40px 0;color:var(--sec);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:64px 0}h1{font-size:34px}.features{grid-template-columns:1fr}}
 /* Mobile / fallback: glass gets expensive and fragile — go solid */
+@media(max-width:560px){nav ul{display:none}}
 @media(max-width:720px){
   nav,.player{background:var(--surface);-webkit-backdrop-filter:none;backdrop-filter:none;border-color:var(--border)}
 }

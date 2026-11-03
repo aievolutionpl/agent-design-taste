@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziarno — stone-milled bread from Kraków</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F1E7;--surface:#EDE5D4;--text:#2A271F;--sec:#5C5647;--border:#DACFBA;
+  --primary:#3D5638;--primary-ink:#FFFFFF;--accent:#A44A26;--accent-ink:#FFFFFF;
+  --wheat:#D9B26F;--crust:#B9773E;--crumb:#F1DDB6;--moss-soft:#C9D3B5;
+  --serif:'Young Serif',Georgia,serif;--sans:'Figtree',system-ui,sans-serif;
+  --r-sm:10px;--r-md:18px;--r-lg:28px;--pill:999px;
+  --organic:58% 42% 47% 53% / 52% 46% 54% 48%;
+  --shadow-soft:0 10px 30px -18px rgb(61 46 20/.35);
+  --fast:180ms;--normal:320ms;--slow:600ms;--ease:cubic-bezier(.33,1,.68,1)
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#1B1A15;--surface:#25231C;--text:#EFE8D7;--sec:#B5AD99;--border:#3A372C;
+  --primary:#A9C49B;--primary-ink:#1B1A15;--accent:#E39069;--accent-ink:#1B1A15;
+  --crumb:#E9D3A8;--moss-soft:#3F4A36;--shadow-soft:0 10px 30px -18px rgb(0 0 0/.6)
+}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:400 18px/1.65 var(--sans);color:var(--text);background:var(--bg);position:relative}
+/* paper grain — one texture, very quiet */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .15 0 0 0 0 .12 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){body::before{mix-blend-mode:screen;opacity:.25}}
+a{color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:none;box-shadow:0 0 0 3px var(--primary);border-radius:var(--r-sm)}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
+
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0}
+.logo{font:400 28px/1 var(--serif);text-decoration:none;display:flex;align-items:center;gap:10px;min-height:44px}
+.logo svg{width:26px;height:26px}
+nav ul{display:flex;gap:32px;list-style:none;font-weight:500;font-size:16px}
+nav ul a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1.5px no-repeat;transition:background-size var(--normal) var(--ease)}
+nav ul a:hover{background-size:100% 1.5px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;border-radius:var(--pill);font:600 16px var(--sans);text-decoration:none;transition:transform var(--fast) var(--ease),background-color var(--fast) var(--ease)}
+.btn-primary{background:var(--primary);color:var(--primary-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid var(--text);color:var(--text)}
+.btn-ghost:hover{background:var(--surface)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center;padding:56px 0 40px}
+.hero h1{font:400 clamp(44px,6.4vw,76px)/1.02 var(--serif);letter-spacing:-.015em;margin:22px 0 24px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:20px;color:var(--sec);max-width:40ch}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hours{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:15px;color:var(--sec)}
+.hours i{width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block}
+.art{position:relative;aspect-ratio:1/1;max-width:540px;justify-self:end;width:100%}
+.art .blob{position:absolute;inset:0;border-radius:var(--organic);background:var(--moss-soft);overflow:hidden}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.art .stamp{position:absolute;left:-6%;bottom:8%;background:var(--bg);border:1.5px solid var(--text);border-radius:var(--pill);padding:10px 18px;font:400 17px var(--serif);transform:rotate(-4deg);box-shadow:var(--shadow-soft)}
+
+.wave{display:block;width:100%;height:56px;color:var(--surface)}
+.band{background:var(--surface)}
+.steps-sec{padding-top:72px;padding-bottom:96px}
+.sec-title{font:400 clamp(32px,4.2vw,46px)/1.1 var(--serif);letter-spacing:-.01em;margin:16px 0 0;max-width:20ch}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:56px;list-style:none}
+.step svg{width:72px;height:72px;color:var(--primary)}
+.step h3{font:400 26px/1.2 var(--serif);margin:18px 0 10px}
+.step p{color:var(--sec);font-size:17px;max-width:32ch}
+.step .num{font:600 13px var(--sans);letter-spacing:.12em;color:var(--accent);margin-top:20px;display:block}
+
+.loaves{padding:104px 0}
+.loaves-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:72px;align-items:start}
+.loaves-grid>div:first-child p{color:var(--sec);margin-top:20px;max-width:34ch}
+.menu{list-style:none}
+.menu li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:22px 0;border-bottom:1px solid var(--border)}
+.menu li:first-child{border-top:1px solid var(--border)}
+.menu h3{font:400 24px/1.25 var(--serif)}
+.menu .price{font:600 18px var(--sans);white-space:nowrap}
+.menu p{grid-column:1/-1;color:var(--sec);font-size:16px}
+.tag{display:inline-block;font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:var(--pill);background:var(--surface);margin-left:10px;vertical-align:4px;color:var(--text)}
+.tag.sat{background:var(--accent);color:var(--accent-ink)}
+
+.miller{padding:24px 0 104px}
+.miller-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;background:var(--surface);border-radius:var(--r-lg);padding:48px}
+.stone{aspect-ratio:1/1;border-radius:46% 54% 41% 59% / 57% 43% 57% 43%;background:var(--bg);display:grid;place-items:center;overflow:hidden}
+.stone svg{width:78%;height:78%;color:var(--text)}
+blockquote{font:400 clamp(24px,2.8vw,32px)/1.35 var(--serif);letter-spacing:-.005em}
+.sign{margin-top:22px;font-size:16px;color:var(--sec)}
+.sign b{color:var(--text);font-weight:600}
+
+.visit{padding:0 0 104px}
+.visit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.visit-grid>div{border:1.5px solid var(--border);border-radius:var(--r-md);padding:28px}
+.visit-grid h3{font:600 13px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:12px}
+.visit-grid p{font-size:17px}
+.visit-grid dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:17px}
+.visit-grid dt{color:var(--sec)}
+
+footer{border-top:1px solid var(--border);padding:32px 0 40px}
+footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:15px;color:var(--sec)}
+footer .logo{font-size:22px;color:var(--text)}
+
+@media (max-width:920px){
+  nav ul{display:none}
+  .hero{grid-template-columns:1fr;gap:32px;padding-top:24px}
+  .art{justify-self:center;max-width:420px}
+  .steps{grid-template-columns:1fr;gap:40px}
+  .loaves-grid{grid-template-columns:1fr;gap:40px}
+  .miller-card{grid-template-columns:1fr;padding:32px;gap:32px}
+  .stone{max-width:220px}
+  .visit-grid{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  nav .btn{padding:10px 16px;font-size:15px}
+  .art .stamp{left:0;font-size:15px}
+  .hero h1{font-size:44px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav aria-label="Primary">
+  <a class="logo" href="#" aria-label="Ziarno home">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 29V9"/><path d="M16 13c-4-1-6-4-6-8 4 1 6 4 6 8Zm0 0c4-1 6-4 6-8-4 1-6 4-6 8Zm0 7c-4-1-6-4-6-8 4 1 6 4 6 8Zm0 0c4-1 6-4 6-8-4 1-6 4-6 8Z"/></svg>
+    Ziarno
+  </a>
+  <ul><li><a href="#loaves">This week</a></li><li><a href="#mill">The mill</a></li><li><a href="#visit">Visit</a></li></ul>
+  <a class="btn btn-primary" href="#loaves">Order for Saturday</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <p class="kicker">Stone-milled · Kazimierz, Kraków</p>
+    <h1>Bread that <em>takes</em> its time.</h1>
+    <p class="lede">We mill heritage rye and spelt on a granite stone each morning, then give the dough thirty-six hours before it meets the oven.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#loaves">See this week's loaves</a>
+      <a class="btn btn-ghost" href="#visit">Find the bakery</a>
+    </div>
+    <p class="hours"><i aria-hidden="true"></i>Open Wednesday–Sunday, 7:00–14:00</p>
+  </div>
+  <div class="art">
+    <div class="blob">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Illustration of a scored sourdough loaf resting between two wheat stalks">
+        <circle cx="300" cy="96" r="42" fill="#F1DDB6" opacity=".8"/>
+        <g stroke="#3D5638" stroke-width="3" stroke-linecap="round" fill="none">
+          <path d="M70 360 C80 280 96 210 120 150"/>
+          <path d="M330 360 C322 290 306 226 286 170"/>
+        </g>
+        <g fill="#D9B26F">
+          <ellipse cx="118" cy="150" rx="7" ry="15" transform="rotate(20 118 150)"/><ellipse cx="108" cy="172" rx="7" ry="15" transform="rotate(-25 108 172)"/>
+          <ellipse cx="128" cy="170" rx="7" ry="15" transform="rotate(35 128 170)"/><ellipse cx="102" cy="196" rx="7" ry="15" transform="rotate(-30 102 196)"/>
+          <ellipse cx="121" cy="194" rx="7" ry="15" transform="rotate(30 121 194)"/>
+          <ellipse cx="287" cy="168" rx="7" ry="15" transform="rotate(-18 287 168)"/><ellipse cx="297" cy="190" rx="7" ry="15" transform="rotate(25 297 190)"/>
+          <ellipse cx="277" cy="190" rx="7" ry="15" transform="rotate(-35 277 190)"/><ellipse cx="303" cy="214" rx="7" ry="15" transform="rotate(28 303 214)"/>
+          <ellipse cx="284" cy="214" rx="7" ry="15" transform="rotate(-30 284 214)"/>
+        </g>
+        <ellipse cx="200" cy="318" rx="128" ry="16" fill="#2A271F" opacity=".14"/>
+        <path d="M84 300 C80 228 132 182 200 182 C268 182 320 228 316 300 C300 318 100 318 84 300Z" fill="#B9773E"/>
+        <path d="M110 292 C112 240 150 206 200 204 C250 206 288 240 290 292" fill="none" stroke="#9A5F2C" stroke-width="3" opacity=".5"/>
+        <g stroke="#F1DDB6" stroke-width="7" stroke-linecap="round" fill="none">
+          <path d="M140 226 C162 214 182 212 200 214"/><path d="M168 252 C192 238 220 236 246 242"/><path d="M200 214 C222 212 244 218 262 232"/>
+        </g>
+        <g fill="#F6F1E7" opacity=".7"><circle cx="150" cy="282" r="2.5"/><circle cx="230" cy="276" r="2"/><circle cx="262" cy="290" r="2.5"/><circle cx="188" cy="292" r="2"/></g>
+      </svg>
+    </div>
+    <span class="stamp">36 hours, every loaf</span>
+  </div>
+</header>
+</div>
+
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C180 8 360 8 540 28 C720 48 900 56 1080 36 C1260 16 1350 18 1440 26 V56 H0Z" fill="currentColor"/></svg>
+<section class="band" id="mill" aria-labelledby="mill-title">
+<div class="container steps-sec">
+  <p class="kicker">From field to loaf</p>
+  <h2 class="sec-title" id="mill-title">Three slow steps, no shortcuts.</h2>
+  <ol class="steps">
+    <li class="step">
+      <svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 60c10-4 20-4 30 0s20 4 30 0"/><path d="M20 56V30M36 58V22M52 56V30"/><path d="M20 34c-4-1-6-4-6-8 4 1 6 4 6 8Zm16-8c-4-1-6-4-6-8 4 1 6 4 6 8Zm16 8c4-1 6-4 6-8-4 1-6 4-6 8Z"/></svg>
+      <span class="num">01</span>
+      <h3>Grain we can name</h3>
+      <p>Rye and spelt from two farms in Małopolska. We buy the harvest, not the commodity price.</p>
+    </li>
+    <li class="step">
+      <svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><ellipse cx="36" cy="44" rx="28" ry="12"/><path d="M8 44v-8c0-7 13-12 28-12s28 5 28 12v8"/><ellipse cx="36" cy="36" rx="5" ry="2"/><path d="M36 24V8M30 12h12"/></svg>
+      <span class="num">02</span>
+      <h3>Milled at dawn</h3>
+      <p>A granite stone turns slowly enough to keep the germ and the flavour. Flour is never older than the morning.</p>
+    </li>
+    <li class="step">
+      <svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="36" cy="38" r="26"/><path d="M36 22v16l10 8"/><path d="M28 6h16"/></svg>
+      <span class="num">03</span>
+      <h3>Thirty-six hours</h3>
+      <p>Long, cool fermentation does the work a mixer cannot. We start Thursday's dough on Tuesday.</p>
+    </li>
+  </ol>
+</div>
+</section>
+<svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="transform:scaleY(-1)"><path d="M0 40 C200 10 420 4 620 26 C820 48 1000 54 1180 34 C1300 22 1380 20 1440 24 V56 H0Z" fill="currentColor"/></svg>
+
+<section class="loaves" id="loaves" aria-labelledby="loaves-title">
+<div class="container loaves-grid">
+  <div>
+    <p class="kicker">This week</p>
+    <h2 class="sec-title" id="loaves-title">Five loaves, baked until they are gone.</h2>
+    <p>Order by Thursday noon for Saturday pickup. What is left goes on the counter at seven.</p>
+    <div class="actions"><a class="btn btn-primary" href="#visit">Order for Saturday</a></div>
+  </div>
+  <ul class="menu">
+    <li><h3>Country rye <span class="tag">house</span></h3><span class="price">24 zł</span><p>70% stone-milled rye, caraway, a crust that keeps for a week.</p></li>
+    <li><h3>Spelt &amp; honey</h3><span class="price">22 zł</span><p>Whole spelt, buckwheat honey from Beskidy, soft crumb.</p></li>
+    <li><h3>Sunflower seed tin</h3><span class="price">19 zł</span><p>Sliceable sandwich loaf, toasted seeds folded through.</p></li>
+    <li><h3>Saturday wheat <span class="tag sat">sat only</span></h3><span class="price">26 zł</span><p>Open crumb, high hydration, heritage wheat.</p></li>
+    <li><h3>Rye crispbread</h3><span class="price">14 zł</span><p>Made from yesterday's starter. Nothing goes in the bin.</p></li>
+  </ul>
+</div>
+</section>
+
+<section class="miller" aria-label="A note from the miller">
+<div class="container">
+  <div class="miller-card">
+    <div class="stone">
+      <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="16"/><path d="M100 84C82 60 70 40 66 22M116 100c24-18 44-30 62-34M100 116c18 24 30 44 34 62M84 100c-24 18-44 30-62 34" opacity=".6"/><path d="M108 85c14-20 30-36 46-46M115 108c20 14 36 30 46 46M92 115c-14 20-30 36-46 46M85 92c-20-14-36-30-46-46" opacity=".35"/></svg>
+    </div>
+    <div>
+      <blockquote>“The stone sets the pace. If we hurried it, you would taste the hurry.”</blockquote>
+      <p class="sign"><b>Hanna Wróbel</b> · miller and co-founder</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="visit-title">
+<div class="container">
+  <p class="kicker">Visit</p>
+  <h2 class="sec-title" id="visit-title" style="margin-bottom:40px">Come early on Saturdays.</h2>
+  <div class="visit-grid">
+    <div><h3>Address</h3><p>ul. Józefa 14<br>31-056 Kraków</p></div>
+    <div><h3>Hours</h3><dl><dt>Wed–Fri</dt><dd>7:00–14:00</dd><dt>Sat–Sun</dt><dd>7:00–13:00</dd><dt>Mon–Tue</dt><dd>milling day</dd></dl></div>
+    <div><h3>Orders</h3><p>By Thursday noon for Saturday pickup. Bring a bag — we stopped printing paper ones.</p></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="#">Ziarno</a>
+    <span>Stone-milled in Kraków · flour, water, salt, time</span>
+  </div>
+</footer>
+</body>
+</html>

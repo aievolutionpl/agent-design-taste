@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="adt:out" content="social-preview.jpg">
+<meta name="adt:size" content="1280x640">
+<title>Agent Design Taste — social preview</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+/* GitHub → Settings → Social preview. 1280×640, keep text inside the central safe area. */
+body{width:1280px;height:640px;overflow:hidden;position:relative}
+.strip{position:absolute;left:0;right:0;bottom:-40px;height:300px;display:flex;gap:16px;padding-left:40px;transform:rotate(-4deg);transform-origin:left bottom}
+.strip img{height:270px;aspect-ratio:390/700;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--line-strong);box-shadow:0 20px 50px -20px #000}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 52%,rgb(10 10 15/.35) 78%,rgb(10 10 15/.7) 100%)}
+.copy{position:absolute;left:80px;top:64px;right:80px}
+h1{font:800 84px/0.96 var(--display);letter-spacing:-.05em;margin:28px 0 18px}
+h1 span{color:var(--violet)}
+p{font:500 24px/1.4 var(--body);color:var(--muted)}
+p b{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+<div class="strip" id="strip"></div>
+<div class="shade"></div>
+<div class="copy">
+  <div class="lockup" data-mark><span>AI Evolution Polska<br><small>github.com/aievolutionpl/agent-design-taste</small></span></div>
+  <h1>Agent Design <span>Taste.</span></h1>
+  <p>Teach your coding agent <b>how to design</b> — <span id="n">17</span> style DNAs, one decision process.</p>
+</div>
+<script src="mark.js"></script>
+<script>
+document.getElementById('n').textContent=ADT.styles.length;
+document.getElementById('strip').innerHTML=['16','17','05','11','12','10','08','13','04','15'].map(id=>{
+ const s=ADT.styles.find(x=>x.id===id);return `<img src="${ADT.shots}${s.slug}-mobile.jpg" alt="">`}).join('');
+</script>
+</body>
+</html>

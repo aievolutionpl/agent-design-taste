@@ -22,6 +22,8 @@ file is the shared table; `styles/index.json` carries the same data as
 | Liquid Glass (03) | Bento (04) | Fluid surfaces within bento containers | Consumer apps |
 | Claymorphism (08) | Minimalism (01) | Puffy 3D accents, restrained palette | Kids education, wellness |
 | Skeuomorphism (09) | Swiss (10) | Tactile controls in a strict grid | Audio pro tools, finance |
+| Terminal (16) | Swiss (10) | Terminal surfaces + Swiss grid discipline on docs pages | CLIs, AI-agent tooling |
+| Organic (17) | Editorial (11) | Warm craft palette + magazine long-form for the story pages | Bakeries, producers, hospitality |
 
 ## Dangerous pairings (avoid)
 
@@ -30,6 +32,8 @@ file is the shared table; `styles/index.json` carries the same data as
 - **Y2K + Minimalism** — nostalgia needs density; starved, it's just weird.
 - **Editorial + Glassmorphism** — literary reading flow dies behind blur.
 - **Swiss + Y2K** — order vs chaos, no middle ground.
+- **Terminal + Claymorphism** — precision promise vs puffy softness.
+- **Organic + Terminal** — warmth and cold precision cancel each other out.
 
 ## Mixing rules
 

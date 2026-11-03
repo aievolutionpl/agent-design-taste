@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="adt:out" content="slop-vs-taste.jpg">
+<meta name="adt:size" content="1600x860">
+<title>Agent Design Taste — slop vs taste</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+body{width:1600px;height:860px;padding:48px 56px;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px}
+h2{font:800 40px/1.05 var(--display);letter-spacing:-.035em;margin-top:14px}
+h2 span{color:var(--violet)}
+.brief{font:500 14px/1.5 var(--mono);color:var(--muted);text-align:right}
+.brief b{color:var(--text);font-weight:500}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.col h3{display:flex;align-items:center;gap:10px;font:700 15px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.col.bad h3{color:var(--red)}.col.good h3{color:var(--green)}
+.col h3 i{width:10px;height:10px;border-radius:50%;background:currentColor}
+.frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line-strong);height:420px}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+.pin{position:absolute;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--mono);box-shadow:0 0 0 4px rgb(10 10 15/.65);z-index:3}
+.bad .pin{background:var(--red);color:#2A0505}.good .pin{background:var(--green);color:#04140A}
+ol{list-style:none;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;counter-reset:n}
+li{font:500 14.5px/1.4 var(--body);color:var(--muted);display:flex;gap:10px;counter-increment:n}
+li::before{content:counter(n);font:700 12px/20px var(--mono);min-width:20px;height:20px;border-radius:50%;text-align:center;flex:none;margin-top:0}
+.bad li::before{background:rgb(255 107 107/.18);color:var(--red)}.good li::before{background:rgb(91 224 143/.16);color:var(--green)}
+li b{color:var(--text);font-weight:600}
+
+/* ——— the deliberately generic page, built to be wrong ——— */
+.slop{position:absolute;inset:0;background:linear-gradient(135deg,#6D28D9 0%,#9333EA 45%,#DB2777 100%);font-family:Inter,system-ui,sans-serif;color:#fff;text-align:center;padding:22px 30px}
+.slop .nav{display:flex;justify-content:space-between;align-items:center;font-size:12px;opacity:.9}
+.slop .nav b{font-size:15px}
+.slop .nav span{background:rgb(255 255 255/.18);border:1px solid rgb(255 255 255/.3);border-radius:24px;padding:6px 12px}
+.slop .badge{display:inline-block;margin-top:30px;font-size:11px;background:rgb(255 255 255/.15);border:1px solid rgb(255 255 255/.3);border-radius:24px;padding:5px 12px}
+.slop h4{font:800 38px/1.08 Inter,sans-serif;letter-spacing:-.02em;margin:14px auto 10px;max-width:15ch}
+.slop p{font-size:13px;opacity:.8;max-width:42ch;margin:0 auto}
+.slop .btns{display:flex;gap:10px;justify-content:center;margin-top:18px}
+.slop .btns span{border-radius:24px;padding:9px 18px;font-size:12px;font-weight:600;background:#fff;color:#7C3AED}
+.slop .btns span+span{background:rgb(255 255 255/.15);color:#fff;border:1px solid rgb(255 255 255/.35)}
+.slop .trust{font-size:11px;opacity:.75;display:table;margin:18px auto 0}
+.slop .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.slop .card{background:rgb(255 255 255/.14);border:1px solid rgb(255 255 255/.28);border-radius:24px;padding:16px 12px;font-size:11px;backdrop-filter:blur(8px)}
+.slop .card div{width:30px;height:30px;border-radius:10px;margin:0 auto 8px;background:linear-gradient(135deg,#A78BFA,#F472B6)}
+.slop .card b{display:block;font-size:13px;margin-bottom:3px}
+.slop .blob{position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;top:60px;background:radial-gradient(circle at 30% 30%,#F0ABFC,#7C3AED 60%,transparent 70%);filter:blur(2px);opacity:.8}
+footer{display:flex;justify-content:space-between;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font:500 12px var(--mono);color:var(--dim);letter-spacing:.04em}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="lockup" data-mark><span>AI Evolution Polska<br><small>agent-design-taste · ANTI-SLOP.md</small></span></div>
+  <h2>Same brief. <span>One of these was decided.</span></h2></div>
+  <p class="brief"><b>brief</b> · a CLI that records and replays AI-agent runs<br>developers · technical · medium density · desktop-first</p>
+</header>
+<div class="cols">
+  <section class="col bad">
+    <h3><i></i>Default agent output</h3>
+    <div class="frame">
+      <div class="slop" aria-hidden="true" data-pin="1" data-at="bg">
+        <div class="blob"></div>
+        <div class="nav"><b>✨ AgentFlow</b><span>Get started</span></div>
+        <div class="badge" data-pin="2" data-at="r">🚀 Now powered by AI</div>
+        <h4 data-pin="3" data-at="l">Supercharge your AI workflow</h4>
+        <p data-pin="4" data-at="l">The all-in-one platform to build, ship and scale your agents faster than ever before.</p>
+        <div class="btns"><span>Get started free</span><span>Watch demo</span></div>
+        <div class="trust" data-pin="5" data-at="r">Trusted by 50,000+ teams worldwide</div>
+        <div class="cards" data-pin="6" data-at="tl"><div class="card"><div></div><b>Fast</b>Lightning quick</div><div class="card"><div></div><b>Secure</b>Enterprise-grade</div><div class="card"><div></div><b>Scalable</b>Grows with you</div></div>
+      </div>
+    </div>
+    <ol>
+      <li><span><b>Purple gradient</b> chosen by default, not by the brand</span></li>
+      <li><span><b>Emoji + "powered by AI"</b> badge instead of content</span></li>
+      <li><span><b>Centered everything</b>, one font at every size</span></li>
+      <li><span><b>Vague verbs</b> — "supercharge", "build, ship, scale"</span></li>
+      <li><span><b>"Trusted by 50,000+"</b> — a number with no source</span></li>
+      <li><span><b>Three identical cards</b> — Fast · Secure · Scalable</span></li>
+    </ol>
+  </section>
+  <section class="col good">
+    <h3><i></i>With Agent Design Taste · style 16</h3>
+    <div class="frame">
+      <img id="real" alt="">
+    </div>
+    <ol>
+      <li><span><b>Mono display + sans body</b>, justified in the brief</span></li>
+      <li><span><b>Contrast measured</b>: secondary text 7.0:1</span></li>
+      <li><span><b>The install command is the CTA</b> — copyable</span></li>
+      <li><span><b>One accent</b>, reserved for actions and success</span></li>
+      <li><span><b>A real session as proof</b>: exit codes, a diff</span></li>
+      <li><span><b>Verified</b> at 1440 · 768 · 390 · 360 — no overflow</span></li>
+    </ol>
+  </section>
+</div>
+<footer><span>right: a real render of styles/16-terminal-dev-dark/example.html · left: built to fail, for illustration</span><span>aievolutionpolska.pl</span></footer>
+<script src="mark.js"></script>
+<script>
+const s=ADT.styles.find(x=>x.id==='16');
+const img=document.getElementById('real');
+img.src=ADT.shots+s.slug+'-desktop.jpg';
+function pin(frame,n,x,y){const e=document.createElement('span');e.className='pin';e.textContent=n;
+  e.style.left=(x-15)+'px';e.style.top=(y-15)+'px';frame.appendChild(e);}
+// left: anchor to the real elements of the generic page
+const lf=document.querySelector('.bad .frame'),fr=lf.getBoundingClientRect();
+document.querySelectorAll('.bad [data-pin]').forEach(el=>{const r=el.getBoundingClientRect(),at=el.dataset.at;
+  const cy=r.top+r.height/2-fr.top;
+  if(at==='bg')pin(lf,el.dataset.pin,40,170);
+  else if(at==='l')pin(lf,el.dataset.pin,r.left-fr.left-24,cy);
+  else if(at==='r')pin(lf,el.dataset.pin,r.right-fr.left+24,cy);
+  else pin(lf,el.dataset.pin,r.left-fr.left+6,r.top-fr.top+6);});
+// right: coordinates measured on the 1440×900 render of style 16
+img.onload=()=>{const rf=document.querySelector('.good .frame'),k=img.clientWidth/1440;
+  [[1,118,236],[2,118,355],[3,118,457],[4,615,457],[5,700,170],[6,1400,36]].forEach(([n,x,y])=>pin(rf,n,x*k,y*k));};
+</script>
+</body>
+</html>

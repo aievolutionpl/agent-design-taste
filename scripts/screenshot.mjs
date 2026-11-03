@@ -3,7 +3,7 @@
  * Rendered verification — screenshot a page at the canonical viewports and
  * report the faults you cannot see in code.
  *
- *   node scripts/screenshot.mjs                      # all 15 style examples
+ *   node scripts/screenshot.mjs                      # every style example
  *   node scripts/screenshot.mjs 10                   # one style, by id or slug
  *   node scripts/screenshot.mjs http://localhost:3000
  *   node scripts/screenshot.mjs ./dist/index.html

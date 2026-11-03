@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="Agent Design Taste" width="100%">
+<img src="assets/banner.jpg" alt="Agent Design Taste by AI Evolution Polska — design intelligence for AI coding agents. A wall of real renders of the style example pages." width="100%">
 
 # Agent Design Taste
 
@@ -8,14 +8,15 @@
 
 **Teach your coding agent *how to design* — not just how to code.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
-[![Skill v2.0.0](https://img.shields.io/badge/skill-v2.1.0-black.svg)](SKILL.md)
-[![15 styles](https://img.shields.io/badge/styles-15-black.svg)](#the-15-styles)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0A0A0F.svg)](LICENSE)
+[![Skill v2.2.0](https://img.shields.io/badge/skill-v2.2.0-8776F4.svg)](SKILL.md)
+[![17 styles](https://img.shields.io/badge/styles-17-9A76DB.svg)](#the-17-styles)
 [![validate](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml/badge.svg)](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml)
+[![by AI Evolution Polska](https://img.shields.io/badge/by-AI%20Evolution%20Polska-88E5FC.svg)](https://www.aievolutionpolska.pl/)
 
 **English** · [Polski](README.pl.md)
 
-[Install](#install) · [For AI agents](#for-ai-agents) · [The workflow](#the-workflow) · [The 15 styles](#the-15-styles) · [Integrations](docs/INTEGRATIONS.md)
+[Install](#install) · [For AI agents](#for-ai-agents) · [The workflow](#the-workflow) · [The 17 styles](#the-17-styles) · [Live gallery](https://aievolutionpl.github.io/agent-design-taste/) · [Integrations](docs/INTEGRATIONS.md)
 
 </div>
 
@@ -28,6 +29,8 @@ AI agents ship functional apps in minutes. Then every one of them looks the same
 > purple gradient · glass cards · uniform 24px radius · Inter at every size ·
 > three identical feature cards · a floating 3D blob · "Trusted by 50,000+ teams"
 > · centered everything · a mobile layout that is just the desktop one, stacked
+
+<img src="assets/slop-vs-taste.jpg" alt="Side by side: on the left, a generic AI landing page with a purple gradient, emoji badge, centered text, an unsourced 'Trusted by 50,000+ teams' claim and three identical cards; on the right, the real render of style 16 Terminal / Dev Dark with a copyable install command as the CTA and a real terminal session as proof." width="100%">
 
 That is not a skill problem. It is a **knowledge problem**: nobody gave the agent
 a design system or a way to decide. So it reaches for the statistically most
@@ -83,7 +86,7 @@ Read AGENT-BOOTSTRAP.md first, then SKILL.md. Before writing any UI:
    primary action and target emotion — in writing.
 2. Use DECISION-MATRIX.md to choose ONE dominant style (plus at most one
    supporting style), and say why the runner-up loses.
-3. Load ONLY that style's README.md and tokens.css. Do not load all 15.
+3. Load ONLY that style's README.md and tokens.css. Do not load all 17.
 4. If this project already has a design system, follow docs/PRECEDENCE.md:
    analyze it, map to it, adapt — never repaint it.
 5. Build from tokens. Every color, space, radius and duration resolves to one.
@@ -158,8 +161,8 @@ Correct answer: `AGENT-BOOTSTRAP.md`, and **1440 / 768 / 390**.
    work, not permission to repaint someone's product.
 6. Choose **one** dominant style via
    [`DECISION-MATRIX.md`](DECISION-MATRIX.md). State why the runner-up loses.
-7. **Load only what you need.** One style DNA is ~2.7k tokens. All fifteen are
-   ~41k — and fourteen rejected styles in context make your output *worse*.
+7. **Load only what you need.** One style DNA is ~2.7k tokens. All seventeen are
+   ~46k — and sixteen rejected styles in context make your output *worse*.
 8. Build from tokens. Every value resolves to one.
 9. **Render** at 1440 / 768 / 390 and look at it —
    `node scripts/screenshot.mjs <url-or-file>` does all four viewports and
@@ -175,6 +178,11 @@ Machine-readable routing, no prose parsing required:
 ---
 
 ## The workflow
+
+<img src="assets/workflow.png" alt="The ten-step workflow: Understand and Choose style (decide), Typography, Layout, Tokens (design), Build (make), Render, Audit, Remove slop (verify), Polish (ship). A loop returns from Remove slop to Build when the score is below 75 or a blocker is found." width="100%">
+
+<details>
+<summary><b>Text version</b> (for agents and screen readers)</summary>
 
 ```
         UNDERSTAND          audience · product · personality · density · emotion
@@ -198,17 +206,29 @@ Machine-readable routing, no prose parsing required:
           POLISH            rhythm · focus states · reduced motion · real content
 ```
 
+</details>
+
 Skipping UNDERSTAND, CHOOSE, RENDER or REMOVE SLOP is a failure — even when the
 result looks good. **Looking good and being designed are different things.**
 
 See the whole thing run on one brief:
 [`docs/EXAMPLE-WORKFLOW.md`](docs/EXAMPLE-WORKFLOW.md)
 
+### How a style gets chosen
+
+<img src="assets/routing.png" alt="Routing chart for a bakery brief (warm, calm, consumer, low density, mobile-first): Brutalist / Anti-Grid and 3D / Spatial UI are vetoed by mobile-first; Organic / Natural wins with +11, runner-up Liquid Glass +5; Terminal / Dev Dark scores −4." width="100%">
+
+Eleven brief signals → **veto gates** (absolute) → **weighted scores** → one
+dominant style, plus an argument against the runner-up. The chart above is not
+an illustration: `scripts/render_assets.mjs` computes it from
+[`styles/index.json`](styles/index.json) with the same weights the agent uses
+([`DECISION-MATRIX.md`](DECISION-MATRIX.md)).
+
 ---
 
-## The 15 styles
+## The 17 styles
 
-<img src="assets/styles-overview.png" alt="The 15 design styles in this library" width="100%">
+<img src="assets/styles-overview.jpg" alt="All 17 styles as real 390 px mobile renders of their example pages, in a six-column grid, with a dashed empty slot inviting style 18." width="100%">
 
 | # | Style | Identity | Best for | Density |
 |---|---|---|---|---|
@@ -227,8 +247,10 @@ See the whole thing run on one brief:
 | 13 | [Y2K / Retrofuturism](styles/13-y2k-retrofuturism/) | Chrome, bubble, optimism | Music, streetwear, gaming | med–high |
 | 14 | [3D / Spatial UI](styles/14-3d-spatial-ui/) | Depth you can move through | Web3, launches, immersive | low–med |
 | 15 | [Kinetic Typography](styles/15-expressive-kinetic-typography/) | Type as the interface | Portfolios, campaigns | low |
+| 16 | [Terminal / Dev Dark](styles/16-terminal-dev-dark/) 🆕 | Signal on black | CLIs, AI-agent tooling, infra | med–high |
+| 17 | [Organic / Natural](styles/17-organic-natural/) 🆕 | Warm, earthy, handmade | Food, craft, wellness, hospitality | low–med |
 
-[**Live previews of all 15 example pages →**](https://aievolutionpl.github.io/agent-design-taste/) · [source](docs/index.html)
+[**Live gallery of all 17 example pages →**](https://aievolutionpl.github.io/agent-design-taste/) (desktop and 390 px views, filter by density, search by product type) · [source](docs/index.html)
 
 ### What is inside every style folder
 
@@ -336,10 +358,10 @@ docs/
   CONTEXT-PROFILES.md      LIGHT / STANDARD / FULL, with measured token costs
   INTEGRATIONS.md          per-agent installation, verified against each tool
   EXAMPLE-WORKFLOW.md      one brief, followed end to end
-  STYLE-TEMPLATE.md        the required structure for style #16
+  STYLE-TEMPLATE.md        the required structure for style #18
 
 styles/
-  NN-name/                 15 self-contained Design DNAs
+  NN-name/                 17 self-contained Design DNAs
   index.json               machine-readable routing: ids, aliases, scoring, vetoes
 
 accessibility/             the a11y floor + per-style failure modes
@@ -363,6 +385,8 @@ prompts/
 
 adapters/                  copy-paste files for each coding agent
 scripts/                   gen_tokens · gen_manifest · validate · install
+                           check_contrast · screenshot · render_assets
+assets/src/                HTML sources of every README graphic (rendered, not drawn)
 design-taste.manifest.json machine-readable repository manifest
 ```
 
@@ -378,14 +402,14 @@ design-taste.manifest.json machine-readable repository manifest
 | STANDARD profile — a landing page | ~8k |
 | FULL profile — a whole product | ~25k |
 | One style DNA | ~2.7k |
-| **All 15 style DNAs** | **~41k** ← never |
-| Whole repository | ~101k |
+| **All 17 style DNAs** | **~46k** ← never |
+| Whole repository | ~119k |
 
 Measure it yourself: `python3 scripts/validate.py --budget`
 
 A style DNA already specifies fonts, scale, layout, color, components, motion,
 accessibility and per-style anti-slop rules. **One style is a complete brief.
-Fifteen is noise with a brief buried in it.**
+Seventeen is noise with a brief buried in it.**
 
 </details>
 
@@ -399,16 +423,22 @@ python3 scripts/validate.py --budget # measured context cost per file
 python3 scripts/gen_tokens.py        # regenerate tokens.json + tokens.tailwind.css
 python3 scripts/gen_manifest.py      # regenerate styles/index.json + manifest
 node    scripts/screenshot.mjs 10    # render a style at 1440/768/390/360
+node    scripts/render_assets.mjs    # rebuild every README graphic from source
 ```
 
 CI verifies that every style folder is complete, every required token category
 exists (including `--shadow-focus`), every internal link resolves, every
-`example.html` parses, all 15 DNAs share the 24-section architecture, and every
+`example.html` parses, all 17 DNAs share the 24-section architecture, and every
 generated file is in sync with its source. It also **measures** every palette
-against WCAG AA and **renders** all 15 example pages at 1440/768/390/360,
+against WCAG AA and **renders** all 17 example pages at 1440/768/390/360,
 failing on horizontal overflow. The rules are enforced, not just written down.
 
-Adding style #16? [`CONTRIBUTING.md`](CONTRIBUTING.md) and
+Every graphic in this README is rendered from HTML in [`assets/src/`](assets/src/)
+by `scripts/render_assets.mjs`: the style tiles are real screenshots of the
+example pages, and the routing chart is computed from `styles/index.json`.
+Change a style, re-run the script, and the README updates with it.
+
+Adding style #18? [`CONTRIBUTING.md`](CONTRIBUTING.md) and
 [`docs/STYLE-TEMPLATE.md`](docs/STYLE-TEMPLATE.md) have the full checklist.
 The section reviewers read first is **"When NOT to use"** — a style with no
 honest failure mode has not been thought about.
@@ -431,13 +461,17 @@ honest failure mode has not been thought about.
 
 <div align="center">
 
+<a href="https://www.aievolutionpolska.pl/"><img src="assets/brand-footer.png" alt="AI Evolution Polska + AI Evolution Labs — practical AI education, agents and automation, built in Poland, open for everyone. aievolutionpolska.pl · @aievolutionpl" width="100%"></a>
+
 ## Built by AI Evolution Polska + AI Evolution Labs
 
 **[AI Evolution Polska](https://www.aievolutionpolska.pl/)** — practical AI
-education, workflows, agents and automation.
+education, workflows, agents and automation, in Polish and for everyone.
 **AI Evolution Labs** — AI products, automation and creative technology.
 
-[![GitHub](https://img.shields.io/badge/GitHub-@aievolutionpl-black?logo=github)](https://github.com/aievolutionpl)
+[![Website](https://img.shields.io/badge/aievolutionpolska.pl-0A0A0F?logo=googlechrome&logoColor=88E5FC)](https://www.aievolutionpolska.pl/)
+[![GitHub](https://img.shields.io/badge/GitHub-@aievolutionpl-0A0A0F?logo=github)](https://github.com/aievolutionpl)
+[![X](https://img.shields.io/badge/X-@aievolutionpl-0A0A0F?logo=x)](https://x.com/aievolutionpl)
 
 ---
 
@@ -445,7 +479,8 @@ If Agent Design Taste helped your agent build better interfaces:
 
 ⭐ **Star this repository** &nbsp;·&nbsp; 🤝 **[Contributions welcome](CONTRIBUTING.md)** &nbsp;·&nbsp; 🐛 **[Open an issue](https://github.com/aievolutionpl/agent-design-taste/issues)**
 
-<sub>MIT © AI Evolution Polska / AI Evolution Labs · The banner and style-overview
-images above were generated by our AI agent — designed by an agent, for agents.</sub>
+<sub>MIT © AI Evolution Polska / AI Evolution Labs · Every graphic in this README
+is rendered from source in <code>assets/src/</code> — the style tiles are real
+screenshots of the example pages, not illustrations.</sub>
 
 </div>

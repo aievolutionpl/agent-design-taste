@@ -19,7 +19,7 @@ AUDIT → REMOVE SLOP → POLISH
 - State audience, product type, brand personality, content density, primary
   action and target emotion before writing code.
 - Choose one dominant style using `agent-design-taste/DECISION-MATRIX.md`.
-  Load only that style's `README.md` and `tokens.css` — never all 15.
+  Load only that style's `README.md` and `tokens.css` — never all 17.
 - Every color, space, radius and duration resolves to a token.
 - Verify at 1440 / 768 / 390. 390 is the primary mobile check.
 
