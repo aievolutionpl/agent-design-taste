@@ -53,7 +53,9 @@ jobs:
 
   render:
     name: Rendered verification of every style example page
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest moved to 26.04, which Playwright 1.56.1 cannot
+    # install Chromium on. Bump both together.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
