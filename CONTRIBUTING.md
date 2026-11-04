@@ -12,7 +12,7 @@ measurably better, and bad if it only makes the documentation longer.**
 python3 scripts/validate.py          # structure, links, generated files
 python3 scripts/check_contrast.py    # WCAG AA on every style palette
 node    scripts/screenshot.mjs       # render all 17 examples, catch overflow
-node    scripts/render_assets.mjs    # rebuild the README graphics from assets/src/
+node    scripts/render_assets.mjs    # rebuild the rendered graphics from assets/src/
 ```
 
 All three run in CI. It checks every style folder, every required file, every
@@ -102,9 +102,11 @@ styles/18-your-style/
       direction row.
 - [ ] `accessibility/ACCESSIBILITY.md § 10` gains a characteristic-failure row.
 - [ ] `README.md` and `README.pl.md` style tables gain a row.
-- [ ] `node scripts/render_assets.mjs` re-run, so the styles overview, banner
-      and routing chart include the new style (they read `styles/index.json`).
-      Commit the regenerated images in `assets/`.
+- [ ] `node scripts/render_assets.mjs` re-run, so the routing chart and social
+      preview include the new style (they read `styles/index.json`). Commit the
+      regenerated images in `assets/`. The banner and styles overview
+      (`assets/*.webp`) are AI Evolution Polska artwork: ask the maintainers to
+      update them rather than editing them yourself.
 - [ ] `python3 scripts/gen_tokens.py && python3 scripts/gen_manifest.py && python3 scripts/validate.py`
       all pass.
 

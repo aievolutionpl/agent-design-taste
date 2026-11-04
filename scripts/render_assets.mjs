@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * Render the README graphics from source — nothing in assets/*.png|jpg is
- * hand-made or AI-generated. Every screenshot in them is a real render of a
- * real styles/NN/example.html, and every number is computed from
- * styles/index.json at render time.
+ * Render the data-driven README graphics from source (assets/*.png|jpg): the
+ * workflow diagram, the routing chart and the social preview. Every screenshot
+ * in them is a real render of a styles/NN/example.html, and every number is
+ * computed from styles/index.json at render time. The .webp files in assets/
+ * are AI Evolution Polska artwork and are not produced by this script.
  *
  *   node scripts/render_assets.mjs              # capture examples + render all
  *   node scripts/render_assets.mjs banner       # render one source by name

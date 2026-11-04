@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.jpg" alt="Agent Design Taste by AI Evolution Polska — design intelligence for AI coding agents. A wall of real renders of the style example pages." width="100%">
+<img src="assets/banner.webp" alt="Agent Design Taste by AI Evolution Polska — design intelligence for AI coding agents. Decide the style, build from tokens, render it, audit it." width="100%">
 
 # Agent Design Taste
 
@@ -30,7 +30,7 @@ AI agents ship functional apps in minutes. Then every one of them looks the same
 > three identical feature cards · a floating 3D blob · "Trusted by 50,000+ teams"
 > · centered everything · a mobile layout that is just the desktop one, stacked
 
-<img src="assets/slop-vs-taste.jpg" alt="Side by side: on the left, a generic AI landing page with a purple gradient, emoji badge, centered text, an unsourced 'Trusted by 50,000+ teams' claim and three identical cards; on the right, the real render of style 16 Terminal / Dev Dark with a copyable install command as the CTA and a real terminal session as proof." width="100%">
+<img src="assets/slop-vs-taste.webp" alt="Same brief, two results: on the left, default agent output with a purple gradient, emoji badge, centered text, an unsourced 'Trusted by 50,000+' claim and three identical cards; on the right, the tern page designed with Agent Design Taste, with a real terminal session as proof." width="100%">
 
 That is not a skill problem. It is a **knowledge problem**: nobody gave the agent
 a design system or a way to decide. So it reaches for the statistically most
@@ -228,7 +228,9 @@ an illustration: `scripts/render_assets.mjs` computes it from
 
 ## The 17 styles
 
-<img src="assets/styles-overview.jpg" alt="All 17 styles as real 390 px mobile renders of their example pages, in a six-column grid, with a dashed empty slot inviting style 18." width="100%">
+<img src="assets/styles-overview.webp" alt="17 styles, one decision: a tile for each style from 01 Minimalism to 17 Organic / Natural, plus an empty slot for the next style." width="100%">
+
+The tiles above are artwork. To see the real example pages, open the live gallery linked below the table.
 
 | # | Style | Identity | Best for | Density |
 |---|---|---|---|---|
@@ -386,7 +388,7 @@ prompts/
 adapters/                  copy-paste files for each coding agent
 scripts/                   gen_tokens · gen_manifest · validate · install
                            check_contrast · screenshot · render_assets
-assets/src/                HTML sources of every README graphic (rendered, not drawn)
+assets/src/                HTML sources of the rendered graphics (workflow, routing chart, social preview)
 design-taste.manifest.json machine-readable repository manifest
 ```
 
@@ -433,10 +435,10 @@ generated file is in sync with its source. It also **measures** every palette
 against WCAG AA and **renders** all 17 example pages at 1440/768/390/360,
 failing on horizontal overflow. The rules are enforced, not just written down.
 
-Every graphic in this README is rendered from HTML in [`assets/src/`](assets/src/)
-by `scripts/render_assets.mjs`: the style tiles are real screenshots of the
-example pages, and the routing chart is computed from `styles/index.json`.
-Change a style, re-run the script, and the README updates with it.
+The workflow diagram and the routing chart are rendered from HTML in
+[`assets/src/`](assets/src/) by `scripts/render_assets.mjs`; the routing chart is
+computed from `styles/index.json`, so re-running the script after changing a
+style's scoring keeps it accurate.
 
 Adding style #18? [`CONTRIBUTING.md`](CONTRIBUTING.md) and
 [`docs/STYLE-TEMPLATE.md`](docs/STYLE-TEMPLATE.md) have the full checklist.
@@ -461,7 +463,7 @@ honest failure mode has not been thought about.
 
 <div align="center">
 
-<a href="https://www.aievolutionpolska.pl/"><img src="assets/brand-footer.png" alt="AI Evolution Polska + AI Evolution Labs — practical AI education, agents and automation, built in Poland, open for everyone. aievolutionpolska.pl · @aievolutionpl" width="100%"></a>
+<a href="https://www.aievolutionpolska.pl/"><img src="assets/brand-hero.webp" alt="AI Evolution Polska — AI education, community and practice: free course, company training and agent deployments. aievolutionpolska.pl" width="100%"></a>
 
 ## Built by AI Evolution Polska + AI Evolution Labs
 
@@ -479,8 +481,6 @@ If Agent Design Taste helped your agent build better interfaces:
 
 ⭐ **Star this repository** &nbsp;·&nbsp; 🤝 **[Contributions welcome](CONTRIBUTING.md)** &nbsp;·&nbsp; 🐛 **[Open an issue](https://github.com/aievolutionpl/agent-design-taste/issues)**
 
-<sub>MIT © AI Evolution Polska / AI Evolution Labs · Every graphic in this README
-is rendered from source in <code>assets/src/</code> — the style tiles are real
-screenshots of the example pages, not illustrations.</sub>
+<sub>MIT © AI Evolution Polska / AI Evolution Labs</sub>
 
 </div>

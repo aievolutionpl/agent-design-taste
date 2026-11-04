@@ -8,6 +8,16 @@ For a skill, "breaking" means: a renamed or moved file that installations
 reference, a changed workflow contract, or a removed rule an agent may be
 relying on.
 
+## [Unreleased]
+
+### Changed
+- README banner, styles overview, slop-vs-taste comparison and brand sign-off
+  replaced with AI Evolution Polska's own artwork (`assets/*.webp`). Their HTML
+  sources were removed from `assets/src/`; the workflow diagram, routing chart
+  and social preview are still rendered by `scripts/render_assets.mjs`. The
+  README now says the overview tiles are artwork and points to the live gallery
+  for the real example pages.
+
 ## [2.2.0] — 2026-11-03
 
 Design release. Two new styles, a rebuilt visual identity for the repository
