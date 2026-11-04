@@ -13,8 +13,8 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SKILL_VERSION = "2.1.0"
-REPO_VERSION = "2.1.0"
+SKILL_VERSION = "2.2.0"
+REPO_VERSION = "2.2.0"
 
 # slug: (name, identity, aliases, densities, recommendedFor, supporting, incompatible, vetoedBy, scoring)
 STYLES = {
@@ -159,6 +159,27 @@ STYLES = {
   {"audience:creative": 3, "personality:bold": 3, "emotion:curiosity": 2,
    "density:low": 2, "session:glance": 2,
    "complexity:dense-relational": -3, "a11y:elevated": -3, "session:dwell": -2}),
+"16-terminal-dev-dark": (
+  "Terminal / Dev Dark", "Signal on black.",
+  ["terminal", "dev-dark", "cli", "console", "monospace", "hacker", "dark-tech"],
+  ["medium", "high"],
+  ["cli-tools", "dev-tools", "ai-agent-tooling", "infrastructure", "observability", "api-products", "open-source"],
+  ["10", "04", "01"], ["08", "13", "03"], ["audience:child-family"],
+  {"audience:technical": 3, "emotion:competence": 2, "personality:futuristic": 2,
+   "complexity:dense-relational": 2, "personality:precise": 1, "density:medium": 1, "density:high": 1,
+   "device:desktop-first": 1, "session:dwell": 1,
+   "audience:child-family": -3, "audience:consumer": -2, "personality:warm": -2,
+   "personality:playful": -2, "a11y:elevated": -1}),
+"17-organic-natural": (
+  "Organic / Natural", "Warm, earthy, handmade.",
+  ["organic", "natural", "earthy", "eco", "botanical", "handmade", "craft", "wabi-sabi"],
+  ["low", "medium"],
+  ["food-beverage", "bakeries-restaurants", "wellness", "skincare", "hospitality", "craft-brands", "sustainability"],
+  ["11", "01", "08"], ["16", "13", "14"], ["complexity:dense-relational"],
+  {"personality:warm": 3, "emotion:calm": 3, "emotion:trust": 1, "audience:consumer": 2,
+   "conversion:browse": 1, "session:task": 1, "density:low": 1,
+   "personality:futuristic": -3, "audience:technical": -2, "density:high": -2,
+   "emotion:excitement": -1}),
 }
 
 STYLE_FILES = ["README.md", "tokens.css", "tokens.json", "tokens.tailwind.css", "prompts.md", "example.html"]
@@ -276,7 +297,7 @@ def build_manifest(index):
                          "prompts/DESIGN-CONTRACT.md"],
                 "approxTokens": 25000,
             },
-            "neverLoad": ["all 15 style folders", "every example.html"],
+            "neverLoad": ["all style folders at once", "every example.html"],
         },
         "files": {
             "bootstrap": "AGENT-BOOTSTRAP.md",
@@ -318,6 +339,7 @@ def build_manifest(index):
             "generateManifest": "scripts/gen_manifest.py",
             "validate": "scripts/validate.py",
             "screenshot": "scripts/screenshot.mjs",
+            "renderAssets": "scripts/render_assets.mjs",
             "checkContrast": "scripts/check_contrast.py",
             "install": "scripts/install.sh",
         },

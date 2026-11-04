@@ -16,7 +16,7 @@ AUDIT → REMOVE SLOP → POLISH
 1. State audience, product type, brand personality, content density, primary
    action and target emotion before writing any code.
 2. Choose one dominant style with `agent-design-taste/DECISION-MATRIX.md`.
-   Load only that style's `README.md` + `tokens.css` — never all 15.
+   Load only that style's `README.md` + `tokens.css` — never all 17.
 3. Every value resolves to a token.
 4. Verify at 1440 / 768 / 390. 390 is the primary mobile check.
 5. Audit with `agent-design-taste/ANTI-SLOP.md` before delivering.

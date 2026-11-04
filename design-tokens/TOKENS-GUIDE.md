@@ -61,7 +61,7 @@ Minimum color roles: `bg` · `surface` · `text` · `text-secondary` · `border`
 
    Not checked at 3:1: `--color-border` against surfaces. WCAG 1.4.11 requires
    that of boundaries *needed to identify a component*, not of every hairline —
-   dividers and subtle card edges are exempt, and failing all 15 styles on it
+   dividers and subtle card edges are exempt, and failing all 17 styles on it
    would get the check switched off. `--shadow-focus` carries that requirement
    instead, and it is checked.
 5. **Semantic over literal** where hierarchy matters: `--color-text-secondary`,

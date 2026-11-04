@@ -165,6 +165,8 @@ The concrete answer to "what should the pictures look like?"
 | **13 Y2K / Retrofuturism** | Retro-processed, high gloss | Chrome, gloss, starbursts, retro UI chrome | Controlled visual noise, lens flare | Muted minimalism, neutral greys |
 | **14 3D / Spatial** | Rare; environment plates only | One coherent 3D material system, one light rig | Depth-of-field, soft shadow | Flat 2D icons floating in the 3D scene |
 | **15 Kinetic Typography** | Rare; type is the image | Type as object | Motion blur, ghosting | Illustration competing with the type |
+| **16 Terminal / Dev Dark** | None — real product UI and sessions instead | Line-art architecture diagrams | None | Matrix rain, glow orbs, screenshots of fake terminals |
+| **17 Organic / Natural** | Natural light, materials, hands at work, warm grade | Flat earth-pigment illustration, botanical line drawing | Quiet paper grain | Glossy 3D, neon, stock lifestyle, AI "cozy" scenes |
 
 If a needed asset does not exist, the honest options are: use a real
 screenshot, use a diagram, use typography, or use nothing. Inventing a fake

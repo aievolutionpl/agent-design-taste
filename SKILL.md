@@ -2,10 +2,10 @@
 name: agent-design-taste
 description: Use when generating, redesigning or reviewing any UI — landing page, dashboard, app screen, component, or design system. Teaches the agent to analyze product and audience first, choose one design style deliberately, build from real tokens, render it, and audit it — instead of producing generic "modern premium AI SaaS" output.
 license: MIT
-version: 2.1.0
+version: 2.2.0
 metadata:
   repository: https://github.com/aievolutionpl/agent-design-taste
-  styles: 15
+  styles: 17
   entrypoint: AGENT-BOOTSTRAP.md
   manifest: design-taste.manifest.json
 ---
@@ -28,7 +28,7 @@ Two decisions come before any design thinking.
 
 **Profile** — how much of this repository to load.
 LIGHT (a component) · STANDARD (a page) · FULL (a product).
-→ `docs/CONTEXT-PROFILES.md`. **Never load all 15 styles.**
+→ `docs/CONTEXT-PROFILES.md`. **Never load all 17 styles.**
 
 **Mode** — what the user actually asked for, taken from their verb.
 Shape · Implement · Review · Copy · Harden.

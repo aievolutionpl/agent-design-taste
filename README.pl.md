@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="Agent Design Taste" width="100%">
+<img src="assets/banner.jpg" alt="Agent Design Taste od AI Evolution Polska — inteligencja projektowa dla agentów AI. Ściana prawdziwych renderów stron przykładowych." width="100%">
 
 # Agent Design Taste
 
@@ -8,14 +8,15 @@
 
 **Naucz swojego agenta *jak projektować* — nie tylko jak kodować.**
 
-[![Licencja: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
-[![Skill v2.0.0](https://img.shields.io/badge/skill-v2.1.0-black.svg)](SKILL.md)
-[![15 stylów](https://img.shields.io/badge/style-15-black.svg)](#15-stylów)
+[![Licencja: MIT](https://img.shields.io/badge/License-MIT-0A0A0F.svg)](LICENSE)
+[![Skill v2.2.0](https://img.shields.io/badge/skill-v2.2.0-8776F4.svg)](SKILL.md)
+[![17 stylów](https://img.shields.io/badge/style-17-9A76DB.svg)](#17-stylów)
 [![validate](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml/badge.svg)](https://github.com/aievolutionpl/agent-design-taste/actions/workflows/validate.yml)
+[![AI Evolution Polska](https://img.shields.io/badge/by-AI%20Evolution%20Polska-88E5FC.svg)](https://www.aievolutionpolska.pl/)
 
 [English](README.md) · **Polski**
 
-[Instalacja](#instalacja) · [Dla agentów AI](#dla-agentów-ai) · [Workflow](#workflow) · [15 stylów](#15-stylów) · [Integracje](docs/INTEGRATIONS.md)
+[Instalacja](#instalacja) · [Dla agentów AI](#dla-agentów-ai) · [Workflow](#workflow) · [17 stylów](#17-stylów) · [Galeria na żywo](https://aievolutionpl.github.io/agent-design-taste/) · [Integracje](docs/INTEGRATIONS.md)
 
 </div>
 
@@ -33,6 +34,8 @@ Agenci AI budują działające aplikacje w kilka minut. I każda wygląda tak sa
 > każdym rozmiarze · trzy identyczne karty funkcji · pływająca bryła 3D ·
 > „Trusted by 50,000+ teams" · wszystko wycentrowane · widok mobilny to po
 > prostu desktop poskładany w pionie
+
+<img src="assets/slop-vs-taste.jpg" alt="Porównanie: po lewej typowy landing wygenerowany przez AI — fioletowy gradient, odznaka z emoji, wycentrowany tekst, niepoparte „Trusted by 50,000+ teams" i trzy identyczne karty; po prawej prawdziwy render stylu 16 Terminal / Dev Dark z komendą instalacji jako CTA i prawdziwą sesją terminala jako dowodem." width="100%">
 
 To nie jest problem umiejętności. To **problem wiedzy**: nikt nie dał agentowi
 systemu projektowego ani sposobu podejmowania decyzji. Sięga więc po
@@ -90,7 +93,7 @@ Przeczytaj najpierw AGENT-BOOTSTRAP.md, potem SKILL.md. Zanim napiszesz jakikolw
    główną akcję i emocję docelową — na piśmie.
 2. Użyj DECISION-MATRIX.md, żeby wybrać JEDEN styl dominujący (plus maksymalnie
    jeden wspierający), i powiedz, dlaczego drugi w kolejności przegrywa.
-3. Wczytaj TYLKO README.md i tokens.css tego stylu. Nie ładuj wszystkich 15.
+3. Wczytaj TYLKO README.md i tokens.css tego stylu. Nie ładuj wszystkich 17.
 4. Jeśli projekt ma już system projektowy, zastosuj docs/PRECEDENCE.md:
    przeanalizuj go, zmapuj się do niego, zaadaptuj — nigdy nie przemalowuj.
 5. Buduj z tokenów. Każdy kolor, odstęp, promień i czas trwania to token.
@@ -170,7 +173,7 @@ kanoniczne viewporty?"* Poprawna odpowiedź: `AGENT-BOOTSTRAP.md` oraz
    [`DECISION-MATRIX.md`](DECISION-MATRIX.md). Powiedz, dlaczego drugi w
    kolejności przegrywa.
 7. **Ładuj tylko to, czego potrzebujesz.** Jedno DNA stylu to ~2,7 tys. tokenów.
-   Wszystkie piętnaście to ~41 tys. — a czternaście odrzuconych stylów w
+   Wszystkie siedemnaście to ~46 tys. — a szesnaście odrzuconych stylów w
    kontekście *pogarsza* twój wynik.
 8. Buduj z tokenów. Każda wartość jest tokenem.
 9. **Renderuj** w 1440 / 768 / 390 i patrz na wynik —
@@ -187,6 +190,11 @@ Routing maszynowy, bez parsowania prozy:
 ---
 
 ## Workflow
+
+<img src="assets/workflow.png" alt="Dziesięć kroków workflow: Understand i Choose style (decyzja), Typography, Layout, Tokens (projekt), Build, Render, Audit, Remove slop (weryfikacja), Polish. Pętla wraca z Remove slop do Build, gdy wynik jest poniżej 75 albo pojawi się bloker." width="100%">
+
+<details>
+<summary><b>Wersja tekstowa</b> (dla agentów i czytników ekranu)</summary>
 
 ```
         ZROZUM              odbiorca · produkt · osobowość · gęstość · emocja
@@ -210,6 +218,8 @@ Routing maszynowy, bez parsowania prozy:
         DOPRACUJ            rytm · stany focus · reduced motion · prawdziwe treści
 ```
 
+</details>
+
 Pominięcie ZROZUM, WYBIERZ, RENDERUJ albo USUŃ SLOP to porażka — nawet jeśli
 wynik wygląda dobrze. **„Wygląda dobrze" i „jest zaprojektowane" to dwie różne
 rzeczy.**
@@ -217,11 +227,21 @@ rzeczy.**
 Zobacz cały proces na jednym briefie:
 [`docs/EXAMPLE-WORKFLOW.md`](docs/EXAMPLE-WORKFLOW.md)
 
+### Jak wybierany jest styl
+
+<img src="assets/routing.png" alt="Wykres routingu dla briefu piekarni (ciepła, spokojna, konsumencka, niska gęstość, mobile-first): Brutalist / Anti-Grid i 3D / Spatial UI odpadają przez weto mobile-first; Organic / Natural wygrywa z wynikiem +11, drugi Liquid Glass +5; Terminal / Dev Dark ma −4." width="100%">
+
+Jedenaście sygnałów briefu → **bramki weta** (bezwzględne) → **punktacja
+ważona** → jeden styl dominujący plus argument przeciw drugiemu w kolejności.
+Wykres powyżej to nie ilustracja: `scripts/render_assets.mjs` liczy go z
+[`styles/index.json`](styles/index.json) tymi samymi wagami, których używa agent
+([`DECISION-MATRIX.md`](DECISION-MATRIX.md)).
+
 ---
 
-## 15 stylów
+## 17 stylów
 
-<img src="assets/styles-overview.png" alt="15 stylów projektowych w tej bibliotece" width="100%">
+<img src="assets/styles-overview.jpg" alt="Wszystkie 17 stylów jako prawdziwe rendery mobilne 390 px ich stron przykładowych, w siatce sześciu kolumn, z pustym miejscem na styl 18." width="100%">
 
 | # | Styl | Tożsamość | Najlepszy do | Gęstość |
 |---|---|---|---|---|
@@ -240,8 +260,10 @@ Zobacz cały proces na jednym briefie:
 | 13 | [Y2K / Retrofuturism](styles/13-y2k-retrofuturism/) | Chrom, bańka, optymizm | Muzyka, streetwear, gaming | śr.–wys. |
 | 14 | [3D / Spatial UI](styles/14-3d-spatial-ui/) | Głębia, przez którą się przechodzi | Web3, premiery, immersja | niska–śr. |
 | 15 | [Kinetic Typography](styles/15-expressive-kinetic-typography/) | Typografia jako interfejs | Portfolia, kampanie | niska |
+| 16 | [Terminal / Dev Dark](styles/16-terminal-dev-dark/) 🆕 | Sygnał na czerni | CLI, narzędzia dla agentów AI, infra | śr.–wysoka |
+| 17 | [Organic / Natural](styles/17-organic-natural/) 🆕 | Ciepło, ziemia, rękodzieło | Jedzenie, rzemiosło, wellness, gościnność | niska–śr. |
 
-[**Podglądy na żywo wszystkich 15 stron przykładowych →**](https://aievolutionpl.github.io/agent-design-taste/) · [źródło](docs/index.html)
+[**Galeria na żywo wszystkich 17 stron przykładowych →**](https://aievolutionpl.github.io/agent-design-taste/) (widok desktop i 390 px, filtr gęstości, wyszukiwanie po typie produktu) · [źródło](docs/index.html)
 
 ### Co jest w każdym folderze stylu
 
@@ -350,10 +372,10 @@ docs/
   CONTEXT-PROFILES.md      LIGHT / STANDARD / FULL, ze zmierzonym kosztem
   INTEGRATIONS.md          instalacja per agent, zweryfikowana z dokumentacją
   EXAMPLE-WORKFLOW.md      jeden brief, przeprowadzony od początku do końca
-  STYLE-TEMPLATE.md        wymagana struktura dla stylu #16
+  STYLE-TEMPLATE.md        wymagana struktura dla stylu #18
 
 styles/
-  NN-nazwa/                15 samowystarczalnych Design DNA
+  NN-nazwa/                17 samowystarczalnych Design DNA
   index.json               routing maszynowy: id, aliasy, punktacja, weta
 
 accessibility/             podłoga dostępności + błędy typowe dla każdego stylu
@@ -377,6 +399,8 @@ prompts/
 
 adapters/                  pliki do skopiowania dla każdego agenta
 scripts/                   gen_tokens · gen_manifest · validate · install
+                           check_contrast · screenshot · render_assets
+assets/src/                źródła HTML każdej grafiki z README (renderowane, nie rysowane)
 design-taste.manifest.json manifest repozytorium czytelny maszynowo
 ```
 
@@ -392,13 +416,13 @@ design-taste.manifest.json manifest repozytorium czytelny maszynowo
 | Profil STANDARD — landing page | ~8 tys. |
 | Profil FULL — cały produkt | ~25 tys. |
 | Jedno DNA stylu | ~2,7 tys. |
-| **Wszystkie 15 DNA stylów** | **~41 tys.** ← nigdy |
-| Całe repozytorium | ~101 tys. |
+| **Wszystkie 17 DNA stylów** | **~46 tys.** ← nigdy |
+| Całe repozytorium | ~119 tys. |
 
 Zmierz sam: `python3 scripts/validate.py --budget`
 
 DNA stylu określa już kroje, skalę, layout, kolor, komponenty, motion,
-dostępność i reguły anti-slop. **Jeden styl to kompletny brief. Piętnaście to
+dostępność i reguły anti-slop. **Jeden styl to kompletny brief. Siedemnaście to
 szum z briefem gdzieś w środku.**
 
 </details>
@@ -413,17 +437,23 @@ python3 scripts/validate.py --budget # zmierzony koszt kontekstu per plik
 python3 scripts/gen_tokens.py        # regeneruje tokens.json + tokens.tailwind.css
 python3 scripts/gen_manifest.py      # regeneruje styles/index.json + manifest
 node    scripts/screenshot.mjs 10    # renderuje styl w 1440/768/390/360
+node    scripts/render_assets.mjs    # odbudowuje wszystkie grafiki README ze źródeł
 ```
 
 CI sprawdza, czy każdy folder stylu jest kompletny, czy istnieją wszystkie
 wymagane kategorie tokenów (w tym `--shadow-focus`), czy każdy link wewnętrzny
-działa, czy każdy `example.html` się parsuje, czy wszystkie 15 DNA ma tę samą
+działa, czy każdy `example.html` się parsuje, czy wszystkie 17 DNA ma tę samą
 24-sekcyjną strukturę i czy pliki generowane są zgodne ze źródłem. CI dodatkowo
-**mierzy** każdą paletę względem WCAG AA i **renderuje** wszystkie 15 stron
+**mierzy** każdą paletę względem WCAG AA i **renderuje** wszystkie 17 stron
 przykładowych w 1440/768/390/360, kończąc błędem przy przewijaniu poziomym.
 Reguły są egzekwowane, nie tylko zapisane.
 
-Dodajesz styl #16? [`CONTRIBUTING.md`](CONTRIBUTING.md) i
+Każda grafika w tym README jest renderowana z HTML w [`assets/src/`](assets/src/)
+przez `scripts/render_assets.mjs`: kafelki stylów to prawdziwe zrzuty stron
+przykładowych, a wykres routingu jest liczony z `styles/index.json`. Zmieniasz
+styl, uruchamiasz skrypt — README aktualizuje się razem z nim.
+
+Dodajesz styl #18? [`CONTRIBUTING.md`](CONTRIBUTING.md) i
 [`docs/STYLE-TEMPLATE.md`](docs/STYLE-TEMPLATE.md) mają pełną listę kontrolną.
 Sekcja, którą recenzenci czytają pierwszą, to **„When NOT to use"** — styl bez
 uczciwie opisanego trybu porażki nie został przemyślany.
@@ -447,13 +477,17 @@ uczciwie opisanego trybu porażki nie został przemyślany.
 
 <div align="center">
 
+<a href="https://www.aievolutionpolska.pl/"><img src="assets/brand-footer.png" alt="AI Evolution Polska + AI Evolution Labs — praktyczna edukacja AI, agenci i automatyzacja, zbudowane w Polsce, otwarte dla wszystkich. aievolutionpolska.pl · @aievolutionpl" width="100%"></a>
+
 ## Zbudowane przez AI Evolution Polska + AI Evolution Labs
 
 **[AI Evolution Polska](https://www.aievolutionpolska.pl/)** — praktyczna
-edukacja AI, workflow, agenci i automatyzacja.
+edukacja AI, workflow, agenci i automatyzacja — po polsku i dla każdego.
 **AI Evolution Labs** — produkty AI, automatyzacja i technologia kreatywna.
 
-[![GitHub](https://img.shields.io/badge/GitHub-@aievolutionpl-black?logo=github)](https://github.com/aievolutionpl)
+[![Strona](https://img.shields.io/badge/aievolutionpolska.pl-0A0A0F?logo=googlechrome&logoColor=88E5FC)](https://www.aievolutionpolska.pl/)
+[![GitHub](https://img.shields.io/badge/GitHub-@aievolutionpl-0A0A0F?logo=github)](https://github.com/aievolutionpl)
+[![X](https://img.shields.io/badge/X-@aievolutionpl-0A0A0F?logo=x)](https://x.com/aievolutionpl)
 
 ---
 
@@ -461,8 +495,8 @@ Jeśli Agent Design Taste pomógł twojemu agentowi budować lepsze interfejsy:
 
 ⭐ **Zostaw gwiazdkę** &nbsp;·&nbsp; 🤝 **[Wkład mile widziany](CONTRIBUTING.md)** &nbsp;·&nbsp; 🐛 **[Zgłoś issue](https://github.com/aievolutionpl/agent-design-taste/issues)**
 
-<sub>MIT © AI Evolution Polska / AI Evolution Labs · Baner i grafika przeglądowa
-stylów powyżej zostały wygenerowane przez naszego agenta AI — zaprojektowane
-przez agenta, dla agentów.</sub>
+<sub>MIT © AI Evolution Polska / AI Evolution Labs · Każda grafika w tym README
+jest renderowana ze źródeł w <code>assets/src/</code> — kafelki stylów to
+prawdziwe zrzuty stron przykładowych, nie ilustracje.</sub>
 
 </div>

@@ -37,7 +37,7 @@ LARGE_AA = 3.0     # large text, UI component boundaries, focus indicators
 # Deliberately NOT here: --color-border against bg/surface. WCAG 1.4.11 requires
 # 3:1 for boundaries *needed to identify a component*, not for every hairline —
 # section dividers and subtle card edges are exempt, and almost every design
-# system uses a ~1.2:1 rule for them. Failing all 15 styles on that would get
+# system uses a ~1.2:1 rule for them. Failing every style on that would get
 # this check switched off, which costs more than it buys. Hairlines are reported
 # as advisory under --verbose instead. What genuinely must pass 3:1 is the
 # focus indicator, and that is checked separately below from --shadow-focus.

@@ -3,8 +3,8 @@
   "name": "agent-design-taste",
   "title": "Agent Design Taste",
   "tagline": "Design Intelligence for AI Agents",
-  "repositoryVersion": "2.1.0",
-  "skillVersion": "2.1.0",
+  "repositoryVersion": "2.2.0",
+  "skillVersion": "2.2.0",
   "license": "MIT",
   "repository": "https://github.com/aievolutionpl/agent-design-taste",
   "entrypoints": {
@@ -82,7 +82,7 @@
       "approxTokens": 25000
     },
     "neverLoad": [
-      "all 15 style folders",
+      "all style folders at once",
       "every example.html"
     ]
   },
@@ -126,10 +126,11 @@
     "generateManifest": "scripts/gen_manifest.py",
     "validate": "scripts/validate.py",
     "screenshot": "scripts/screenshot.mjs",
+    "renderAssets": "scripts/render_assets.mjs",
     "checkContrast": "scripts/check_contrast.py",
     "install": "scripts/install.sh"
   },
-  "styleCount": 15,
+  "styleCount": 17,
   "styles": [
     {
       "id": "01",
@@ -339,6 +340,39 @@
         "type-first"
       ],
       "identity": "Type as the interface."
+    },
+    {
+      "id": "16",
+      "slug": "16-terminal-dev-dark",
+      "name": "Terminal / Dev Dark",
+      "path": "styles/16-terminal-dev-dark",
+      "aliases": [
+        "terminal",
+        "dev-dark",
+        "cli",
+        "console",
+        "monospace",
+        "hacker",
+        "dark-tech"
+      ],
+      "identity": "Signal on black."
+    },
+    {
+      "id": "17",
+      "slug": "17-organic-natural",
+      "name": "Organic / Natural",
+      "path": "styles/17-organic-natural",
+      "aliases": [
+        "organic",
+        "natural",
+        "earthy",
+        "eco",
+        "botanical",
+        "handmade",
+        "craft",
+        "wabi-sabi"
+      ],
+      "identity": "Warm, earthy, handmade."
     }
   ]
 }

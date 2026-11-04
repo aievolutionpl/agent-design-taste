@@ -1,0 +1,72 @@
+/* 16 · Terminal / Dev Dark — design tokens (canonical)
+   Dark is the native theme: ship with <html data-theme="dark">.
+   :root holds the light fallback for docs pages printed or read in daylight. */
+:root {
+  --color-bg: #F6F6F3;
+  --color-surface: #ECECE7;
+  --color-text: #0C0E0F;
+  --color-text-secondary: #50575E;
+  --color-border: #D3D5D0;
+  --color-primary: #0C0E0F;
+  --color-primary-contrast: #F6F6F3;
+  --color-accent: #0B6B33;
+  --color-accent-contrast: #FFFFFF;
+  --color-success: #0B6B33;
+  --color-warning: #8A5A00;
+  --color-error: #B42318;
+  --color-code-bg: #ECECE7;
+  --color-diff-add: rgb(11 107 51 / 0.12);
+  --color-diff-del: rgb(180 35 24 / 0.10);
+
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+
+  --font-size-h1: 56px;
+  --font-size-h2: 36px;
+  --font-size-h3: 22px;
+  --font-size-h4: 18px;
+  --font-size-h5: 16px;
+  --font-size-h6: 14px;
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+  --font-size-label: 12px;
+
+  --spacing-1: 4px;  --spacing-2: 8px;  --spacing-3: 12px;
+  --spacing-4: 16px; --spacing-6: 24px; --spacing-8: 32px;
+  --spacing-12: 48px; --spacing-16: 64px; --spacing-24: 96px;
+
+  --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px;
+
+  --shadow-none: none;
+  --shadow-window: 0 0 0 1px var(--color-border);
+  --shadow-focus: 0 0 0 2px var(--color-accent);
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-text-secondary);
+
+  --container-width: 1200px;
+
+  --motion-fast: 80ms;
+  --motion-normal: 160ms;
+  --motion-slow: 240ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+  --motion-caret: 1060ms;
+}
+[data-theme="dark"] {
+  --color-bg: #0B0D0E;
+  --color-surface: #131618;
+  --color-text: #E7E9E6;
+  --color-text-secondary: #949CA3;
+  --color-border: #262B2F;
+  --color-primary: #E7E9E6;
+  --color-primary-contrast: #0B0D0E;
+  --color-accent: #5BE08F;
+  --color-accent-contrast: #04140A;
+  --color-success: #5BE08F;
+  --color-warning: #F2B84B;
+  --color-error: #FF7A70;
+  --color-code-bg: #0F1213;
+  --color-diff-add: rgb(91 224 143 / 0.10);
+  --color-diff-del: rgb(255 122 112 / 0.10);
+}

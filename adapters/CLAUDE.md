@@ -20,7 +20,7 @@ If the skill is installed, `/agent-design-taste` loads the full workflow.
    writing before generating anything.
 2. Choose one dominant style via `agent-design-taste/DECISION-MATRIX.md`, and
    state why the runner-up loses. Load only that style's `README.md` +
-   `tokens.css` — never all 15.
+   `tokens.css` — never all 17.
 3. Precedence when sources disagree:
    `brand & legal ▸ accessibility ▸ product needs ▸ style DNA ▸ repo tokens ▸ your taste`.
    An existing design system is analyzed and adapted, never overwritten —
@@ -35,4 +35,4 @@ If the skill is installed, `/agent-design-taste` loads the full workflow.
 
 Fake statistics or testimonials · body text under 4.5:1 · invisible focus
 states · horizontal scroll at 390px · animation without a
-`prefers-reduced-motion` fallback · loading all 15 style folders into context.
+`prefers-reduced-motion` fallback · loading all 17 style folders into context.

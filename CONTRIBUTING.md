@@ -11,7 +11,8 @@ measurably better, and bad if it only makes the documentation longer.**
 ```bash
 python3 scripts/validate.py          # structure, links, generated files
 python3 scripts/check_contrast.py    # WCAG AA on every style palette
-node    scripts/screenshot.mjs       # render all 15 examples, catch overflow
+node    scripts/screenshot.mjs       # render all 17 examples, catch overflow
+node    scripts/render_assets.mjs    # rebuild the README graphics from assets/src/
 ```
 
 All three run in CI. It checks every style folder, every required file, every
@@ -33,7 +34,7 @@ of the style DNAs.
    mechanism that has not been checked against the tool's own documentation.
    No statistics without a source. If you are not sure, write what you *do*
    know and say what is unverified.
-4. **Do not flatten individuality.** The 15 styles share a structure, not a
+4. **Do not flatten individuality.** The 17 styles share a structure, not a
    voice. Neumorphism warns about itself; Maximalism does not apologise. That
    is correct.
 5. **Every addition costs context.** Before adding a paragraph, ask which
@@ -55,12 +56,12 @@ CI fails if a generated file is out of date with its source.
 
 ---
 
-## Adding style #16
+## Adding style #18
 
 Every style folder must contain exactly these six files:
 
 ```
-styles/16-your-style/
+styles/18-your-style/
 ├── README.md              the 24-section Design DNA
 ├── tokens.css             canonical tokens (source of truth)
 ├── tokens.json            generated
@@ -101,13 +102,16 @@ styles/16-your-style/
       direction row.
 - [ ] `accessibility/ACCESSIBILITY.md § 10` gains a characteristic-failure row.
 - [ ] `README.md` and `README.pl.md` style tables gain a row.
+- [ ] `node scripts/render_assets.mjs` re-run, so the styles overview, banner
+      and routing chart include the new style (they read `styles/index.json`).
+      Commit the regenerated images in `assets/`.
 - [ ] `python3 scripts/gen_tokens.py && python3 scripts/gen_manifest.py && python3 scripts/validate.py`
       all pass.
 
 ### What gets a style rejected
 
 - It is a variant of an existing style rather than a distinct design language.
-  (A darker Minimalism is not style #16.)
+  (A darker Minimalism is not a new style.)
 - "When NOT to use" is empty, hedged, or says "any project where it doesn't fit".
 - The tokens cannot pass contrast without abandoning the style's own premise —
   unless, like Neumorphism, the entry says so explicitly and scopes itself to

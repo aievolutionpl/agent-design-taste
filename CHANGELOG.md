@@ -8,6 +8,53 @@ For a skill, "breaking" means: a renamed or moved file that installations
 reference, a changed workflow contract, or a removed rule an agent may be
 relying on.
 
+## [2.2.0] — 2026-11-03
+
+Design release. Two new styles, a rebuilt visual identity for the repository
+under the AI Evolution Polska brand, and every README graphic now rendered from
+source instead of generated.
+
+### Added
+- **Style 16 · Terminal / Dev Dark** ("Signal on black.") — dark-native,
+  monospace display, one phosphor accent, real commands as content. For CLIs,
+  AI-agent tooling, infrastructure and developer platforms. Full 24-section DNA,
+  tokens, prompts and an example page (`tern`, a CLI that replays agent runs).
+- **Style 17 · Organic / Natural** ("Warm, earthy, handmade.") — the first style
+  that scores `personality:warm` highest. Soft serif, paper tones, one hand-cut
+  organic shape per page. For food, craft, wellness and hospitality. Example
+  page: `Ziarno`, a stone-milling bakery in Kraków.
+- Both styles are wired through routing (`gen_manifest.py`, veto gates, scoring
+  cards, fast-path rows), combinations, the image-direction and accessibility
+  tables. Existing briefs route exactly as before — the DECISION-MATRIX Part 6
+  example still picks Swiss (score 13) over Terminal (score 10).
+- `scripts/render_assets.mjs` + `assets/src/` — every README graphic is now an
+  HTML source rendered by Playwright: banner, styles overview (real 390 px
+  renders of all 17 examples), workflow diagram, routing chart (computed from
+  `styles/index.json`), slop-vs-taste comparison, social preview and brand
+  sign-off. Re-run it after changing a style and the README follows.
+- `docs/index.html` live gallery rebuilt: AI Evolution Polska branding,
+  desktop / 390 px toggle, density filter, search by product type, links to
+  each DNA and token file, driven by `styles/index.json`.
+
+### Changed
+- The previous banner and overview were AI-generated and inaccurate: they showed
+  styles this repository does not have ("Neumorphins", "Gradient Bold"), only 10
+  of the 15 styles, "more styles coming soon", and invented "Trusted by" logos —
+  the exact patterns `ANTI-SLOP.md` blocks. Replaced with rendered images.
+- `validate.py` no longer hard-codes the style count; it checks folders against
+  `styles/index.json`. Context-cost figures updated from `--budget`.
+
+### Fixed
+- 11 Editorial: two hot-linked photos (broken offline, and against the
+  zero-dependency rule) replaced with inline SVG plates.
+- 06 Anti-Grid: the hero headline was clipped at 1440 px, hiding a word.
+- 05 Neo-Brutalism: at 390 px the blue band started mid-paragraph, putting body
+  text across two backgrounds.
+- 02 Glassmorphism: hero text sat directly on the vivid field at 1.4–1.7:1
+  (secondary grey measured against each gradient stop). A 42% ink scrim and
+  near-white text bring it to 6.3–7.0:1. The nav no longer crushes
+  its links at 390 px.
+
 ## [2.1.0] — 2026-09-08
 
 Enforcement release. 2.0.0 wrote the accessibility rules down; this one measures

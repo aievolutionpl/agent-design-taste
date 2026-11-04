@@ -22,7 +22,7 @@ does not.
 PROFILE   STANDARD — one page, style not yet chosen         (docs/CONTEXT-PROFILES.md)
 MODE      Implement — the verb is "build"                   (evaluation/MODE-ROUTING.md)
 LOAD      SKILL.md · DECISION-MATRIX.md · ANTI-SLOP.md
-          + one style DNA once chosen. Not all 15.
+          + one style DNA once chosen. Not all 17.
 ```
 
 ---
@@ -216,7 +216,7 @@ evaluation/DESIGN-TASTE-SCORE.md              1.4k
                                              ~15k tokens
 ```
 
-Loading all 15 style folders would have cost **~41k tokens** on its own, and
+Loading all 17 style folders would have cost **~46k tokens** on its own, and
 would have made the answer worse — fourteen rejected styles sitting in context
 while the model tries to be consistent with one.
 

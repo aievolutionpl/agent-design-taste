@@ -14,7 +14,7 @@
 2.  MODE        pick LIGHT / STANDARD / FULL   → docs/CONTEXT-PROFILES.md
 3.  UNDERSTAND  product · audience · personality · density · action · emotion
 4.  CHOOSE      1 dominant style (+ max 1 supporting) → DECISION-MATRIX.md
-5.  LOAD        only styles/<chosen>/README.md + tokens.css   (never all 15)
+5.  LOAD        only styles/<chosen>/README.md + tokens.css   (never all 17)
 6.  TOKENS      resolve conflicts via PRECEDENCE  → docs/PRECEDENCE.md
 7.  BUILD       constraint-first: tokens, grid, type scale, component specs
 8.  RENDER      real browser at 1440 / 768 / 390 → evaluation/RENDERED-VERIFICATION.md
@@ -31,7 +31,7 @@ failure even when it looks good.
 
 | Do not load | Why |
 |---|---|
-| All 15 style folders | ~60k tokens of context for a decision you make once |
+| All 17 style folders | ~70k tokens of context for a decision you make once |
 | Every `example.html` | They are reference output, not input. Open one, at most |
 | `styles/*/prompts.md` | Only when you are *writing a prompt for another tool* |
 | `evaluation/TASTE-LOOP.md` | Only for multi-session projects that keep a `taste/` folder |
@@ -71,7 +71,7 @@ The decision matrix exists so you *don't* have to read them all.
 ## Machine-readable index
 
 Routing without reading prose: `design-taste.manifest.json` (repo + skill
-version, file map, context profiles) and `styles/index.json` (all 15 styles
+version, file map, context profiles) and `styles/index.json` (all 17 styles
 with ids, aliases, paths, scoring weights, incompatibilities).
 
 Next file: **[`SKILL.md`](SKILL.md)**.

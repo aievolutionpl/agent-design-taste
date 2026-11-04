@@ -49,8 +49,8 @@ This is where most bad AI style choices die.
 |---|---|---|
 | S4 = **critical** (money/health/legal) | Y2K (13) · Maximalism (12) · Neumorphism (07) · Anti-Grid (06) | Visual instability reads as institutional instability |
 | S5 = **elevated** | Neumorphism (07) · Glassmorphism (02) as dominant · Maximalism (12) | Soft-shadow and translucent surfaces cannot reliably hold 3:1 non-text contrast |
-| S1 = **high** or S7 = **dense-relational** | Neumorphism (07) · Claymorphism (08) · Anti-Grid (06) · Kinetic Type (15) | Each pays a legibility tax per element; density multiplies it |
-| S2 = **child/family** | Neo-Brutalism (05) · Anti-Grid (06) · Skeuomorphism (09) | Aggressive or complex surfaces, wrong affordances for the audience |
+| S1 = **high** or S7 = **dense-relational** | Neumorphism (07) · Claymorphism (08) · Anti-Grid (06) · Kinetic Type (15) · Organic (17) *(S7 only)* | Each pays a legibility tax per element; density multiplies it |
+| S2 = **child/family** | Neo-Brutalism (05) · Anti-Grid (06) · Skeuomorphism (09) · Terminal (16) | Aggressive, complex or exclusionary surfaces, wrong affordances for the audience |
 | S8 = **mobile-first** | 3D/Spatial (14) as dominant · Anti-Grid (06) | Both depend on viewport area and pointer precision |
 | S9 = **dwell** (hours per day) | Maximalism (12) · Y2K (13) · Kinetic Type (15) | High-stimulus surfaces exhaust on repeat exposure |
 
@@ -139,6 +139,19 @@ Highest total wins; ties go to Part 5.
 `+2` density:low · `+2` session:glance
 `−3` S7 dense-relational · `−3` S5 elevated · `−2` session:dwell
 
+**16 · Terminal / Dev Dark** — *only when the content is real commands and real UI*
+`+3` audience:technical · `+2` emotion:competence · `+2` personality:futuristic
+`+2` S7 dense-relational · `+1` personality:precise · `+1` density:medium · `+1` density:high
+`+1` desktop-first · `+1` session:dwell
+`−3` audience:child/family · `−2` audience:consumer · `−2` personality:warm
+`−2` personality:playful · `−1` S5 elevated
+
+**17 · Organic / Natural** — *the only style that scores personality:warm highest*
+`+3` personality:warm · `+3` emotion:calm · `+2` audience:consumer
+`+1` emotion:trust · `+1` conversion:browse · `+1` session:task · `+1` density:low
+`−3` personality:futuristic · `−2` audience:technical · `−2` density:high
+`−1` emotion:excitement
+
 ---
 
 ## Part 4 — Fast path (unambiguous briefs)
@@ -165,6 +178,8 @@ shortcut through Part 3, not a replacement for the veto gates.
 | Corporate / enterprise | executives | serious, stable | high | Swiss (10) | Minimalism (01) | Y2K, Maximalism |
 | Developer docs | developers | clear, scannable | high | Swiss (10) | Minimalism (01) | Glass, 3D, Kinetic |
 | Data / analytics product | analysts | precise, dense | high | Swiss (10) | Bento (04) | Clay, Neumorphism, Y2K |
+| CLI / AI-agent tooling / infra | developers | technical, futuristic | medium | Terminal (16) | Swiss (10) | Clay, pastel gradients, glow orbs |
+| Food / craft / sustainable brand | conscious consumers | warm, calm, honest | low-medium | Organic (17) | Editorial (11) | Neon, chrome, dark SaaS |
 
 ---
 

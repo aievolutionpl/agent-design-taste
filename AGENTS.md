@@ -20,7 +20,7 @@ UNDERSTAND → CHOOSE STYLE → TYPOGRAPHY → LAYOUT → TOKENS
 - Answer audience / product / personality / density / action / emotion **in
   writing** before generating anything.
 - Choose **one** dominant style via [`DECISION-MATRIX.md`](DECISION-MATRIX.md).
-  Load only that style's `README.md` + `tokens.css`. **Never all 15.**
+  Load only that style's `README.md` + `tokens.css`. **Never all 17.**
 - Precedence: `brand & legal ▸ accessibility ▸ product needs ▸ style DNA ▸
   repo tokens ▸ your taste` — [`docs/PRECEDENCE.md`](docs/PRECEDENCE.md).
 - Render at **1440 / 768 / 390** and look at it before claiming it works.
@@ -40,7 +40,7 @@ AGENT-BOOTSTRAP.md   entry point        SKILL.md            the workflow
 DECISION-MATRIX.md   style scoring      ANTI-SLOP.md        quality gate
 LAYOUT-PATTERNS.md   43 patterns        STYLE-COMBINATIONS.md
 docs/                precedence, context profiles, integrations, templates
-styles/NN-slug/      the 15 style DNAs + tokens + prompts + example
+styles/NN-slug/      the 17 style DNAs + tokens + prompts + example
 accessibility/ responsive/ typography/ visual-language/ motion/
 component-patterns/ layout-patterns/ design-tokens/   cross-style foundations
 evaluation/          score, rendered verification, mode routing, taste loop
@@ -55,8 +55,8 @@ scripts/             gen_tokens.py · gen_manifest.py · validate.py · install.
    any `tokens.css`, run `python3 scripts/gen_tokens.py`.
 2. **`styles/index.json` and `design-taste.manifest.json` are generated.** Edit
    the data in `scripts/gen_manifest.py`, then run it.
-3. **All 15 style READMEs share one 24-section architecture.** Adding or
-   renaming a section means doing it in all 15. See
+3. **All 17 style READMEs share one 24-section architecture.** Adding or
+   renaming a section means doing it in all 17. See
    [`docs/STYLE-TEMPLATE.md`](docs/STYLE-TEMPLATE.md).
 4. **Run `python3 scripts/validate.py` before committing.** It is what CI runs.
 5. **Do not make unsupported claims.** No invented citations, no integration

@@ -20,7 +20,7 @@ UNDERSTAND → CHOOSE STYLE → TYPOGRAPHY → LAYOUT → TOKENS
 - State audience, product type, personality, density, primary action and target
   emotion before generating anything.
 - Choose one dominant style with `agent-design-taste/DECISION-MATRIX.md`.
-  Load only that style's `README.md` and `tokens.css` — never all 15.
+  Load only that style's `README.md` and `tokens.css` — never all 17.
 - Precedence: `brand & legal ▸ accessibility ▸ product needs ▸ style DNA ▸
   repo tokens ▸ your taste`. Never repaint an existing design system —
   see `agent-design-taste/docs/PRECEDENCE.md`.

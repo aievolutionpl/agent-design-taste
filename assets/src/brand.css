@@ -1,0 +1,23 @@
+/* AI Evolution Polska — brand tokens for the README graphics.
+   Source: the live aievolutionpolska.pl identity (dark ink canvas, iris/violet,
+   cyan and gold highlights, Sora + Manrope). Precedence applies here too:
+   brand ▸ accessibility ▸ style — so the brand gradient lives on the mark only. */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=block');
+:root{
+  --bg:#0A0A0F; --ink:#121323; --surface:#14151F; --surface-2:#1B1C2B;
+  --line:#26283B; --line-strong:#3A3D57;
+  --text:#F4F7FB; --muted:#A6ABC0; --dim:#6E7390;
+  --violet:#9A76DB; --iris:#8776F4; --cyan:#88E5FC; --gold:#F8DA82;
+  --red:#FF6B6B; --green:#5BE08F;
+  --display:'Sora',system-ui,sans-serif; --body:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--text);font:500 16px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lockup{display:inline-flex;align-items:center;gap:12px;font:600 14px/1 var(--display);letter-spacing:.02em}
+.lockup svg{width:34px;height:34px;flex:none}
+.lockup small{font:500 12px/1 var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+/* faint engineering grid used as the only background texture */
+.grid-bg{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;opacity:.35}

@@ -4,7 +4,7 @@ This repository is roughly **100,000 tokens** of design knowledge. Loading it al
 for "make this button nicer" is not thoroughness, it is waste — and a context
 window full of styles you rejected makes the output *worse*, not better.
 
-**The agent never loads all 15 styles.** Route first, load second.
+**The agent never loads all 17 styles.** Route first, load second.
 
 ---
 
@@ -98,7 +98,7 @@ Measured at roughly 4 characters per token. Use it to budget deliberately.
 | `styles/<one>/prompts.md` | ~0.9k | only when prompting another tool |
 | foundations (each) | 0.6–2.7k | FULL, or when the task is about that layer |
 | `evaluation/DESIGN-TASTE-SCORE.md` | 1.4k | before delivery in STANDARD and up |
-| **all 15 style READMEs** | **~41k** | **never** |
+| **all 17 style READMEs** | **~46k** | **never** |
 
 Regenerate these numbers any time: `python3 scripts/validate.py --budget`.
 

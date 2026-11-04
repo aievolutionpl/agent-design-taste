@@ -3,51 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent Design Taste — 15 Style Previews</title>
+<title>Agent Design Taste — live style gallery · AI Evolution Polska</title>
+<meta name="description" content="Live previews of every Agent Design Taste style example, rendered from the repository. By AI Evolution Polska.">
+<meta name="theme-color" content="#0A0A0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* AI Evolution Polska brand tokens — see assets/src/brand.css */
+:root{
+  --bg:#0A0A0F;--ink:#121323;--surface:#14151F;--surface-2:#1B1C2B;--line:#26283B;--line-strong:#3A3D57;
+  --text:#F4F7FB;--muted:#A6ABC0;--dim:#7C819C;--violet:#9A76DB;--iris:#8776F4;--cyan:#88E5FC;--gold:#F8DA82;
+  --display:'Sora',system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --fast:160ms;--ease:cubic-bezier(.2,0,0,1);color-scheme:dark
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui,sans-serif;background:#0b0b0f;color:#f4f4f5;padding:48px 24px}
-h1{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.03em;margin-bottom:8px}
-.sub{color:#9ca3af;margin-bottom:48px;max-width:70ch;line-height:1.6}
-a.repo{color:#818cf8}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
-.card{background:#141419;border:1px solid #26262e;border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s}
-.card:hover{transform:translateY(-4px);border-color:#4f46e5}
-.card iframe{width:100%;height:420px;border:0;background:#fff;pointer-events:none}
-.card .bar{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
-.card .name{font-weight:600}
-.card .open{color:#818cf8;text-decoration:none;font-size:14px}
-.note{grid-column:1/-1;color:#6b7280;font-size:13px}
-footer{margin-top:64px;color:#6b7280;font-size:14px}
-@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+body{font:500 16px/1.6 var(--body);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:72px;border-bottom:1px solid var(--line)}
+.lockup{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 15px/1.15 var(--display)}
+.lockup svg{width:34px;height:34px;flex:none}
+.lockup small{display:block;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top nav{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:999px;font:600 14px var(--body);text-decoration:none;border:1px solid var(--line-strong);transition:border-color var(--fast) var(--ease),background-color var(--fast) var(--ease)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn.primary:hover{background:var(--gold);border-color:var(--gold)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:end;padding:72px 0 48px}
+.eyebrow{font:500 13px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+h1{font:800 clamp(40px,6vw,80px)/.98 var(--display);letter-spacing:-.045em;margin-top:18px}
+h1 span{color:var(--violet)}
+.hero p{color:var(--muted);font-size:18px;max-width:46ch}
+.hero p b{color:var(--text)}
+.hero .flow{font:500 13px/1.9 var(--mono);color:var(--dim);margin-top:18px;max-width:none}
+.flow b{color:var(--gold);font-weight:500}
+
+/* controls */
+.controls{position:sticky;top:0;z-index:5;background:rgb(10 10 15/.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-block:1px solid var(--line)}
+.controls .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-block:14px}
+.group{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.group .lab{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-right:6px}
+.chip{min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--muted);font:600 14px var(--body);cursor:pointer;transition:all var(--fast) var(--ease)}
+.chip:hover{color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.search{min-height:40px;width:min(320px,100%);padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);font:500 14px var(--body)}
+.search::placeholder{color:var(--dim)}
+.count{font:500 13px var(--mono);color:var(--dim)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px;padding:28px 0 72px}
+.grid.mobile{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.card:hover{border-color:var(--iris);transform:translateY(-3px)}
+.view{position:relative;overflow:hidden;background:#fff;aspect-ratio:1440/900}
+.grid.mobile .view{aspect-ratio:390/720}
+.view iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;pointer-events:none}
+.view .open{position:absolute;inset:0;z-index:1}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.id{font:500 12px var(--mono);color:var(--gold);letter-spacing:.06em}
+.new{font:700 10px var(--mono);letter-spacing:.08em;color:var(--bg);background:var(--cyan);border-radius:999px;padding:2px 7px;margin-left:6px}
+.name{font:700 20px/1.2 var(--display);letter-spacing:-.015em}
+.identity{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tag{font:500 11.5px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.links{display:flex;gap:16px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font:600 14px var(--body)}
+.links a{text-decoration:none;color:var(--muted);display:inline-flex;align-items:center;min-height:36px}
+.links a:hover{color:var(--text)}
+.links a.live{color:var(--cyan)}
+.empty{grid-column:1/-1;color:var(--muted);padding:40px 0}
+
+/* sign-off */
+.sign{border-top:1px solid var(--line);padding:56px 0}
+.sign .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
+.sign h2{font:800 clamp(28px,3.4vw,44px)/1.05 var(--display);letter-spacing:-.035em;margin-top:18px}
+.sign p{color:var(--muted);margin-top:14px;max-width:48ch}
+.sign dl{display:grid;gap:18px;border-left:1px solid var(--line-strong);padding-left:32px}
+.sign dt{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.sign dd{font:600 18px var(--display)}
+.sign dd a{text-decoration:none;color:var(--cyan)}
+footer{border-top:1px solid var(--line);padding:22px 0;font:500 13px var(--mono);color:var(--dim)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  .hero,.sign .wrap{grid-template-columns:1fr;gap:28px}
+  .hero{padding:48px 0 32px}
+  .sign dl{border-left:0;padding-left:0;border-top:1px solid var(--line-strong);padding-top:24px}
+}
+@media (max-width:560px){
+  .top nav .btn:not(.primary),.btn .long{display:none}
+  .lockup span{white-space:nowrap}
+  .grid,.grid.mobile{grid-template-columns:1fr}
+  .controls{position:static}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.card:hover{transform:none}}
 </style>
 </head>
 <body>
-<h1>Agent Design Taste</h1>
-<p class="sub"><b>Design Intelligence for AI Agents.</b> Live previews of all 15 style example
-pages from the
-<a class="repo" href="https://github.com/aievolutionpl/agent-design-taste">agent-design-taste</a>
-repository. Each example is a self-contained HTML file built strictly from that style's
-Design DNA and tokens — one valid interpretation, not a spec. Click any title to open it full size.</p>
-<p class="sub">The 15 styles are the easy half. The half that matters is the process:
-<b>Product → Audience → Style → Layout → Tokens → Render → Critique → Improve</b>.
-Start at <a class="repo" href="https://github.com/aievolutionpl/agent-design-taste/blob/main/AGENT-BOOTSTRAP.md">AGENT-BOOTSTRAP.md</a>.</p>
-<div class="grid" id="grid"></div>
-<footer>MIT · AI Evolution Polska + AI Evolution Labs — designed by an agent, for agents. · <a class="repo" href="https://github.com/aievolutionpl/agent-design-taste">Star the repo ⭐</a></footer>
+<header class="wrap top">
+  <a class="lockup" href="https://www.aievolutionpolska.pl/" aria-label="AI Evolution Polska">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#88E5FC"/><stop offset="1" stop-color="#8776F4"/></linearGradient></defs><path d="M24 3.5 41.8 13.75v20.5L24 44.5 6.2 34.25v-20.5Z" fill="#121323" stroke="url(#mk)" stroke-width="2.6" stroke-linejoin="round"/><text x="24" y="29.5" text-anchor="middle" font-family="Sora" font-weight="700" font-size="15" fill="#F4F7FB">AI</text></svg>
+    <span>AI Evolution Polska<small>agent-design-taste</small></span>
+  </a>
+  <nav aria-label="Repository">
+    <a class="btn" href="https://github.com/aievolutionpl/agent-design-taste/blob/main/AGENT-BOOTSTRAP.md">Agent bootstrap</a>
+    <a class="btn primary" href="https://github.com/aievolutionpl/agent-design-taste">Star<span class="long"> on GitHub</span> ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="wrap hero" aria-labelledby="title">
+  <div>
+    <p class="eyebrow">Live gallery</p>
+    <h1 id="title"><span id="n">17</span> styles, rendered <span>live.</span></h1>
+  </div>
+  <div>
+    <p>Every card is the real <b>example.html</b> from the repository, loaded live. Each one is <b>one valid interpretation</b> of its style's Design DNA — read it, then compose something else.</p>
+    <p class="flow"><b>understand</b> → <b>choose</b> → typography → layout → tokens → build → <b>render</b> → audit → <b>remove slop</b> → polish</p>
+  </div>
+</section>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="group" role="group" aria-label="View">
+      <span class="lab">view</span>
+      <button class="chip" data-view="desktop" aria-pressed="true">Desktop 1440</button>
+      <button class="chip" data-view="mobile" aria-pressed="false">Mobile 390</button>
+    </div>
+    <div class="group" role="group" aria-label="Content density">
+      <span class="lab">density</span>
+      <button class="chip" data-density="all" aria-pressed="true">All</button>
+      <button class="chip" data-density="low" aria-pressed="false">Low</button>
+      <button class="chip" data-density="medium" aria-pressed="false">Medium</button>
+      <button class="chip" data-density="high" aria-pressed="false">High</button>
+    </div>
+    <div class="group">
+      <label class="lab" for="q">find</label>
+      <input class="search" id="q" type="search" placeholder="fintech, kids, terminal, glass…" autocomplete="off">
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
+
+<section class="wrap grid" id="grid" aria-label="Style examples"><p class="empty">Loading styles…</p></section>
+
+<section class="sign" aria-labelledby="sign-title">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Built by</p>
+      <h2 id="sign-title">AI Evolution Polska + AI Evolution Labs</h2>
+      <p>Practical AI education, agents and automation — built in Poland, open for everyone. This system is MIT-licensed: star it, fork it, and add style #<span id="next">18</span>.</p>
+    </div>
+    <dl>
+      <div><dt>web</dt><dd><a href="https://www.aievolutionpolska.pl/">aievolutionpolska.pl</a></dd></div>
+      <div><dt>github</dt><dd><a href="https://github.com/aievolutionpl">@aievolutionpl</a></dd></div>
+      <div><dt>start here</dt><dd><a href="https://github.com/aievolutionpl/agent-design-taste#install">Install in your project →</a></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>MIT © AI Evolution Polska / AI Evolution Labs</span><span>designed with the system it documents</span></div></footer>
+
 <script>
-const styles=[
-["01-minimalism","NOVA — Minimalism"],["02-glassmorphism","Glassmorphism"],["03-liquid-glass","Liquid Glass"],
-["04-bento-grid","Bento Grid"],["05-neo-brutalism","Neo-Brutalism"],["06-brutalist-anti-grid","Brutalist / Anti-Grid"],
-["07-neumorphism","Neumorphism"],["08-claymorphism","Claymorphism"],["09-skeuomorphism-tactile","Skeuomorphism / Tactile"],
-["10-swiss-international","Swiss / International"],["11-editorial-magazine","Editorial / Magazine"],["12-maximalism","Maximalism"],
-["13-y2k-retrofuturism","Y2K / Retrofuturism"],["14-3d-spatial-ui","3D / Spatial UI"],["15-expressive-kinetic-typography","Kinetic Typography"]
-];
-const base="https://raw.githack.com/aievolutionpl/agent-design-taste/main/styles/";
-document.getElementById("grid").innerHTML=styles.map(([dir,name])=>`
-<div class="card">
-<iframe loading="lazy" src="${base}${dir}/example.html" title="${name} preview"></iframe>
-<div class="bar"><span class="name">${name}</span><a class="open" target="_blank" rel="noopener" href="${base}${dir}/example.html">Open full ↗</a></div>
-</div>`).join("")+`<p class="note">Note: iframes are scaled-down live renders. Some animated styles (Kinetic Typography, 3D Spatial) are best experienced via "Open full".</p>`;
+const REPO='aievolutionpl/agent-design-taste';
+const INDEX=`https://raw.githubusercontent.com/${REPO}/main/styles/index.json`;
+const LIVE=d=>`https://raw.githack.com/${REPO}/main/styles/${d}/example.html`;
+const BLOB=p=>`https://github.com/${REPO}/blob/main/${p}`;
+const FRESH=new Set(['16','17']);
+const state={view:'desktop',density:'all',q:''};
+let styles=[];
+const grid=document.getElementById('grid'),count=document.getElementById('count');
+
+function fit(){
+  const [w,h]=state.view==='desktop'?[1440,900]:[390,720];
+  grid.querySelectorAll('.view').forEach(v=>{
+    const f=v.querySelector('iframe');if(!f)return;
+    const k=v.clientWidth/w;f.style.width=w+'px';f.style.height=(state.view==='desktop'?h:844)+'px';f.style.transform=`scale(${k})`;
+  });
+}
+function render(){
+  const q=state.q.trim().toLowerCase();
+  const list=styles.filter(s=>(state.density==='all'||s.densityFit.includes(state.density))&&
+    (!q||[s.name,s.identity,...s.aliases,...s.recommendedFor].join(' ').toLowerCase().includes(q)));
+  grid.className='wrap grid'+(state.view==='mobile'?' mobile':'');
+  count.textContent=`${list.length} / ${styles.length}`;
+  grid.innerHTML=list.length?list.map(s=>`<article class="card">
+    <div class="view"><iframe loading="lazy" tabindex="-1" aria-hidden="true" title="${s.name} example" src="${LIVE(s.slug)}"></iframe>
+      <a class="open" href="${LIVE(s.slug)}" target="_blank" rel="noopener" aria-label="Open the ${s.name} example full size"></a></div>
+    <div class="body">
+      <div class="row"><span class="id">${s.id}${FRESH.has(s.id)?'<span class="new">NEW</span>':''}</span><span class="tag">density: ${s.densityFit.join('–')}</span></div>
+      <h2 class="name">${s.name}</h2>
+      <p class="identity">${s.identity}</p>
+      <div class="tags">${s.recommendedFor.slice(0,4).map(r=>`<span class="tag">${r}</span>`).join('')}</div>
+      <div class="links"><a class="live" href="${LIVE(s.slug)}" target="_blank" rel="noopener">Open live ↗</a><a href="${BLOB(s.files.dna)}">Design DNA</a><a href="${BLOB(s.files.tokensCss)}">tokens.css</a></div>
+    </div></article>`).join(''):'<p class="empty">No style matches. Try a product type: “fintech”, “kids”, “music”.</p>';
+  requestAnimationFrame(fit);
+}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;
+  document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',x===b));render();}));
+document.querySelectorAll('[data-density]').forEach(b=>b.addEventListener('click',()=>{state.density=b.dataset.density;
+  document.querySelectorAll('[data-density]').forEach(x=>x.setAttribute('aria-pressed',x===b));render();}));
+document.getElementById('q').addEventListener('input',e=>{state.q=e.target.value;render();});
+addEventListener('resize',fit);
+fetch(INDEX).then(r=>r.json()).then(d=>{styles=d.styles;
+  document.getElementById('n').textContent=styles.length;document.getElementById('next').textContent=styles.length+1;render();})
+ .catch(()=>{grid.innerHTML=`<p class="empty">Could not load the style index. Browse the styles on <a href="https://github.com/${REPO}/tree/main/styles">GitHub</a>.</p>`});
 </script>
 </body>
 </html>

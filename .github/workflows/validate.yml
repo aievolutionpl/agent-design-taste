@@ -52,8 +52,10 @@ jobs:
           test -f "$tmp/.github/copilot-instructions.md"
 
   render:
-    name: Rendered verification of the 15 example pages
-    runs-on: ubuntu-latest
+    name: Rendered verification of every style example page
+    # Pinned: ubuntu-latest moved to 26.04, which Playwright 1.56.1 cannot
+    # install Chromium on. Bump both together.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
