@@ -51,7 +51,7 @@ proces wybierania wewnątrz niego.
 Produkt → Odbiorca → Styl → Layout → Tokeny → Render → Krytyka → Poprawa
 ```
 
-Piętnaście bibliotek stylów to łatwiejsza połowa. Ta, która naprawdę się liczy,
+Siedemnaście bibliotek stylów to łatwiejsza połowa. Ta, która naprawdę się liczy,
 to nauczenie agenta, żeby *obserwował, decydował i potrafił obronić decyzję*.
 
 <div align="center">

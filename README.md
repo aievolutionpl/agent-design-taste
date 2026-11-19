@@ -45,7 +45,7 @@ choosing inside it.
 Product → Audience → Style → Layout → Tokens → Render → Critique → Improve
 ```
 
-Fifteen style libraries are the easy half. The half that matters is teaching an
+Seventeen style libraries are the easy half. The half that matters is teaching an
 agent to *observe, decide, and defend the decision*.
 
 <div align="center">
