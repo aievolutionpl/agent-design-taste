@@ -73,10 +73,13 @@ h1 span{color:var(--violet)}
 .identity{color:var(--muted);font-size:15px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
 .tag{font:500 11.5px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
-.links{display:flex;gap:16px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font:600 14px var(--body)}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font:600 14px var(--body)}
 .links a{text-decoration:none;color:var(--muted);display:inline-flex;align-items:center;min-height:36px}
 .links a:hover{color:var(--text)}
 .links a.live{color:var(--cyan)}
+.copy-btn{margin-left:auto;min-height:34px;padding:4px 11px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface-2);color:var(--text);font:600 12.5px var(--mono);cursor:pointer;transition:border-color var(--fast) var(--ease),color var(--fast) var(--ease)}
+.copy-btn:hover{border-color:var(--gold);color:var(--gold)}
+.copy-btn[data-copied="true"]{border-color:var(--cyan);color:var(--cyan)}
 .empty{grid-column:1/-1;color:var(--muted);padding:40px 0}
 
 /* sign-off */
@@ -145,7 +148,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     </div>
     <div class="group">
       <label class="lab" for="q">find</label>
-      <input class="search" id="q" type="search" placeholder="fintech, kids, terminal, glass…" autocomplete="off">
+      <input class="search" id="q" type="search" placeholder="fintech, kids, terminal, glass… (press /)" autocomplete="off">
       <span class="count" id="count" aria-live="polite"></span>
     </div>
   </div>
@@ -176,10 +179,29 @@ const INDEX=`https://raw.githubusercontent.com/${REPO}/main/styles/index.json`;
 const LIVE=d=>`https://raw.githack.com/${REPO}/main/styles/${d}/example.html`;
 const BLOB=p=>`https://github.com/${REPO}/blob/main/${p}`;
 const FRESH=new Set(['16','17']);
-const state={view:'desktop',density:'all',q:''};
+const params=new URLSearchParams(location.search);
+const state={
+  view:params.get('view')==='mobile'?'mobile':'desktop',
+  density:['low','medium','high'].includes(params.get('density'))?params.get('density'):'all',
+  q:params.get('q')||''
+};
 let styles=[];
-const grid=document.getElementById('grid'),count=document.getElementById('count');
+const grid=document.getElementById('grid'),count=document.getElementById('count'),searchEl=document.getElementById('q');
+searchEl.value=state.q;
+document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.view===state.view));
+document.querySelectorAll('[data-density]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.density===state.density));
 
+function syncUrl(){
+  const p=new URLSearchParams();
+  if(state.view!=='desktop')p.set('view',state.view);
+  if(state.density!=='all')p.set('density',state.density);
+  if(state.q.trim())p.set('q',state.q.trim());
+  const qs=p.toString();
+  history.replaceState(null,'',qs?`?${qs}`:location.pathname);
+}
+function promptFor(s){
+  return `Use Agent Design Taste style "${s.name}" (${s.files.dna}) with its tokens (${s.files.tokensCss}). Analyze the product first, apply the style DNA, and run the anti-slop audit before finishing.`;
+}
 function fit(){
   const [w,h]=state.view==='desktop'?[1440,900]:[390,720];
   grid.querySelectorAll('.view').forEach(v=>{
@@ -188,6 +210,7 @@ function fit(){
   });
 }
 function render(){
+  syncUrl();
   const q=state.q.trim().toLowerCase();
   const list=styles.filter(s=>(state.density==='all'||s.densityFit.includes(state.density))&&
     (!q||[s.name,s.identity,...s.aliases,...s.recommendedFor].join(' ').toLowerCase().includes(q)));
@@ -201,15 +224,30 @@ function render(){
       <h2 class="name">${s.name}</h2>
       <p class="identity">${s.identity}</p>
       <div class="tags">${s.recommendedFor.slice(0,4).map(r=>`<span class="tag">${r}</span>`).join('')}</div>
-      <div class="links"><a class="live" href="${LIVE(s.slug)}" target="_blank" rel="noopener">Open live ↗</a><a href="${BLOB(s.files.dna)}">Design DNA</a><a href="${BLOB(s.files.tokensCss)}">tokens.css</a></div>
+      <div class="links"><a class="live" href="${LIVE(s.slug)}" target="_blank" rel="noopener">Open live ↗</a><a href="${BLOB(s.files.dna)}">Design DNA</a><a href="${BLOB(s.files.tokensCss)}">tokens.css</a><button type="button" class="copy-btn" data-copy-slug="${s.slug}" title="Copy a ready-to-paste agent prompt for this style">Copy prompt</button></div>
     </div></article>`).join(''):'<p class="empty">No style matches. Try a product type: “fintech”, “kids”, “music”.</p>';
   requestAnimationFrame(fit);
 }
+grid.addEventListener('click',async e=>{
+  const btn=e.target.closest('[data-copy-slug]');if(!btn)return;
+  const s=styles.find(x=>x.slug===btn.dataset.copySlug);if(!s)return;
+  try{
+    await navigator.clipboard.writeText(promptFor(s));
+    btn.dataset.copied='true';btn.textContent='Copied ✓';
+    setTimeout(()=>{btn.dataset.copied='false';btn.textContent='Copy prompt';},1800);
+  }catch{
+    prompt('Copy agent prompt:',promptFor(s));
+  }
+});
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;
   document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',x===b));render();}));
 document.querySelectorAll('[data-density]').forEach(b=>b.addEventListener('click',()=>{state.density=b.dataset.density;
   document.querySelectorAll('[data-density]').forEach(x=>x.setAttribute('aria-pressed',x===b));render();}));
-document.getElementById('q').addEventListener('input',e=>{state.q=e.target.value;render();});
+searchEl.addEventListener('input',e=>{state.q=e.target.value;render();});
+addEventListener('keydown',e=>{
+  if(e.key==='/'&&document.activeElement!==searchEl&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();searchEl.focus();}
+  else if(e.key==='Escape'&&document.activeElement===searchEl&&state.q){state.q='';searchEl.value='';render();}
+});
 addEventListener('resize',fit);
 fetch(INDEX).then(r=>r.json()).then(d=>{styles=d.styles;
   document.getElementById('n').textContent=styles.length;document.getElementById('next').textContent=styles.length+1;render();})
